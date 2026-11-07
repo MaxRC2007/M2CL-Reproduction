@@ -11,7 +11,19 @@ The repository answers two questions:
 1. **Does M2-CL reproduce?** It is a ResNet-18 that taps intermediate layers with *extraction blocks* and adds a supervised contrastive loss on those taps. We reproduce it on PACS with leave-one-domain-out (LODO) evaluation, find and fix a loss-scaling bug (mean instead of sum, about 28× too weak), and compare against matched-seed ERM and a tap-matched M2 ablation.
 2. **Does contrastive DG training change how much *domain identity* is linearly decodable from the representation?** We use frozen-feature linear probes, a random-init and ImageNet-only control, a paired bootstrap on a shared test set, and Benjamini-Hochberg correction.
 
-> **Status (Nov 2026).** The code base was rebuilt from the original notebook and probe scripts after an audit that found three issues requiring re-runs: leakage probes that read a DCT copy of PACS instead of the RGB images, a train/validation split leak, and unseeded probes. See [docs/AUDIT.md](docs/AUDIT.md). The draft's numbers are kept in `results/legacy_v1/`. The leakage probes were re-run on the real images on 5 Nov 2026 (`results/tables/raw_backbone/`, `results/tables/raw_taps_v1/`), and `paper/M2CL_v2_rgb.tex` is the updated draft. The 36 training runs with the fixed split are still pending on Colab.
+> **Status (8 Nov 2026).**
+> - The code base was rebuilt from the original notebook and probe scripts after an audit (see [docs/AUDIT.md](docs/AUDIT.md)). The audit found three issues that required re-runs:
+>   - leakage probes that read a DCT copy of PACS instead of the RGB images;
+>   - a train/validation split leak;
+>   - unseeded probes.
+> - The draft's earlier numbers are kept in `results/legacy_v1/`.
+> - Round 3, the pre-specified decisive test of M2 vs M2-CL, is described in [docs/PREREGISTRATION.md](docs/PREREGISTRATION.md). Its timing evidence is in [docs/TIMESTAMP_EVIDENCE.md](docs/TIMESTAMP_EVIDENCE.md).
+> - The PACS parts are finished (`results/round3/`). The VLCS replication (Part C) was still running when this repository was first pushed.
+> - The paper draft is not included until submission.
+>
+> **Earlier public stages of this project:**
+> - [Reproducing-M2CL-Domain-Generalization](https://github.com/MaxRC2007/Reproducing-M2CL-Domain-Generalization): the first 4-tap reproduction notebook.
+> - [Domain-Leakage-Analysis-on-PACS-and-M2CL](https://github.com/MaxRC2007/Domain-Leakage-Analysis-on-PACS-and-M2CL): the first leakage-probe analysis.
 
 ---
 
