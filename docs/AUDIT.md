@@ -438,3 +438,6 @@ Every checkpoint on the laptop was collected into `Honors/checkpoints_archive/` 
 - the August contaminated-split runs are in zip 04.
 
 Running `analyze_round3.py` on zips 05-07 reproduces F21 exactly. Not found anywhere: the 4-tap Sketch M2/M2-CL checkpoints (61.06/61.03) and the contaminated-split ERM Sketch seed 0.
+
+### F23 - Public repository (8 Nov 2026)
+The repository was pushed to https://github.com/MaxRC2007/M2CL-Reproduction. GitHub records its creation at 2026-11-07T19:01:48Z and its first push at 19:01:56Z (00:31 IST on 8 Nov); the first commit is `65c8a5b`. At that time Part C (VLCS) was still running on the institute machine, and no Part C comparison had been computed or viewed. The paper draft and the internal review are excluded (`.gitignore`) until submission. A Software Heritage archive snapshot is still to be requested by the owner (`docs/TIMESTAMP_EVIDENCE.md`). The earlier public stages are linked from the README.

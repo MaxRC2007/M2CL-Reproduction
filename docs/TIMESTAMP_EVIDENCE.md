@@ -15,7 +15,7 @@ This file and its commit record what existed and when. Read it with `docs/PREREG
 | 6 Nov 2026, evening | `M2CL_code.zip` uploaded to Google Drive on each Colab account | Google Drive upload dates, held by Google (screenshots to be added under `docs/evidence/`) |
 | 6 Nov 2026, about 23:11 | First round-3 output (M2, lr 1e-3, Art, seed 1) | Drive download zip times, which appear to be US Pacific (UTC-8) |
 | 7 Nov 2026 | Amendment 1 (platform split) and Amendment 2 (Part C moves to the institute machine) | Text in `docs/PREREGISTRATION.md` |
-| 8 Nov 2026 | First public commit of this repository | GitHub push time and the archived snapshot |
+| 8 Nov 2026, 00:31 (19:01 UTC on 7 Nov) | Repository created and first pushed to https://github.com/MaxRC2007/M2CL-Reproduction (commit 65c8a5b, with README update 7971ae5). Part C was still running | GitHub `pushed_at` 2026-11-07T19:01:56Z (GitHub API) |
 
 ## SHA-256 of the frozen files
 This repository stores files byte for byte (`.gitattributes`: `* -text`), so these hashes can be checked on a checkout.
