@@ -1,0 +1,13 @@
+\begin{table}
+\caption{Where the loss acts: M2-CL vs M2 (original 4-tap checkpoints), per extraction block}
+\label{tab:leak_cl_effect_at_taps_v1}
+\begin{tabular}{lllrlrrrrrllr}
+\toprule
+Domain & A & B & seed & layer & acc A & acc B & Delta & CI lo & CI hi & p & p (BH) & sig (BH, q=.05) \\
+\midrule
+Art Painting & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & backbone & 99.31 & 99.26 & 0.05 & -0.01 & 0.13 & 0.146 & 0.438 & False \\
+Cartoon & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & backbone & 98.50 & 98.54 & -0.03 & -0.13 & 0.05 & 0.463 & 0.695 & False \\
+Photo & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & backbone & 98.61 & 98.62 & -0.01 & -0.07 & 0.06 & 0.796 & 0.796 & False \\
+\bottomrule
+\end{tabular}
+\end{table}

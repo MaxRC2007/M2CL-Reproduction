@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "m2cl"
+version = "2.0.0"
+description = "M2-CL reproduction on PACS with corrected objective and domain-leakage probes"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

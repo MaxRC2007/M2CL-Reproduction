@@ -1,0 +1,20 @@
+\begin{table}
+\caption{Draft Table III re-run: original 4-tap checkpoints vs ImageNet-only (backbone)}
+\label{tab:leak_v1_vs_imagenet}
+\begin{tabular}{lllrlrrrrrllr}
+\toprule
+Domain & A & B & seed & layer & acc A & acc B & Delta & CI lo & CI hi & p & p (BH) & sig (BH, q=.05) \\
+\midrule
+Art Painting & erm\_v1 & imagenet & 0 & backbone & 99.40 & 99.61 & -0.21 & -0.50 & 0.07 & 0.132 & 0.220 & False \\
+Art Painting & m2\_4tap\_v1 & imagenet & 0 & backbone & 99.26 & 99.61 & -0.35 & -0.67 & -0.06 & 0.019 & 0.057 & False \\
+Art Painting & m2cl\_4tap\_v1 & imagenet & 0 & backbone & 99.31 & 99.61 & -0.30 & -0.61 & -0.01 & 0.046 & 0.092 & False \\
+Cartoon & erm\_v1 & imagenet & 0 & backbone & 98.33 & 98.62 & -0.30 & -0.80 & 0.18 & 0.212 & 0.288 & False \\
+Cartoon & m2\_4tap\_v1 & imagenet & 0 & backbone & 98.54 & 98.62 & -0.09 & -0.55 & 0.40 & 0.729 & 0.729 & False \\
+Cartoon & m2cl\_4tap\_v1 & imagenet & 0 & backbone & 98.50 & 98.62 & -0.12 & -0.59 & 0.36 & 0.638 & 0.709 & False \\
+Photo & erm\_v1 & imagenet & 0 & backbone & 98.42 & 99.13 & -0.71 & -1.16 & -0.26 & 0.002 & 0.020 & True \\
+Photo & m2\_4tap\_v1 & imagenet & 0 & backbone & 98.62 & 99.13 & -0.51 & -0.93 & -0.10 & 0.021 & 0.057 & False \\
+Photo & m2cl\_4tap\_v1 & imagenet & 0 & backbone & 98.61 & 99.13 & -0.52 & -0.94 & -0.10 & 0.023 & 0.057 & False \\
+Sketch & erm\_v1 & imagenet & 0 & backbone & 95.62 & 96.11 & -0.48 & -1.30 & 0.29 & 0.230 & 0.288 & False \\
+\bottomrule
+\end{tabular}
+\end{table}

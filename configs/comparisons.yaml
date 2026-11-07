@@ -1,0 +1,24 @@
+# Paired comparison families for make_tables.py. BH correction is applied within each family.
+# Pairs are matched by seed; a single-seed reference (imagenet) is paired with every seed of A.
+families:
+  - name: v1_vs_imagenet
+    title: "Draft Table III re-run: original 4-tap checkpoints vs ImageNet-only (backbone)"
+    layers: backbone
+    pairs: [[erm_v1, imagenet], [m2_4tap_v1, imagenet], [m2cl_4tap_v1, imagenet]]
+  - name: m2cl6_v1_vs_imagenet
+    title: "Draft Table IX re-run: corrected 6-tap M2-CL (3 seeds) vs ImageNet-only (backbone)"
+    layers: backbone
+    pairs: [[m2cl_6tap_v1, imagenet]]
+  - name: cl_effect_at_taps_v1
+    title: "Where the loss acts: M2-CL vs M2 (original 4-tap checkpoints), per extraction block"
+    layers: [eb1, eb2, eb3, eb4, eb_concat, backbone]
+    pairs: [[m2cl_4tap_v1, m2_4tap_v1]]
+  # ---- need the new runs (train_lodo.py with configs/*.yaml) ----
+  - name: cl_effect_at_taps
+    title: "Where the loss acts: M2-CL vs M2 (6-tap, matched seeds), per extraction block"
+    layers: [eb1a, eb1, eb2a, eb2, eb3, eb4, eb_concat, backbone]
+    pairs: [[m2cl_6tap, m2_6tap]]
+  - name: new_vs_imagenet
+    title: "Multi-seed ERM / M2 / M2-CL vs ImageNet-only (backbone)"
+    layers: backbone
+    pairs: [[erm, imagenet], [m2_6tap, imagenet], [m2cl_6tap, imagenet]]

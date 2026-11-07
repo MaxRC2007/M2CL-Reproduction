@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+runs/
+features/
+results/leakage/
+*.pt
+*.npz
+data/
+PACS/
+.ipynb_checkpoints/
+.pytest_cache/
+# Kept private until submission: the paper draft and its internal review
+paper/
+docs/REVIEW_*.md
+*.partial

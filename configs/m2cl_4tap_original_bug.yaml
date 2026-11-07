@@ -1,0 +1,11 @@
+# Reproduces the ORIGINAL (buggy) historical M2-CL: mean-reduced loss, 4 taps, alpha 0.01.
+# Only needed if you want the bug's effect measured with matched seeds.
+model: m2cl
+arch_taps: 4
+alpha: 0.01
+tau: 1.0
+loss_reduction: mean
+augmentation: baseline
+epochs: 30
+targets: [art_painting, cartoon, photo, sketch]
+seeds: [0, 1, 2]

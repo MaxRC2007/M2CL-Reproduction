@@ -1,0 +1,32 @@
+\begin{table}
+\caption{Sanity check: linear CLASS probe on the same backbone features (%)}
+\label{tab:leak_class_sanity}
+\begin{tabular}{llrr}
+\toprule
+group & target & class acc source-test & class acc target \\
+\midrule
+erm\_v1 & art\_painting & 95.13 & 73.34 \\
+erm\_v1 & cartoon & 95.42 & 70.99 \\
+erm\_v1 & photo & 94.51 & 94.79 \\
+erm\_v1 & sketch & 95.11 & 64.57 \\
+imagenet & art\_painting & 85.40 & 69.09 \\
+imagenet & cartoon & 87.23 & 51.07 \\
+imagenet & photo & 82.30 & 95.75 \\
+imagenet & sketch & 88.95 & 45.18 \\
+m2\_4tap\_v1 & art\_painting & 95.17 & 71.73 \\
+m2\_4tap\_v1 & cartoon & 95.60 & 66.13 \\
+m2\_4tap\_v1 & photo & 94.31 & 95.93 \\
+m2cl\_4tap\_v1 & art\_painting & 94.84 & 72.41 \\
+m2cl\_4tap\_v1 & cartoon & 95.56 & 66.17 \\
+m2cl\_4tap\_v1 & photo & 94.11 & 96.05 \\
+m2cl\_6tap\_v1 & art\_painting & 95.24 & 73.57 \\
+m2cl\_6tap\_v1 & cartoon & 95.89 & 68.43 \\
+m2cl\_6tap\_v1 & photo & 94.30 & 95.05 \\
+m2cl\_6tap\_v1 & sketch & 94.72 & 62.45 \\
+random & art\_painting & 44.31 & 25.91 \\
+random & cartoon & 38.41 & 30.87 \\
+random & photo & 39.35 & 30.08 \\
+random & sketch & 40.11 & 13.97 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,14 @@
+# Matched ERM baseline (taps/alpha/tau are ignored for ERM)
+model: erm
+arch_taps: 6
+alpha: 0.003
+tau: 1.0
+loss_reduction: sum
+augmentation: baseline
+epochs: 30
+batch_size: 128
+lr: 0.0005
+momentum: 0.9
+weight_decay: 0.0005
+targets: [art_painting, cartoon, photo, sketch]
+seeds: [0, 1, 2]          # add 3, 4 if GPU time allows (recommended for the paper)

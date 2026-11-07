@@ -1,0 +1,28 @@
+\begin{table}
+\caption{Where the loss acts: M2-CL vs M2 (original 4-tap checkpoints), per extraction block}
+\label{tab:leak_cl_effect_at_taps_v1}
+\begin{tabular}{lllrlrrrrrllr}
+\toprule
+Domain & A & B & seed & layer & acc A & acc B & Delta & CI lo & CI hi & p & p (BH) & sig (BH, q=.05) \\
+\midrule
+Art Painting & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb1 & 96.46 & 96.44 & 0.02 & -0.07 & 0.10 & 0.711 & 0.926 & False \\
+Art Painting & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb2 & 96.58 & 96.58 & 0.00 & -0.08 & 0.08 & 1.000 & 1.000 & False \\
+Art Painting & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb3 & 96.04 & 96.08 & -0.04 & -0.18 & 0.10 & 0.593 & 0.926 & False \\
+Art Painting & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb4 & 94.95 & 94.91 & 0.04 & -0.13 & 0.23 & 0.700 & 0.926 & False \\
+Art Painting & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb\_concat & 99.14 & 99.14 & 0.00 & -0.08 & 0.08 & 0.999 & 1.000 & False \\
+Art Painting & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & backbone & 99.31 & 99.26 & 0.05 & -0.01 & 0.13 & 0.146 & 0.806 & False \\
+Cartoon & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb1 & 90.57 & 90.63 & -0.06 & -0.17 & 0.06 & 0.283 & 0.849 & False \\
+Cartoon & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb2 & 90.54 & 90.50 & 0.03 & -0.10 & 0.17 & 0.637 & 0.926 & False \\
+Cartoon & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb3 & 91.38 & 91.50 & -0.12 & -0.32 & 0.07 & 0.224 & 0.806 & False \\
+Cartoon & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb4 & 92.12 & 92.17 & -0.04 & -0.24 & 0.14 & 0.638 & 0.926 & False \\
+Cartoon & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb\_concat & 96.29 & 96.44 & -0.15 & -0.28 & -0.02 & 0.028 & 0.252 & False \\
+Cartoon & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & backbone & 98.50 & 98.54 & -0.03 & -0.13 & 0.05 & 0.463 & 0.926 & False \\
+Photo & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb1 & 94.71 & 94.73 & -0.02 & -0.10 & 0.06 & 0.742 & 0.926 & False \\
+Photo & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb2 & 95.80 & 95.65 & 0.15 & 0.06 & 0.26 & 0.001 & 0.018 & True \\
+Photo & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb3 & 94.97 & 94.99 & -0.02 & -0.16 & 0.14 & 0.823 & 0.926 & False \\
+Photo & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb4 & 92.82 & 92.74 & 0.08 & -0.12 & 0.27 & 0.428 & 0.926 & False \\
+Photo & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & eb\_concat & 98.31 & 98.35 & -0.04 & -0.10 & 0.01 & 0.207 & 0.806 & False \\
+Photo & m2cl\_4tap\_v1 & m2\_4tap\_v1 & 0 & backbone & 98.61 & 98.62 & -0.01 & -0.07 & 0.06 & 0.796 & 0.926 & False \\
+\bottomrule
+\end{tabular}
+\end{table}

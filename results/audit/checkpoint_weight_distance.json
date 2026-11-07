@@ -1,0 +1,23 @@
+{
+  "art_painting": {
+    "n_params": 60,
+    "m2_from_imagenet": 1.1543232202529907,
+    "m2cl_from_imagenet": 1.162782907485962,
+    "m2_vs_m2cl": 0.03366071358323097,
+    "m2cl6_seed0_vs_seed1": 0.9047495126724243
+  },
+  "cartoon": {
+    "n_params": 60,
+    "m2_from_imagenet": 1.1699753999710083,
+    "m2cl_from_imagenet": 1.1750047206878662,
+    "m2_vs_m2cl": 0.03488779813051224,
+    "m2cl6_seed0_vs_seed1": 0.8822143077850342
+  },
+  "photo": {
+    "n_params": 60,
+    "m2_from_imagenet": 1.2730973958969116,
+    "m2cl_from_imagenet": 1.2752702236175537,
+    "m2_vs_m2cl": 0.04125317558646202,
+    "m2cl6_seed0_vs_seed1": 0.9607453942298889
+  }
+}

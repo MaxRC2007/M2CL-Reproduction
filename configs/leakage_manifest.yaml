@@ -1,0 +1,18 @@
+# Frozen networks to probe. Paths are relative to checkpoint_root (edit it).
+# Missing checkpoint files are reported and skipped, never fatal.
+checkpoint_root: "C:/Users/Madhusudan/Downloads"
+conditions:
+  - {group: imagenet, kind: imagenet}
+  - {group: random,   kind: random, seeds: [0, 1, 2, 3, 4]}
+  # ---- original single-seed 4-tap checkpoints (draft Sec. V, Table III) ----
+  - {group: erm_v1,  kind: ckpt, model: erm,  taps: 4, seed: 0, ckpt: "m2cl_checkpoints/erm_{target}.pt",
+     targets: [art_painting, cartoon, photo, sketch]}
+  - {group: m2_4tap_v1,   kind: ckpt, model: m2,   taps: 4, seed: 0, ckpt: "m2cl_checkpoints/m2_{target}.pt",
+     targets: [art_painting, cartoon, photo, sketch]}
+  - {group: m2cl_4tap_v1, kind: ckpt, model: m2cl, taps: 4, seed: 0, ckpt: "m2cl_checkpoints/m2cl_{target}.pt",
+     targets: [art_painting, cartoon, photo, sketch]}
+  # ---- corrected 6-tap M2-CL, 3 seeds (draft Sec. IX, Table IX) ----
+  - {group: m2cl_6tap_v1, kind: ckpt, model: m2cl, taps: 6, ckpt: "m2cl6tap/m2cl6tap_{target}_seed{seed}.pt",
+     targets: [art_painting, cartoon, photo, sketch], seeds: [0, 1, 2]}
+# New runs from scripts/train_lodo.py are added with:  --from_runs runs
+# (groups: erm, m2_6tap, m2cl_6tap)
