@@ -441,3 +441,23 @@ Running `analyze_round3.py` on zips 05-07 reproduces F21 exactly. Not found anyw
 
 ### F23 - Public repository (8 Nov 2026)
 The repository was pushed to https://github.com/MaxRC2007/M2CL-Reproduction. GitHub records its creation at 2026-11-07T19:01:48Z and its first push at 19:01:56Z (00:31 IST on 8 Nov); the first commit is `65c8a5b`. At that time Part C (VLCS) was still running on the institute machine, and no Part C comparison had been computed or viewed. The paper draft and the internal review are excluded (`.gitignore`) until submission. A Software Heritage archive snapshot is still to be requested by the owner (`docs/TIMESTAMP_EVIDENCE.md`). The earlier public stages are linked from the README.
+
+**F21 addendum (8 Nov 2026).** The owner decided not to retrain the M2 runs on torch 2.14.1. The PyTorch version change is reported in the paper as a limitation of the PACS primary test, not measured.
+
+### F24 - Exploratory leakage re-probe of the round-3 checkpoints (8 Nov 2026, started)
+This is not pre-registered. The leakage sections of the draft probed networks whose contrastive term was inert. To probe networks where it is active, the 36 round-3 best checkpoints (M2 and M2-CL at alpha 0.07, ERM; lr 1e-3; seeds 0-2) were extracted from archive zips 06 and 07 into `Honors/probe_work/round3_ckpts`. They are probed with the same pipeline and settings as `results/leakage/raw_*`:
+- driver: `scripts/run_probes_round3.py`;
+- inputs: `configs/leakage_manifest_round3.yaml` and `configs/comparisons_round3.yaml`;
+- features in `features_r3/`.
+
+Families:
+- M2-CL vs M2 at every extraction block and the backbone;
+- each method vs the ImageNet-only control.
+
+It runs on the laptop CPU. The log is `results/leakage/round3.log`.
+
+### F25 - Round 4 planned: the authors' own code (8 Nov 2026)
+`docs/PREREGISTRATION_ROUND4.md` was written and pushed before any run. It covers the authors' `M2CL` at commit 0b1bce3, unmodified, ResNet-18, `lparam` 0.01 vs 0, 12 seed-matched pairs on PACS, on the institute machine. It uses the same decision rule and margin as round 3.
+- Runner: `scripts/run_round4_authors.py`. It pins and verifies the commit, checks DomainBed's PACS counts, has a smoke mode, runs jobs in parallel, and restarts any unfinished run from scratch.
+- Analysis: `scripts/analyze_round4.py`.
+- Tests: `tests/test_round4.py`, which runs the full 24-run flow against a stand-in for DomainBed's `train.py`. The authors' code itself could not be executed on the laptop (the assistant's sandbox blocks running downloaded code), so its first real execution is the institute smoke run.

@@ -1,0 +1,11 @@
+# Round-3 checkpoints (lr 1e-3; M2-CL alpha 0.07), seeds 0-2, for the exploratory leakage re-probe (audit F24).
+# M2 and M2-CL first, interleaved by fold and seed so pairs finish together; ERM last.
+checkpoint_root: "C:/Users/Madhusudan/Downloads/Madhu/Honors/probe_work/round3_ckpts"
+conditions:
+  - {group: imagenet, kind: imagenet}
+  - {group: r3_m2,   kind: ckpt, model: m2,   taps: 6, ckpt: "m2/m2_6tap_{target}_seed{seed}/best.pt",
+     targets: [art_painting, cartoon, photo, sketch], seeds: [0, 1, 2]}
+  - {group: r3_m2cl, kind: ckpt, model: m2cl, taps: 6, ckpt: "m2cl/m2cl_6tap_{target}_seed{seed}/best.pt",
+     targets: [art_painting, cartoon, photo, sketch], seeds: [0, 1, 2]}
+  - {group: r3_erm,  kind: ckpt, model: erm,  taps: 4, ckpt: "erm/erm_{target}_seed{seed}/best.pt",
+     targets: [art_painting, cartoon, photo, sketch], seeds: [0, 1, 2]}

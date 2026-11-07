@@ -1,0 +1,4 @@
+# Extra packages for round 4: the authors' code (domainbed) imports them at start-up.
+# Install on top of the Part C environment (PyTorch for CUDA 12.8 and requirements.txt).
+wilds==2.0.0
+timm==0.9.16
