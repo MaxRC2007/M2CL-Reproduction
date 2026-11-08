@@ -1,0 +1,27 @@
+\begin{table}
+\caption{Probe-training noise floor (domain probe, same frozen features, 5 probe seeds)}
+\label{tab:leak_noise_floor}
+\begin{tabular}{llrrr}
+\toprule
+group & layer & mean\_sd\_pp & max\_range\_pp & n \\
+\midrule
+imagenet & backbone & 0.12 & 0.82 & 4 \\
+r3\_m2 & backbone & 0.10 & 0.49 & 12 \\
+r3\_m2 & eb1 & 0.25 & 1.24 & 12 \\
+r3\_m2 & eb1a & 0.30 & 1.53 & 12 \\
+r3\_m2 & eb2 & 0.19 & 1.10 & 12 \\
+r3\_m2 & eb2a & 0.18 & 0.93 & 12 \\
+r3\_m2 & eb3 & 0.18 & 0.93 & 12 \\
+r3\_m2 & eb4 & 0.15 & 0.66 & 12 \\
+r3\_m2 & eb\_concat & 0.11 & 0.71 & 12 \\
+r3\_m2cl & backbone & 0.11 & 0.93 & 12 \\
+r3\_m2cl & eb1 & 0.22 & 1.04 & 12 \\
+r3\_m2cl & eb1a & 0.28 & 1.74 & 12 \\
+r3\_m2cl & eb2 & 0.17 & 1.04 & 12 \\
+r3\_m2cl & eb2a & 0.18 & 0.99 & 12 \\
+r3\_m2cl & eb3 & 0.15 & 0.66 & 12 \\
+r3\_m2cl & eb4 & 0.31 & 1.51 & 12 \\
+r3\_m2cl & eb\_concat & 0.11 & 0.77 & 12 \\
+\bottomrule
+\end{tabular}
+\end{table}

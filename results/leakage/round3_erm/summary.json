@@ -1,0 +1,453 @@
+{
+ "config": {
+  "features_dir": "features_r3",
+  "out": "results/leakage/round3_erm",
+  "targets": [
+   "art_painting",
+   "cartoon",
+   "photo",
+   "sketch"
+  ],
+  "groups": [
+   "r3_erm",
+   "imagenet"
+  ],
+  "layers": [
+   "backbone"
+  ],
+  "probe_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "split_seed": 42,
+  "test_size": 0.3,
+  "epochs": 30,
+  "standardize": false,
+  "no_class_probe": false
+ },
+ "targets": {
+  "art_painting": {
+   "conditions": {
+    "imagenet|None": {
+     "group": "imagenet",
+     "seed": null,
+     "file": "imagenet__seedNone__all.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.61393201846413,
+        "acc_sd_probe_seeds": 0.018766831535875314,
+        "acc_range_probe_seeds": 0.04196391103650399,
+        "acc_per_probe_seed": [
+         99.58036088963492,
+         99.62232480067142,
+         99.62232480067142,
+         99.62232480067142,
+         99.62232480067142
+        ]
+       },
+       "class_source_test_acc": 85.396558959295,
+       "class_target_acc": 69.091796875
+      }
+     }
+    },
+    "r3_erm|0": {
+     "group": "r3_erm",
+     "seed": 0,
+     "file": "r3_erm__seed0__art_painting.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.45446915652539,
+        "acc_sd_probe_seeds": 0.1359786130593388,
+        "acc_range_probe_seeds": 0.29374737725557054,
+        "acc_per_probe_seed": [
+         99.32857742341587,
+         99.58036088963492,
+         99.28661351237935,
+         99.53839697859841,
+         99.53839697859841
+        ]
+       },
+       "class_source_test_acc": 97.65002098195552,
+       "class_target_acc": 74.0234375
+      }
+     }
+    },
+    "r3_erm|1": {
+     "group": "r3_erm",
+     "seed": 1,
+     "file": "r3_erm__seed1__art_painting.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.32857742341585,
+        "acc_sd_probe_seeds": 0.18530761364514808,
+        "acc_range_probe_seeds": 0.4196391103650825,
+        "acc_per_probe_seed": [
+         99.20268569030634,
+         99.4964330675619,
+         99.07679395719681,
+         99.37054133445237,
+         99.4964330675619
+        ]
+       },
+       "class_source_test_acc": 97.35627360469996,
+       "class_target_acc": 72.8515625
+      }
+     }
+    },
+    "r3_erm|2": {
+     "group": "r3_erm",
+     "seed": 2,
+     "file": "r3_erm__seed2__art_painting.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.4208980276962,
+        "acc_sd_probe_seeds": 0.08071919455170776,
+        "acc_range_probe_seeds": 0.20981955518254836,
+        "acc_per_probe_seed": [
+         99.37054133445237,
+         99.53839697859841,
+         99.41250524548889,
+         99.32857742341587,
+         99.45446915652539
+        ]
+       },
+       "class_source_test_acc": 97.31430969366345,
+       "class_target_acc": 73.974609375
+      }
+     }
+    }
+   },
+   "n_source": 7943,
+   "n_probe_train": 5560,
+   "n_probe_test": 2383,
+   "majority_baseline": 49.47545111204364,
+   "source_domains": [
+    "cartoon",
+    "photo",
+    "sketch"
+   ]
+  },
+  "cartoon": {
+   "conditions": {
+    "imagenet|None": {
+     "group": "imagenet",
+     "seed": null,
+     "file": "imagenet__seedNone__all.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.62309368191723,
+        "acc_sd_probe_seeds": 0.09035486428465091,
+        "acc_range_probe_seeds": 0.21786492374727118,
+        "acc_per_probe_seed": [
+         98.56209150326798,
+         98.73638344226579,
+         98.69281045751634,
+         98.51851851851852,
+         98.60566448801742
+        ]
+       },
+       "class_source_test_acc": 87.23311546840958,
+       "class_target_acc": 51.06655290102389
+      }
+     }
+    },
+    "r3_erm|0": {
+     "group": "r3_erm",
+     "seed": 0,
+     "file": "r3_erm__seed0__cartoon.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.26579520697166,
+        "acc_sd_probe_seeds": 0.1458230983065957,
+        "acc_range_probe_seeds": 0.34858387799565094,
+        "acc_per_probe_seed": [
+         98.30065359477123,
+         98.38779956427015,
+         98.0392156862745,
+         98.21350762527233,
+         98.38779956427015
+        ]
+       },
+       "class_source_test_acc": 97.99564270152506,
+       "class_target_acc": 70.90443686006826
+      }
+     }
+    },
+    "r3_erm|1": {
+     "group": "r3_erm",
+     "seed": 1,
+     "file": "r3_erm__seed1__cartoon.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.42265795206973,
+        "acc_sd_probe_seeds": 0.036455774576645214,
+        "acc_range_probe_seeds": 0.08714596949890563,
+        "acc_per_probe_seed": [
+         98.38779956427015,
+         98.47494553376906,
+         98.38779956427015,
+         98.4313725490196,
+         98.4313725490196
+        ]
+       },
+       "class_source_test_acc": 97.73420479302833,
+       "class_target_acc": 69.11262798634812
+      }
+     }
+    },
+    "r3_erm|2": {
+     "group": "r3_erm",
+     "seed": 2,
+     "file": "r3_erm__seed2__cartoon.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.21350762527233,
+        "acc_sd_probe_seeds": 0.15405376496438855,
+        "acc_range_probe_seeds": 0.39215686274509665,
+        "acc_per_probe_seed": [
+         98.3442265795207,
+         98.21350762527233,
+         98.30065359477123,
+         97.9520697167756,
+         98.25708061002179
+        ]
+       },
+       "class_source_test_acc": 96.90631808278867,
+       "class_target_acc": 67.91808873720136
+      }
+     }
+    }
+   },
+   "n_source": 7647,
+   "n_probe_train": 5352,
+   "n_probe_test": 2295,
+   "majority_baseline": 51.37254901960784,
+   "source_domains": [
+    "art_painting",
+    "photo",
+    "sketch"
+   ]
+  },
+  "photo": {
+   "conditions": {
+    "imagenet|None": {
+     "group": "imagenet",
+     "seed": null,
+     "file": "imagenet__seedNone__all.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.13496195434521,
+        "acc_sd_probe_seeds": 0.06701321798430718,
+        "acc_range_probe_seeds": 0.1601922306768131,
+        "acc_per_probe_seed": [
+         99.15899078894674,
+         99.07889467360833,
+         99.11894273127754,
+         99.07889467360833,
+         99.23908690428514
+        ]
+       },
+       "class_source_test_acc": 82.29875851021225,
+       "class_target_acc": 95.74850299401197
+      }
+     }
+    },
+    "r3_erm|0": {
+     "group": "r3_erm",
+     "seed": 0,
+     "file": "r3_erm__seed0__photo.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.40608730476572,
+        "acc_sd_probe_seeds": 0.09561342720315211,
+        "acc_range_probe_seeds": 0.24028834601521964,
+        "acc_per_probe_seed": [
+         98.35802963556267,
+         98.5582699239087,
+         98.31798157789348,
+         98.43812575090108,
+         98.35802963556267
+        ]
+       },
+       "class_source_test_acc": 97.39687625150181,
+       "class_target_acc": 96.16766467065868
+      }
+     }
+    },
+    "r3_erm|1": {
+     "group": "r3_erm",
+     "seed": 1,
+     "file": "r3_erm__seed1__photo.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.53424108930716,
+        "acc_sd_probe_seeds": 0.06701321798430844,
+        "acc_range_probe_seeds": 0.1601922306768131,
+        "acc_per_probe_seed": [
+         98.47817380857028,
+         98.63836603924709,
+         98.51822186623949,
+         98.47817380857028,
+         98.5582699239087
+        ]
+       },
+       "class_source_test_acc": 97.27673207849419,
+       "class_target_acc": 95.92814371257485
+      }
+     }
+    },
+    "r3_erm|2": {
+     "group": "r3_erm",
+     "seed": 2,
+     "file": "r3_erm__seed2__photo.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.55026031237485,
+        "acc_sd_probe_seeds": 0.0438704491393808,
+        "acc_range_probe_seeds": 0.08009611533840655,
+        "acc_per_probe_seed": [
+         98.51822186623949,
+         98.51822186623949,
+         98.59831798157789,
+         98.51822186623949,
+         98.59831798157789
+        ]
+       },
+       "class_source_test_acc": 96.87625150180216,
+       "class_target_acc": 95.68862275449102
+      }
+     }
+    }
+   },
+   "n_source": 8321,
+   "n_probe_train": 5824,
+   "n_probe_test": 2497,
+   "majority_baseline": 47.21665999199039,
+   "source_domains": [
+    "art_painting",
+    "cartoon",
+    "sketch"
+   ]
+  },
+  "sketch": {
+   "conditions": {
+    "imagenet|None": {
+     "group": "imagenet",
+     "seed": null,
+     "file": "imagenet__seedNone__all.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 96.10775151181969,
+        "acc_sd_probe_seeds": 0.3143700594941336,
+        "acc_range_probe_seeds": 0.8246289169873506,
+        "acc_per_probe_seed": [
+         96.26168224299066,
+         96.0417811984607,
+         96.20670698185816,
+         95.60197910940077,
+         96.42660802638812
+        ]
+       },
+       "class_source_test_acc": 88.94997251236944,
+       "class_target_acc": 45.17688979384067
+      }
+     }
+    },
+    "r3_erm|0": {
+     "group": "r3_erm",
+     "seed": 0,
+     "file": "r3_erm__seed0__sketch.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 95.63496426608026,
+        "acc_sd_probe_seeds": 0.1139991278357763,
+        "acc_range_probe_seeds": 0.2748763056624455,
+        "acc_per_probe_seed": [
+         95.49202858713579,
+         95.71192963166575,
+         95.65695437053327,
+         95.54700384826828,
+         95.76690489279824
+        ]
+       },
+       "class_source_test_acc": 97.41616272677295,
+       "class_target_acc": 64.876558920845
+      }
+     }
+    },
+    "r3_erm|1": {
+     "group": "r3_erm",
+     "seed": 1,
+     "file": "r3_erm__seed1__sketch.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 95.34909290819131,
+        "acc_sd_probe_seeds": 0.1379868103134826,
+        "acc_range_probe_seeds": 0.3298515667949431,
+        "acc_per_probe_seed": [
+         95.38207806487081,
+         95.21715228147333,
+         95.21715228147333,
+         95.38207806487081,
+         95.54700384826828
+        ]
+       },
+       "class_source_test_acc": 97.36118746564047,
+       "class_target_acc": 58.13184016289132
+      }
+     }
+    },
+    "r3_erm|2": {
+     "group": "r3_erm",
+     "seed": 2,
+     "file": "r3_erm__seed2__sketch.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 95.99780098955469,
+        "acc_sd_probe_seeds": 0.19591566444426203,
+        "acc_range_probe_seeds": 0.49477735019242175,
+        "acc_per_probe_seed": [
+         95.82188015393072,
+         95.87685541506322,
+         95.93183067619572,
+         96.0417811984607,
+         96.31665750412314
+        ]
+       },
+       "class_source_test_acc": 96.64650907091809,
+       "class_target_acc": 65.97098498345635
+      }
+     }
+    }
+   },
+   "n_source": 6062,
+   "n_probe_train": 4243,
+   "n_probe_test": 1819,
+   "majority_baseline": 38.64760857614073,
+   "source_domains": [
+    "art_painting",
+    "cartoon",
+    "photo"
+   ]
+  }
+ }
+}

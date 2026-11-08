@@ -1,0 +1,3425 @@
+{
+ "config": {
+  "features_dir": "features_r3",
+  "out": "results/leakage/round3_taps",
+  "targets": [
+   "art_painting",
+   "cartoon",
+   "photo",
+   "sketch"
+  ],
+  "groups": [
+   "r3_m2",
+   "r3_m2cl",
+   "imagenet"
+  ],
+  "layers": [
+   "eb1a",
+   "eb1",
+   "eb2a",
+   "eb2",
+   "eb3",
+   "eb4",
+   "eb_concat",
+   "backbone"
+  ],
+  "probe_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "split_seed": 42,
+  "test_size": 0.3,
+  "epochs": 30,
+  "standardize": false,
+  "no_class_probe": false
+ },
+ "targets": {
+  "art_painting": {
+   "conditions": {
+    "imagenet|None": {
+     "group": "imagenet",
+     "seed": null,
+     "file": "imagenet__seedNone__all.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.61393201846413,
+        "acc_sd_probe_seeds": 0.018766831535875314,
+        "acc_range_probe_seeds": 0.04196391103650399,
+        "acc_per_probe_seed": [
+         99.58036088963492,
+         99.62232480067142,
+         99.62232480067142,
+         99.62232480067142,
+         99.62232480067142
+        ]
+       },
+       "class_source_test_acc": 85.396558959295,
+       "class_target_acc": 69.091796875
+      }
+     }
+    },
+    "r3_m2|0": {
+     "group": "r3_m2",
+     "seed": 0,
+     "file": "r3_m2__seed0__art_painting.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 97.79269827947965,
+        "acc_sd_probe_seeds": 0.19367151924824974,
+        "acc_range_probe_seeds": 0.4616030214016007,
+        "acc_per_probe_seed": [
+         97.94376835921108,
+         97.94376835921108,
+         97.85984053713807,
+         97.48216533780948,
+         97.73394880402854
+        ]
+       },
+       "class_source_test_acc": 59.58875367184222,
+       "class_target_acc": 27.392578125
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 97.0709190096517,
+        "acc_sd_probe_seeds": 0.2436076420260175,
+        "acc_range_probe_seeds": 0.5874947545111269,
+        "acc_per_probe_seed": [
+         97.18841796055392,
+         97.23038187159044,
+         97.18841796055392,
+         96.64288711707931,
+         97.1044901384809
+        ]
+       },
+       "class_source_test_acc": 55.43432647922787,
+       "class_target_acc": 29.1015625
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 97.75073436844313,
+        "acc_sd_probe_seeds": 0.09193832270334622,
+        "acc_range_probe_seeds": 0.25178346621906655,
+        "acc_per_probe_seed": [
+         97.73394880402854,
+         97.77591271506503,
+         97.608057070919,
+         97.77591271506503,
+         97.85984053713807
+        ]
+       },
+       "class_source_test_acc": 62.022660511959714,
+       "class_target_acc": 29.833984375
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 96.47503147293328,
+        "acc_sd_probe_seeds": 0.08901889817706962,
+        "acc_range_probe_seeds": 0.20981955518253415,
+        "acc_per_probe_seed": [
+         96.51699538396979,
+         96.39110365086026,
+         96.6009232060428,
+         96.39110365086026,
+         96.47503147293328
+        ]
+       },
+       "class_source_test_acc": 61.09945446915652,
+       "class_target_acc": 29.296875
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 95.35039865715484,
+        "acc_sd_probe_seeds": 0.12016635386719378,
+        "acc_range_probe_seeds": 0.29374737725555633,
+        "acc_per_probe_seed": [
+         95.34200587494755,
+         95.42593369702055,
+         95.50986151909358,
+         95.21611414183802,
+         95.25807805287452
+        ]
+       },
+       "class_source_test_acc": 71.59043222828367,
+       "class_target_acc": 41.89453125
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 94.13344523709608,
+        "acc_sd_probe_seeds": 0.14954703886869788,
+        "acc_range_probe_seeds": 0.3776751993285785,
+        "acc_per_probe_seed": [
+         94.08308854385228,
+         94.25094418799831,
+         94.12505245488879,
+         94.29290809903483,
+         93.91523289970625
+        ]
+       },
+       "class_source_test_acc": 96.64288711707931,
+       "class_target_acc": 72.8515625
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 99.59714645404952,
+        "acc_sd_probe_seeds": 0.02298458067583323,
+        "acc_range_probe_seeds": 0.04196391103650399,
+        "acc_per_probe_seed": [
+         99.62232480067142,
+         99.62232480067142,
+         99.58036088963492,
+         99.58036088963492,
+         99.58036088963492
+        ]
+       },
+       "class_source_test_acc": 96.0553923625682,
+       "class_target_acc": 72.021484375
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.35375577003776,
+        "acc_sd_probe_seeds": 0.158687959724627,
+        "acc_range_probe_seeds": 0.33571128829207453,
+        "acc_per_probe_seed": [
+         99.16072177926982,
+         99.4964330675619,
+         99.20268569030634,
+         99.45446915652539,
+         99.45446915652539
+        ]
+       },
+       "class_source_test_acc": 97.31430969366345,
+       "class_target_acc": 73.53515625
+      }
+     }
+    },
+    "r3_m2|1": {
+     "group": "r3_m2",
+     "seed": 1,
+     "file": "r3_m2__seed1__art_painting.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 97.20520352496854,
+        "acc_sd_probe_seeds": 0.2696813934210592,
+        "acc_range_probe_seeds": 0.6294586655476309,
+        "acc_per_probe_seed": [
+         97.35627360469996,
+         97.31430969366345,
+         97.27234578262694,
+         96.72681493915233,
+         97.35627360469996
+        ]
+       },
+       "class_source_test_acc": 59.085186739404115,
+       "class_target_acc": 27.685546875
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 97.524129248846,
+        "acc_sd_probe_seeds": 0.08392782207302041,
+        "acc_range_probe_seeds": 0.20981955518254836,
+        "acc_per_probe_seed": [
+         97.48216533780948,
+         97.48216533780948,
+         97.65002098195552,
+         97.5660931598825,
+         97.44020142677297
+        ]
+       },
+       "class_source_test_acc": 56.315568610994546,
+       "class_target_acc": 27.685546875
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 98.40537138061268,
+        "acc_sd_probe_seeds": 0.18999968816905752,
+        "acc_range_probe_seeds": 0.4616030214015865,
+        "acc_per_probe_seed": [
+         98.32144355853966,
+         98.61519093579521,
+         98.36340746957617,
+         98.15358791439363,
+         98.57322702475871
+        ]
+       },
+       "class_source_test_acc": 61.854804867813684,
+       "class_target_acc": 30.224609375
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 97.21359630717583,
+        "acc_sd_probe_seeds": 0.20686122608252228,
+        "acc_range_probe_seeds": 0.4616030214016007,
+        "acc_per_probe_seed": [
+         97.27234578262694,
+         97.39823751573647,
+         97.39823751573647,
+         96.93663449433487,
+         97.06252622744441
+        ]
+       },
+       "class_source_test_acc": 62.23248006714226,
+       "class_target_acc": 29.6875
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 95.54343264792278,
+        "acc_sd_probe_seeds": 0.14043810768511875,
+        "acc_range_probe_seeds": 0.33571128829207453,
+        "acc_per_probe_seed": [
+         95.50986151909358,
+         95.67771716323962,
+         95.34200587494755,
+         95.67771716323962,
+         95.50986151909358
+        ]
+       },
+       "class_source_test_acc": 72.55560218212337,
+       "class_target_acc": 43.1640625
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 94.42719261435165,
+        "acc_sd_probe_seeds": 0.15813213328927583,
+        "acc_range_probe_seeds": 0.4196391103650967,
+        "acc_per_probe_seed": [
+         94.25094418799831,
+         94.41879983214434,
+         94.46076374318086,
+         94.67058329836341,
+         94.33487201007134
+        ]
+       },
+       "class_source_test_acc": 97.48216533780948,
+       "class_target_acc": 75.1953125
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 99.56357532522033,
+        "acc_sd_probe_seeds": 0.03753366307175063,
+        "acc_range_probe_seeds": 0.08392782207300797,
+        "acc_per_probe_seed": [
+         99.53839697859841,
+         99.58036088963492,
+         99.53839697859841,
+         99.62232480067142,
+         99.53839697859841
+        ]
+       },
+       "class_source_test_acc": 97.23038187159044,
+       "class_target_acc": 73.33984375
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.25304238355014,
+        "acc_sd_probe_seeds": 0.0956924402097507,
+        "acc_range_probe_seeds": 0.20981955518254836,
+        "acc_per_probe_seed": [
+         99.24464960134284,
+         99.16072177926982,
+         99.32857742341587,
+         99.37054133445237,
+         99.16072177926982
+        ]
+       },
+       "class_source_test_acc": 97.5660931598825,
+       "class_target_acc": 74.609375
+      }
+     }
+    },
+    "r3_m2|2": {
+     "group": "r3_m2",
+     "seed": 2,
+     "file": "r3_m2__seed2__art_painting.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 97.5493075954679,
+        "acc_sd_probe_seeds": 0.1614383891034107,
+        "acc_range_probe_seeds": 0.4196391103650825,
+        "acc_per_probe_seed": [
+         97.48216533780948,
+         97.39823751573647,
+         97.81787662610155,
+         97.5660931598825,
+         97.48216533780948
+        ]
+       },
+       "class_source_test_acc": 59.16911456147713,
+       "class_target_acc": 26.220703125
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 96.91145614771298,
+        "acc_sd_probe_seeds": 0.08701821801648502,
+        "acc_range_probe_seeds": 0.20981955518254836,
+        "acc_per_probe_seed": [
+         96.89467058329836,
+         97.06252622744441,
+         96.85270667226186,
+         96.85270667226186,
+         96.89467058329836
+        ]
+       },
+       "class_source_test_acc": 55.30843474611834,
+       "class_target_acc": 26.46484375
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 98.18715904322282,
+        "acc_sd_probe_seeds": 0.0750673261435084,
+        "acc_range_probe_seeds": 0.16785564414603016,
+        "acc_per_probe_seed": [
+         98.11162400335711,
+         98.27947964750314,
+         98.11162400335711,
+         98.19555182543013,
+         98.23751573646663
+        ]
+       },
+       "class_source_test_acc": 59.672681493915235,
+       "class_target_acc": 29.78515625
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 97.12966848510281,
+        "acc_sd_probe_seeds": 0.1668032472878875,
+        "acc_range_probe_seeds": 0.3776751993285785,
+        "acc_per_probe_seed": [
+         97.27234578262694,
+         97.27234578262694,
+         97.18841796055392,
+         96.89467058329836,
+         97.02056231640789
+        ]
+       },
+       "class_source_test_acc": 59.54678976080571,
+       "class_target_acc": 32.177734375
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 93.94041124632815,
+        "acc_sd_probe_seeds": 0.08701821801648364,
+        "acc_range_probe_seeds": 0.20981955518254836,
+        "acc_per_probe_seed": [
+         93.99916072177928,
+         93.95719681074276,
+         93.78934116659673,
+         93.99916072177928,
+         93.95719681074276
+        ]
+       },
+       "class_source_test_acc": 70.62526227444398,
+       "class_target_acc": 43.994140625
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 93.54595048258497,
+        "acc_sd_probe_seeds": 0.1272828442140418,
+        "acc_range_probe_seeds": 0.33571128829207453,
+        "acc_per_probe_seed": [
+         93.36970205623165,
+         93.70541334452372,
+         93.62148552245068,
+         93.53755770037768,
+         93.49559378934117
+        ]
+       },
+       "class_source_test_acc": 96.85270667226186,
+       "class_target_acc": 77.294921875
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 99.61393201846411,
+        "acc_sd_probe_seeds": 0.03510952692127501,
+        "acc_range_probe_seeds": 0.08392782207300797,
+        "acc_per_probe_seed": [
+         99.58036088963492,
+         99.62232480067142,
+         99.62232480067142,
+         99.66428871170793,
+         99.58036088963492
+        ]
+       },
+       "class_source_test_acc": 96.34913973982376,
+       "class_target_acc": 76.123046875
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.22786403692825,
+        "acc_sd_probe_seeds": 0.14106367028091965,
+        "acc_range_probe_seeds": 0.29374737725555633,
+        "acc_per_probe_seed": [
+         99.03483004616031,
+         99.32857742341587,
+         99.11875786823332,
+         99.32857742341587,
+         99.32857742341587
+        ]
+       },
+       "class_source_test_acc": 97.44020142677297,
+       "class_target_acc": 74.755859375
+      }
+     }
+    },
+    "r3_m2cl|0": {
+     "group": "r3_m2cl",
+     "seed": 0,
+     "file": "r3_m2cl__seed0__art_painting.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 97.89341166596726,
+        "acc_sd_probe_seeds": 0.1164451273647633,
+        "acc_range_probe_seeds": 0.29374737725555633,
+        "acc_per_probe_seed": [
+         97.94376835921108,
+         97.98573227024758,
+         97.94376835921108,
+         97.69198489299202,
+         97.90180444817457
+        ]
+       },
+       "class_source_test_acc": 59.798573227024754,
+       "class_target_acc": 27.05078125
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 96.96181284095677,
+        "acc_sd_probe_seeds": 0.21107471825361568,
+        "acc_range_probe_seeds": 0.5874947545111127,
+        "acc_per_probe_seed": [
+         97.27234578262694,
+         96.97859840537139,
+         96.89467058329836,
+         96.68485102811583,
+         96.97859840537139
+        ]
+       },
+       "class_source_test_acc": 55.97985732270247,
+       "class_target_acc": 29.00390625
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 97.89341166596726,
+        "acc_sd_probe_seeds": 0.14043810768511447,
+        "acc_range_probe_seeds": 0.3357112882920603,
+        "acc_per_probe_seed": [
+         97.73394880402854,
+         97.98573227024758,
+         97.77591271506503,
+         97.90180444817457,
+         98.0696600923206
+        ]
+       },
+       "class_source_test_acc": 62.23248006714226,
+       "class_target_acc": 30.2734375
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 96.81074276122534,
+        "acc_sd_probe_seeds": 0.09383415767938293,
+        "acc_range_probe_seeds": 0.25178346621903813,
+        "acc_per_probe_seed": [
+         96.76877885018884,
+         96.85270667226186,
+         96.93663449433487,
+         96.68485102811583,
+         96.81074276122534
+        ]
+       },
+       "class_source_test_acc": 62.31640788921528,
+       "class_target_acc": 28.662109375
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 95.92110784725136,
+        "acc_sd_probe_seeds": 0.12016635386719378,
+        "acc_range_probe_seeds": 0.29374737725555633,
+        "acc_per_probe_seed": [
+         95.71968107427612,
+         95.92950062945866,
+         96.01342845153168,
+         96.01342845153168,
+         95.92950062945866
+        ]
+       },
+       "class_source_test_acc": 73.185060847671,
+       "class_target_acc": 44.04296875
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 78.74947545111203,
+        "acc_sd_probe_seeds": 0.5849413969518373,
+        "acc_range_probe_seeds": 1.510700797314314,
+        "acc_per_probe_seed": [
+         78.89215274863616,
+         79.43768359211079,
+         77.92698279479647,
+         78.43054972723458,
+         79.06000839278221
+        ]
+       },
+       "class_source_test_acc": 96.81074276122534,
+       "class_target_acc": 76.5625
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 99.37893411665968,
+        "acc_sd_probe_seeds": 0.0351095269212818,
+        "acc_range_probe_seeds": 0.08392782207302218,
+        "acc_per_probe_seed": [
+         99.37054133445237,
+         99.41250524548889,
+         99.32857742341587,
+         99.37054133445237,
+         99.41250524548889
+        ]
+       },
+       "class_source_test_acc": 96.26521191775073,
+       "class_target_acc": 72.75390625
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.26143516575745,
+        "acc_sd_probe_seeds": 0.13136782075114264,
+        "acc_range_probe_seeds": 0.25178346621905234,
+        "acc_per_probe_seed": [
+         99.11875786823332,
+         99.37054133445237,
+         99.11875786823332,
+         99.37054133445237,
+         99.32857742341587
+        ]
+       },
+       "class_source_test_acc": 97.69198489299202,
+       "class_target_acc": 74.51171875
+      }
+     }
+    },
+    "r3_m2cl|1": {
+     "group": "r3_m2cl",
+     "seed": 1,
+     "file": "r3_m2cl__seed1__art_painting.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 97.44020142677297,
+        "acc_sd_probe_seeds": 0.15979381254435313,
+        "acc_range_probe_seeds": 0.4196391103650825,
+        "acc_per_probe_seed": [
+         97.608057070919,
+         97.524129248846,
+         97.48216533780948,
+         97.18841796055392,
+         97.39823751573647
+        ]
+       },
+       "class_source_test_acc": 59.71464540495174,
+       "class_target_acc": 27.880859375
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 97.72555602182123,
+        "acc_sd_probe_seeds": 0.08071919455170591,
+        "acc_range_probe_seeds": 0.20981955518254836,
+        "acc_per_probe_seed": [
+         97.69198489299202,
+         97.81787662610155,
+         97.608057070919,
+         97.73394880402854,
+         97.77591271506503
+        ]
+       },
+       "class_source_test_acc": 56.81913554343265,
+       "class_target_acc": 27.734375
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 98.64876206462442,
+        "acc_sd_probe_seeds": 0.13726753868062289,
+        "acc_range_probe_seeds": 0.3776751993285785,
+        "acc_per_probe_seed": [
+         98.65715484683173,
+         98.82501049097776,
+         98.61519093579521,
+         98.44733529164918,
+         98.69911875786823
+        ]
+       },
+       "class_source_test_acc": 62.10658833403273,
+       "class_target_acc": 29.8828125
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 97.49055812001677,
+        "acc_sd_probe_seeds": 0.14954703886869788,
+        "acc_range_probe_seeds": 0.3776751993285785,
+        "acc_per_probe_seed": [
+         97.608057070919,
+         97.48216533780948,
+         97.65002098195552,
+         97.27234578262694,
+         97.44020142677297
+        ]
+       },
+       "class_source_test_acc": 62.40033571128829,
+       "class_target_acc": 29.8828125
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 95.46789760805707,
+        "acc_sd_probe_seeds": 0.10698740062091247,
+        "acc_range_probe_seeds": 0.29374737725555633,
+        "acc_per_probe_seed": [
+         95.30004196391104,
+         95.5937893411666,
+         95.46789760805707,
+         95.50986151909358,
+         95.46789760805707
+        ]
+       },
+       "class_source_test_acc": 73.31095258078054,
+       "class_target_acc": 45.80078125
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 77.60805707091899,
+        "acc_sd_probe_seeds": 0.594645055272125,
+        "acc_range_probe_seeds": 1.510700797314314,
+        "acc_per_probe_seed": [
+         78.22073017205203,
+         78.052874527906,
+         76.71002937473772,
+         77.42341586235837,
+         77.63323541754092
+        ]
+       },
+       "class_source_test_acc": 97.14645404951742,
+       "class_target_acc": 78.02734375
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 99.5300041963911,
+        "acc_sd_probe_seeds": 0.03510952692128181,
+        "acc_range_probe_seeds": 0.08392782207302218,
+        "acc_per_probe_seed": [
+         99.4964330675619,
+         99.58036088963492,
+         99.53839697859841,
+         99.53839697859841,
+         99.4964330675619
+        ]
+       },
+       "class_source_test_acc": 97.31430969366345,
+       "class_target_acc": 74.12109375
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.22786403692824,
+        "acc_sd_probe_seeds": 0.07623123006540312,
+        "acc_range_probe_seeds": 0.16785564414604437,
+        "acc_per_probe_seed": [
+         99.28661351237935,
+         99.16072177926982,
+         99.20268569030634,
+         99.32857742341587,
+         99.16072177926982
+        ]
+       },
+       "class_source_test_acc": 97.48216533780948,
+       "class_target_acc": 75.1953125
+      }
+     }
+    },
+    "r3_m2cl|2": {
+     "group": "r3_m2cl",
+     "seed": 2,
+     "file": "r3_m2cl__seed2__art_painting.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 97.70877045740663,
+        "acc_sd_probe_seeds": 0.09660817820579687,
+        "acc_range_probe_seeds": 0.20981955518253415,
+        "acc_per_probe_seed": [
+         97.5660931598825,
+         97.77591271506503,
+         97.77591271506503,
+         97.65002098195552,
+         97.77591271506503
+        ]
+       },
+       "class_source_test_acc": 59.75660931598825,
+       "class_target_acc": 26.025390625
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 97.12127570289552,
+        "acc_sd_probe_seeds": 0.13467735237836012,
+        "acc_range_probe_seeds": 0.29374737725557054,
+        "acc_per_probe_seed": [
+         97.02056231640789,
+         97.18841796055392,
+         97.23038187159044,
+         96.93663449433487,
+         97.23038187159044
+        ]
+       },
+       "class_source_test_acc": 55.77003776751993,
+       "class_target_acc": 26.123046875
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 98.35501468736886,
+        "acc_sd_probe_seeds": 0.09097559122400141,
+        "acc_range_probe_seeds": 0.20981955518254836,
+        "acc_per_probe_seed": [
+         98.27947964750314,
+         98.48929920268569,
+         98.32144355853966,
+         98.27947964750314,
+         98.40537138061268
+        ]
+       },
+       "class_source_test_acc": 60.5119597146454,
+       "class_target_acc": 30.419921875
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 97.33109525807807,
+        "acc_sd_probe_seeds": 0.20256010719508094,
+        "acc_range_probe_seeds": 0.5035669324380905,
+        "acc_per_probe_seed": [
+         97.48216533780948,
+         97.35627360469996,
+         97.39823751573647,
+         96.97859840537139,
+         97.44020142677297
+        ]
+       },
+       "class_source_test_acc": 61.09945446915652,
+       "class_target_acc": 31.787109375
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 93.89005455308435,
+        "acc_sd_probe_seeds": 0.11338024411335844,
+        "acc_range_probe_seeds": 0.29374737725557054,
+        "acc_per_probe_seed": [
+         93.74737725556021,
+         93.95719681074276,
+         93.87326898866975,
+         93.83130507763323,
+         94.04112463281578
+        ]
+       },
+       "class_source_test_acc": 70.75115400755351,
+       "class_target_acc": 46.875
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 79.0096516995384,
+        "acc_sd_probe_seeds": 0.5168550310600831,
+        "acc_range_probe_seeds": 1.2589173310952617,
+        "acc_per_probe_seed": [
+         79.0180444817457,
+         79.56357532522031,
+         78.72429710449013,
+         78.30465799412505,
+         79.43768359211079
+        ]
+       },
+       "class_source_test_acc": 96.6009232060428,
+       "class_target_acc": 79.19921875
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 99.555182543013,
+        "acc_sd_probe_seeds": 0.0762312300653996,
+        "acc_range_probe_seeds": 0.16785564414603016,
+        "acc_per_probe_seed": [
+         99.62232480067142,
+         99.45446915652539,
+         99.4964330675619,
+         99.62232480067142,
+         99.58036088963492
+        ]
+       },
+       "class_source_test_acc": 96.43306756189676,
+       "class_target_acc": 73.73046875
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.19429290809903,
+        "acc_sd_probe_seeds": 0.09097559122400077,
+        "acc_range_probe_seeds": 0.20981955518254836,
+        "acc_per_probe_seed": [
+         99.16072177926982,
+         99.11875786823332,
+         99.11875786823332,
+         99.32857742341587,
+         99.24464960134284
+        ]
+       },
+       "class_source_test_acc": 97.608057070919,
+       "class_target_acc": 75.5859375
+      }
+     }
+    }
+   },
+   "n_source": 7943,
+   "n_probe_train": 5560,
+   "n_probe_test": 2383,
+   "majority_baseline": 49.47545111204364,
+   "source_domains": [
+    "cartoon",
+    "photo",
+    "sketch"
+   ]
+  },
+  "cartoon": {
+   "conditions": {
+    "imagenet|None": {
+     "group": "imagenet",
+     "seed": null,
+     "file": "imagenet__seedNone__all.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.62309368191723,
+        "acc_sd_probe_seeds": 0.09035486428465091,
+        "acc_range_probe_seeds": 0.21786492374727118,
+        "acc_per_probe_seed": [
+         98.56209150326798,
+         98.73638344226579,
+         98.69281045751634,
+         98.51851851851852,
+         98.60566448801742
+        ]
+       },
+       "class_source_test_acc": 87.23311546840958,
+       "class_target_acc": 51.06655290102389
+      }
+     }
+    },
+    "r3_m2|0": {
+     "group": "r3_m2",
+     "seed": 0,
+     "file": "r3_m2__seed0__cartoon.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 91.94771241830065,
+        "acc_sd_probe_seeds": 0.5349016484330782,
+        "acc_range_probe_seeds": 1.3507625272331154,
+        "acc_per_probe_seed": [
+         91.98257080610021,
+         92.41830065359477,
+         91.93899782135077,
+         91.06753812636165,
+         92.33115468409586
+        ]
+       },
+       "class_source_test_acc": 55.86056644880174,
+       "class_target_acc": 35.025597269624576
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 90.7276688453159,
+        "acc_sd_probe_seeds": 0.34226295227286013,
+        "acc_range_probe_seeds": 0.8714596949890989,
+        "acc_per_probe_seed": [
+         91.0239651416122,
+         90.80610021786492,
+         90.71895424836602,
+         90.1525054466231,
+         90.93681917211329
+        ]
+       },
+       "class_source_test_acc": 54.94553376906318,
+       "class_target_acc": 33.23378839590443
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 91.82570806100219,
+        "acc_sd_probe_seeds": 0.2625249730961602,
+        "acc_range_probe_seeds": 0.7407407407407476,
+        "acc_per_probe_seed": [
+         92.2004357298475,
+         91.8082788671024,
+         91.85185185185185,
+         91.8082788671024,
+         91.45969498910675
+        ]
+       },
+       "class_source_test_acc": 59.56427015250545,
+       "class_target_acc": 40.529010238907844
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 90.65795206971679,
+        "acc_sd_probe_seeds": 0.3090304701785989,
+        "acc_range_probe_seeds": 0.6535947712418277,
+        "acc_per_probe_seed": [
+         90.84967320261438,
+         90.89324618736383,
+         90.89324618736383,
+         90.239651416122,
+         90.41394335511983
+        ]
+       },
+       "class_source_test_acc": 56.77559912854031,
+       "class_target_acc": 38.865187713310576
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 91.18082788671025,
+        "acc_sd_probe_seeds": 0.2147931598059486,
+        "acc_range_probe_seeds": 0.5664488017429221,
+        "acc_per_probe_seed": [
+         90.84967320261438,
+         91.24183006535948,
+         91.4161220043573,
+         91.28540305010894,
+         91.11111111111111
+        ]
+       },
+       "class_source_test_acc": 70.98039215686275,
+       "class_target_acc": 49.274744027303754
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 91.76470588235294,
+        "acc_sd_probe_seeds": 0.19728507926225186,
+        "acc_range_probe_seeds": 0.4793028322440023,
+        "acc_per_probe_seed": [
+         91.67755991285404,
+         91.98257080610021,
+         91.93899782135077,
+         91.72113289760348,
+         91.50326797385621
+        ]
+       },
+       "class_source_test_acc": 97.03703703703704,
+       "class_target_acc": 69.11262798634812
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 96.40958605664488,
+        "acc_sd_probe_seeds": 0.09546362658042565,
+        "acc_range_probe_seeds": 0.2614379084967453,
+        "acc_per_probe_seed": [
+         96.29629629629629,
+         96.55773420479304,
+         96.38344226579521,
+         96.38344226579521,
+         96.42701525054467
+        ]
+       },
+       "class_source_test_acc": 95.86056644880175,
+       "class_target_acc": 65.91296928327644
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.46623093681919,
+        "acc_sd_probe_seeds": 0.1698787685369809,
+        "acc_range_probe_seeds": 0.39215686274511086,
+        "acc_per_probe_seed": [
+         98.47494553376906,
+         98.56209150326798,
+         98.16993464052287,
+         98.56209150326798,
+         98.56209150326798
+        ]
+       },
+       "class_source_test_acc": 97.42919389978213,
+       "class_target_acc": 69.7952218430034
+      }
+     }
+    },
+    "r3_m2|1": {
+     "group": "r3_m2",
+     "seed": 1,
+     "file": "r3_m2__seed1__cartoon.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 91.44226579520696,
+        "acc_sd_probe_seeds": 0.5585166080754469,
+        "acc_range_probe_seeds": 1.5250544662309409,
+        "acc_per_probe_seed": [
+         91.63398692810458,
+         92.06971677559913,
+         91.54684095860567,
+         90.54466230936819,
+         91.4161220043573
+        ]
+       },
+       "class_source_test_acc": 56.51416122004357,
+       "class_target_acc": 34.38566552901024
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 90.79738562091504,
+        "acc_sd_probe_seeds": 0.27798061712830513,
+        "acc_range_probe_seeds": 0.7407407407407334,
+        "acc_per_probe_seed": [
+         91.19825708061002,
+         90.45751633986929,
+         90.6318082788671,
+         90.84967320261438,
+         90.84967320261438
+        ]
+       },
+       "class_source_test_acc": 53.15904139433552,
+       "class_target_acc": 32.80716723549488
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 91.0239651416122,
+        "acc_sd_probe_seeds": 0.24455277037738218,
+        "acc_range_probe_seeds": 0.6535947712418277,
+        "acc_per_probe_seed": [
+         91.15468409586057,
+         91.0239651416122,
+         91.32897603485839,
+         90.67538126361656,
+         90.93681917211329
+        ]
+       },
+       "class_source_test_acc": 57.99564270152505,
+       "class_target_acc": 41.382252559726965
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 91.98257080610021,
+        "acc_sd_probe_seeds": 0.24840423204773932,
+        "acc_range_probe_seeds": 0.6100217864923678,
+        "acc_per_probe_seed": [
+         92.02614379084967,
+         92.06971677559913,
+         92.15686274509804,
+         91.54684095860567,
+         92.11328976034858
+        ]
+       },
+       "class_source_test_acc": 60.3921568627451,
+       "class_target_acc": 38.13993174061434
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 92.66230936819171,
+        "acc_sd_probe_seeds": 0.23585827630020614,
+        "acc_range_probe_seeds": 0.6535947712418277,
+        "acc_per_probe_seed": [
+         92.2875816993464,
+         92.6797385620915,
+         92.6797385620915,
+         92.72331154684096,
+         92.94117647058823
+        ]
+       },
+       "class_source_test_acc": 71.11111111111111,
+       "class_target_acc": 45.90443686006826
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 91.64270152505446,
+        "acc_sd_probe_seeds": 0.1753778805882189,
+        "acc_range_probe_seeds": 0.43572984749455657,
+        "acc_per_probe_seed": [
+         91.45969498910675,
+         91.72113289760348,
+         91.63398692810458,
+         91.50326797385621,
+         91.89542483660131
+        ]
+       },
+       "class_source_test_acc": 97.60348583877996,
+       "class_target_acc": 68.1740614334471
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 96.46187363834424,
+        "acc_sd_probe_seeds": 0.11278587455812454,
+        "acc_range_probe_seeds": 0.2614379084967311,
+        "acc_per_probe_seed": [
+         96.60130718954248,
+         96.33986928104575,
+         96.38344226579521,
+         96.42701525054467,
+         96.55773420479304
+        ]
+       },
+       "class_source_test_acc": 97.29847494553377,
+       "class_target_acc": 67.74744027303754
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.30065359477123,
+        "acc_sd_probe_seeds": 0.1021877071856988,
+        "acc_range_probe_seeds": 0.2178649237472854,
+        "acc_per_probe_seed": [
+         98.3442265795207,
+         98.38779956427015,
+         98.38779956427015,
+         98.21350762527233,
+         98.16993464052287
+        ]
+       },
+       "class_source_test_acc": 97.73420479302833,
+       "class_target_acc": 71.50170648464163
+      }
+     }
+    },
+    "r3_m2|2": {
+     "group": "r3_m2",
+     "seed": 2,
+     "file": "r3_m2__seed2__cartoon.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 91.17211328976036,
+        "acc_sd_probe_seeds": 0.29967318281568006,
+        "acc_range_probe_seeds": 0.7407407407407476,
+        "acc_per_probe_seed": [
+         91.4161220043573,
+         91.50326797385621,
+         91.15468409586057,
+         90.76252723311546,
+         91.0239651416122
+        ]
+       },
+       "class_source_test_acc": 54.59694989106754,
+       "class_target_acc": 35.110921501706486
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 90.52723311546842,
+        "acc_sd_probe_seeds": 0.1676286192738211,
+        "acc_range_probe_seeds": 0.43572984749454235,
+        "acc_per_probe_seed": [
+         90.41394335511983,
+         90.76252723311546,
+         90.54466230936819,
+         90.32679738562092,
+         90.58823529411765
+        ]
+       },
+       "class_source_test_acc": 51.98257080610021,
+       "class_target_acc": 30.418088737201366
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 90.77124183006535,
+        "acc_sd_probe_seeds": 0.056812221396101495,
+        "acc_range_probe_seeds": 0.13071895424836555,
+        "acc_per_probe_seed": [
+         90.76252723311546,
+         90.80610021786492,
+         90.67538126361656,
+         90.80610021786492,
+         90.80610021786492
+        ]
+       },
+       "class_source_test_acc": 57.73420479302832,
+       "class_target_acc": 36.81740614334471
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 90.34422657952071,
+        "acc_sd_probe_seeds": 0.1177277218832756,
+        "acc_range_probe_seeds": 0.3050108932461768,
+        "acc_per_probe_seed": [
+         90.28322440087146,
+         90.19607843137256,
+         90.32679738562092,
+         90.41394335511983,
+         90.50108932461873
+        ]
+       },
+       "class_source_test_acc": 59.172113289760354,
+       "class_target_acc": 39.889078498293514
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 90.79738562091504,
+        "acc_sd_probe_seeds": 0.10402907526198907,
+        "acc_range_probe_seeds": 0.2614379084967311,
+        "acc_per_probe_seed": [
+         90.71895424836602,
+         90.93681917211329,
+         90.80610021786492,
+         90.67538126361656,
+         90.84967320261438
+        ]
+       },
+       "class_source_test_acc": 67.01525054466231,
+       "class_target_acc": 45.30716723549488
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 91.93028322440088,
+        "acc_sd_probe_seeds": 0.1247740397671159,
+        "acc_range_probe_seeds": 0.305010893246191,
+        "acc_per_probe_seed": [
+         91.76470588235294,
+         92.02614379084967,
+         91.85185185185185,
+         92.06971677559913,
+         91.93899782135077
+        ]
+       },
+       "class_source_test_acc": 97.03703703703704,
+       "class_target_acc": 68.04607508532423
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 96.2091503267974,
+        "acc_sd_probe_seeds": 0.20437541437138854,
+        "acc_range_probe_seeds": 0.5228758169934622,
+        "acc_per_probe_seed": [
+         96.29629629629629,
+         96.38344226579521,
+         96.20915032679738,
+         95.86056644880175,
+         96.29629629629629
+        ]
+       },
+       "class_source_test_acc": 96.81917211328977,
+       "class_target_acc": 67.19283276450511
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.36165577342048,
+        "acc_sd_probe_seeds": 0.09035486428465056,
+        "acc_range_probe_seeds": 0.21786492374727118,
+        "acc_per_probe_seed": [
+         98.3442265795207,
+         98.47494553376906,
+         98.30065359477123,
+         98.25708061002179,
+         98.4313725490196
+        ]
+       },
+       "class_source_test_acc": 97.4727668845316,
+       "class_target_acc": 69.6245733788396
+      }
+     }
+    },
+    "r3_m2cl|0": {
+     "group": "r3_m2cl",
+     "seed": 0,
+     "file": "r3_m2cl__seed0__cartoon.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 91.99128540305011,
+        "acc_sd_probe_seeds": 0.665398140961083,
+        "acc_range_probe_seeds": 1.742919389978212,
+        "acc_per_probe_seed": [
+         92.02614379084967,
+         92.63616557734204,
+         92.02614379084967,
+         90.89324618736383,
+         92.37472766884531
+        ]
+       },
+       "class_source_test_acc": 56.03485838779957,
+       "class_target_acc": 35.153583617747444
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 90.77995642701526,
+        "acc_sd_probe_seeds": 0.13287974450524326,
+        "acc_range_probe_seeds": 0.3485838779956367,
+        "acc_per_probe_seed": [
+         90.80610021786492,
+         90.93681917211329,
+         90.84967320261438,
+         90.58823529411765,
+         90.71895424836602
+        ]
+       },
+       "class_source_test_acc": 55.07625272331155,
+       "class_target_acc": 32.977815699658706
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 92.15686274509805,
+        "acc_sd_probe_seeds": 0.14451524140982155,
+        "acc_range_probe_seeds": 0.39215686274509665,
+        "acc_per_probe_seed": [
+         92.33115468409586,
+         92.2004357298475,
+         92.2004357298475,
+         92.11328976034858,
+         91.93899782135077
+        ]
+       },
+       "class_source_test_acc": 59.73856209150327,
+       "class_target_acc": 40.91296928327645
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 90.44880174291939,
+        "acc_sd_probe_seeds": 0.1490425392286433,
+        "acc_range_probe_seeds": 0.39215686274509665,
+        "acc_per_probe_seed": [
+         90.58823529411765,
+         90.50108932461873,
+         90.45751633986929,
+         90.19607843137256,
+         90.50108932461873
+        ]
+       },
+       "class_source_test_acc": 57.73420479302832,
+       "class_target_acc": 38.907849829351534
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 90.60566448801742,
+        "acc_sd_probe_seeds": 0.1464726476163069,
+        "acc_range_probe_seeds": 0.3050108932461768,
+        "acc_per_probe_seed": [
+         90.54466230936819,
+         90.76252723311546,
+         90.76252723311546,
+         90.50108932461873,
+         90.45751633986929
+        ]
+       },
+       "class_source_test_acc": 71.93899782135075,
+       "class_target_acc": 50.21331058020478
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 78.25708061002179,
+        "acc_sd_probe_seeds": 0.32019473761871836,
+        "acc_range_probe_seeds": 0.8714596949891131,
+        "acc_per_probe_seed": [
+         78.12636165577342,
+         78.7363834422658,
+         78.3442265795207,
+         77.86492374727669,
+         78.21350762527233
+        ]
+       },
+       "class_source_test_acc": 97.60348583877996,
+       "class_target_acc": 71.45904436860067
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 95.99999999999999,
+        "acc_sd_probe_seeds": 0.11691858705881239,
+        "acc_range_probe_seeds": 0.2614379084967311,
+        "acc_per_probe_seed": [
+         95.9041394335512,
+         95.9041394335512,
+         96.07843137254902,
+         95.94771241830065,
+         96.16557734204792
+        ]
+       },
+       "class_source_test_acc": 96.6884531590414,
+       "class_target_acc": 67.74744027303754
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.33551198257081,
+        "acc_sd_probe_seeds": 0.056812221396102584,
+        "acc_range_probe_seeds": 0.13071895424836555,
+        "acc_per_probe_seed": [
+         98.30065359477123,
+         98.38779956427015,
+         98.25708061002179,
+         98.38779956427015,
+         98.3442265795207
+        ]
+       },
+       "class_source_test_acc": 97.77777777777777,
+       "class_target_acc": 69.24061433447099
+      }
+     }
+    },
+    "r3_m2cl|1": {
+     "group": "r3_m2cl",
+     "seed": 1,
+     "file": "r3_m2cl__seed1__cartoon.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 91.44226579520696,
+        "acc_sd_probe_seeds": 0.41291007374229793,
+        "acc_range_probe_seeds": 1.0893246187363843,
+        "acc_per_probe_seed": [
+         91.67755991285404,
+         91.89542483660131,
+         91.50326797385621,
+         90.80610021786492,
+         91.32897603485839
+        ]
+       },
+       "class_source_test_acc": 56.25272331154684,
+       "class_target_acc": 35.32423208191126
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 90.66666666666666,
+        "acc_sd_probe_seeds": 0.32078714282014736,
+        "acc_range_probe_seeds": 0.8278867102396532,
+        "acc_per_probe_seed": [
+         90.93681917211329,
+         90.10893246187364,
+         90.76252723311546,
+         90.76252723311546,
+         90.76252723311546
+        ]
+       },
+       "class_source_test_acc": 53.246187363834416,
+       "class_target_acc": 33.27645051194539
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 91.25925925925927,
+        "acc_sd_probe_seeds": 0.3059431752774197,
+        "acc_range_probe_seeds": 0.6535947712418277,
+        "acc_per_probe_seed": [
+         91.54684095860567,
+         91.59041394335512,
+         91.24183006535948,
+         90.93681917211329,
+         90.98039215686275
+        ]
+       },
+       "class_source_test_acc": 58.126361655773415,
+       "class_target_acc": 41.04095563139932
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 91.8954248366013,
+        "acc_sd_probe_seeds": 0.31571626898016,
+        "acc_range_probe_seeds": 0.7843137254901933,
+        "acc_per_probe_seed": [
+         91.85185185185185,
+         92.11328976034858,
+         91.98257080610021,
+         91.37254901960785,
+         92.15686274509804
+        ]
+       },
+       "class_source_test_acc": 61.350762527233115,
+       "class_target_acc": 38.35324232081911
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 92.33115468409585,
+        "acc_sd_probe_seeds": 0.06889493813003056,
+        "acc_range_probe_seeds": 0.17429193899782547,
+        "acc_per_probe_seed": [
+         92.37472766884531,
+         92.41830065359477,
+         92.24400871459694,
+         92.2875816993464,
+         92.33115468409586
+        ]
+       },
+       "class_source_test_acc": 74.29193899782135,
+       "class_target_acc": 47.098976109215016
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 78.13507625272332,
+        "acc_sd_probe_seeds": 0.16419558763762204,
+        "acc_range_probe_seeds": 0.34858387799565094,
+        "acc_per_probe_seed": [
+         78.30065359477125,
+         77.9520697167756,
+         77.99564270152506,
+         78.30065359477125,
+         78.12636165577342
+        ]
+       },
+       "class_source_test_acc": 97.6470588235294,
+       "class_target_acc": 69.06996587030717
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 96.11328976034858,
+        "acc_sd_probe_seeds": 0.16127891523591906,
+        "acc_range_probe_seeds": 0.39215686274509665,
+        "acc_per_probe_seed": [
+         96.25272331154684,
+         96.12200435729848,
+         95.86056644880175,
+         96.25272331154684,
+         96.07843137254902
+        ]
+       },
+       "class_source_test_acc": 97.29847494553377,
+       "class_target_acc": 67.53412969283276
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.07407407407406,
+        "acc_sd_probe_seeds": 0.09446397990709726,
+        "acc_range_probe_seeds": 0.2614379084967311,
+        "acc_per_probe_seed": [
+         97.9520697167756,
+         98.21350762527233,
+         98.08278867102396,
+         98.08278867102396,
+         98.0392156862745
+        ]
+       },
+       "class_source_test_acc": 97.82135076252723,
+       "class_target_acc": 70.81911262798634
+      }
+     }
+    },
+    "r3_m2cl|2": {
+     "group": "r3_m2cl",
+     "seed": 2,
+     "file": "r3_m2cl__seed2__cartoon.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 91.2156862745098,
+        "acc_sd_probe_seeds": 0.33554027552380894,
+        "acc_range_probe_seeds": 0.8278867102396532,
+        "acc_per_probe_seed": [
+         91.50326797385621,
+         91.4161220043573,
+         91.37254901960785,
+         90.67538126361656,
+         91.11111111111111
+        ]
+       },
+       "class_source_test_acc": 55.33769063180828,
+       "class_target_acc": 34.98293515358362
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 90.67538126361656,
+        "acc_sd_probe_seeds": 0.17154701250570395,
+        "acc_range_probe_seeds": 0.39215686274509665,
+        "acc_per_probe_seed": [
+         90.50108932461873,
+         90.89324618736383,
+         90.76252723311546,
+         90.50108932461873,
+         90.71895424836602
+        ]
+       },
+       "class_source_test_acc": 52.505446623093675,
+       "class_target_acc": 32.081911262798634
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 90.79738562091504,
+        "acc_sd_probe_seeds": 0.29132051678338605,
+        "acc_range_probe_seeds": 0.6971677559912877,
+        "acc_per_probe_seed": [
+         91.06753812636165,
+         91.11111111111111,
+         90.71895424836602,
+         90.67538126361656,
+         90.41394335511983
+        ]
+       },
+       "class_source_test_acc": 58.692810457516345,
+       "class_target_acc": 37.45733788395905
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 90.16993464052288,
+        "acc_sd_probe_seeds": 0.23383717411762317,
+        "acc_range_probe_seeds": 0.6100217864923678,
+        "acc_per_probe_seed": [
+         90.1525054466231,
+         89.80392156862746,
+         90.32679738562092,
+         90.1525054466231,
+         90.41394335511983
+        ]
+       },
+       "class_source_test_acc": 58.99782135076252,
+       "class_target_acc": 40.05972696245734
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 90.77124183006535,
+        "acc_sd_probe_seeds": 0.06462918071543214,
+        "acc_range_probe_seeds": 0.17429193899782547,
+        "acc_per_probe_seed": [
+         90.76252723311546,
+         90.84967320261438,
+         90.80610021786492,
+         90.67538126361656,
+         90.76252723311546
+        ]
+       },
+       "class_source_test_acc": 69.10675381263617,
+       "class_target_acc": 46.970989761092156
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 79.3115468409586,
+        "acc_sd_probe_seeds": 0.46767434823524795,
+        "acc_range_probe_seeds": 1.0457516339869244,
+        "acc_per_probe_seed": [
+         79.65141612200436,
+         79.43355119825708,
+         78.77995642701525,
+         78.86710239651417,
+         79.82570806100217
+        ]
+       },
+       "class_source_test_acc": 96.99346405228758,
+       "class_target_acc": 70.34982935153583
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 96.15686274509804,
+        "acc_sd_probe_seeds": 0.10849585706308205,
+        "acc_range_probe_seeds": 0.2614379084967311,
+        "acc_per_probe_seed": [
+         96.25272331154684,
+         96.25272331154684,
+         96.16557734204792,
+         96.12200435729848,
+         95.99128540305011
+        ]
+       },
+       "class_source_test_acc": 96.60130718954248,
+       "class_target_acc": 67.06484641638225
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.21350762527234,
+        "acc_sd_probe_seeds": 0.1509412468469584,
+        "acc_range_probe_seeds": 0.3485838779956367,
+        "acc_per_probe_seed": [
+         98.16993464052287,
+         98.4313725490196,
+         98.08278867102396,
+         98.08278867102396,
+         98.30065359477123
+        ]
+       },
+       "class_source_test_acc": 97.60348583877996,
+       "class_target_acc": 69.45392491467577
+      }
+     }
+    }
+   },
+   "n_source": 7647,
+   "n_probe_train": 5352,
+   "n_probe_test": 2295,
+   "majority_baseline": 51.37254901960784,
+   "source_domains": [
+    "art_painting",
+    "photo",
+    "sketch"
+   ]
+  },
+  "photo": {
+   "conditions": {
+    "imagenet|None": {
+     "group": "imagenet",
+     "seed": null,
+     "file": "imagenet__seedNone__all.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 99.13496195434521,
+        "acc_sd_probe_seeds": 0.06701321798430718,
+        "acc_range_probe_seeds": 0.1601922306768131,
+        "acc_per_probe_seed": [
+         99.15899078894674,
+         99.07889467360833,
+         99.11894273127754,
+         99.07889467360833,
+         99.23908690428514
+        ]
+       },
+       "class_source_test_acc": 82.29875851021225,
+       "class_target_acc": 95.74850299401197
+      }
+     }
+    },
+    "r3_m2|0": {
+     "group": "r3_m2",
+     "seed": 0,
+     "file": "r3_m2__seed0__photo.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 95.29034841810173,
+        "acc_sd_probe_seeds": 0.25106012044305187,
+        "acc_range_probe_seeds": 0.600720865038042,
+        "acc_per_probe_seed": [
+         94.95394473368042,
+         95.51461754104926,
+         95.27432919503404,
+         95.55466559871846,
+         95.15418502202643
+        ]
+       },
+       "class_source_test_acc": 55.42651181417702,
+       "class_target_acc": 41.31736526946108
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 95.1862234681618,
+        "acc_sd_probe_seeds": 0.20886511510461314,
+        "acc_range_probe_seeds": 0.5606728073688458,
+        "acc_per_probe_seed": [
+         95.07408890668802,
+         95.23428113736485,
+         94.9138966760112,
+         95.47456948338005,
+         95.23428113736485
+        ]
+       },
+       "class_source_test_acc": 53.584301161393675,
+       "class_target_acc": 36.227544910179645
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 96.78013616339607,
+        "acc_sd_probe_seeds": 0.045661811177374896,
+        "acc_range_probe_seeds": 0.12014417300760272,
+        "acc_per_probe_seed": [
+         96.79615538646375,
+         96.71605927112536,
+         96.83620344413296,
+         96.79615538646375,
+         96.75610732879456
+        ]
+       },
+       "class_source_test_acc": 57.949539447336804,
+       "class_target_acc": 46.52694610778443
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 95.71485782939527,
+        "acc_sd_probe_seeds": 0.1813252931144844,
+        "acc_range_probe_seeds": 0.4405286343612289,
+        "acc_per_probe_seed": [
+         95.79495394473369,
+         95.63476171405686,
+         95.87505006007208,
+         95.83500200240287,
+         95.43452142571086
+        ]
+       },
+       "class_source_test_acc": 54.905887064477376,
+       "class_target_acc": 38.862275449101794
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 94.02482979575491,
+        "acc_sd_probe_seeds": 0.19701039449337643,
+        "acc_range_probe_seeds": 0.4405286343612431,
+        "acc_per_probe_seed": [
+         93.87264717661193,
+         94.19303163796556,
+         93.83259911894272,
+         93.95274329195034,
+         94.27312775330397
+        ]
+       },
+       "class_source_test_acc": 67.36083299959952,
+       "class_target_acc": 69.34131736526946
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 91.62995594713657,
+        "acc_sd_probe_seeds": 0.02831825315124858,
+        "acc_range_probe_seeds": 0.08009611533842076,
+        "acc_per_probe_seed": [
+         91.62995594713657,
+         91.62995594713657,
+         91.58990788946736,
+         91.62995594713657,
+         91.67000400480578
+        ]
+       },
+       "class_source_test_acc": 95.27432919503404,
+       "class_target_acc": 94.79041916167664
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 98.43812575090108,
+        "acc_sd_probe_seeds": 0.049048653239548407,
+        "acc_range_probe_seeds": 0.12014417300760272,
+        "acc_per_probe_seed": [
+         98.43812575090108,
+         98.39807769323188,
+         98.51822186623949,
+         98.39807769323188,
+         98.43812575090108
+        ]
+       },
+       "class_source_test_acc": 94.673608329996,
+       "class_target_acc": 94.25149700598803
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.77452943532238,
+        "acc_sd_probe_seeds": 0.03582007172606177,
+        "acc_range_probe_seeds": 0.08009611533839234,
+        "acc_per_probe_seed": [
+         98.7985582699239,
+         98.7985582699239,
+         98.7985582699239,
+         98.71846215458551,
+         98.7585102122547
+        ]
+       },
+       "class_source_test_acc": 96.47577092511013,
+       "class_target_acc": 95.80838323353294
+      }
+     }
+    },
+    "r3_m2|1": {
+     "group": "r3_m2",
+     "seed": 1,
+     "file": "r3_m2__seed1__photo.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 94.673608329996,
+        "acc_sd_probe_seeds": 0.28033640368441787,
+        "acc_range_probe_seeds": 0.6808169803764486,
+        "acc_per_probe_seed": [
+         94.47336804164999,
+         94.99399279134963,
+         94.87384861834201,
+         94.7136563876652,
+         94.31317581097318
+        ]
+       },
+       "class_source_test_acc": 55.026031237484986,
+       "class_target_acc": 41.43712574850299
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 94.78574289146977,
+        "acc_sd_probe_seeds": 0.2307546702585133,
+        "acc_range_probe_seeds": 0.5606728073688316,
+        "acc_per_probe_seed": [
+         94.5935122146576,
+         94.75370444533439,
+         95.15418502202643,
+         94.5935122146576,
+         94.83380056067281
+        ]
+       },
+       "class_source_test_acc": 52.58309971966359,
+       "class_target_acc": 29.101796407185628
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 96.331597917501,
+        "acc_sd_probe_seeds": 0.11880173787898585,
+        "acc_range_probe_seeds": 0.3203844613536262,
+        "acc_per_probe_seed": [
+         96.19543452142571,
+         96.35562675210252,
+         96.51581898277934,
+         96.27553063676412,
+         96.31557869443333
+        ]
+       },
+       "class_source_test_acc": 57.30877052462956,
+       "class_target_acc": 38.08383233532934
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 95.43452142571086,
+        "acc_sd_probe_seeds": 0.16019223067680954,
+        "acc_range_probe_seeds": 0.40048057669201853,
+        "acc_per_probe_seed": [
+         95.63476171405686,
+         95.23428113736485,
+         95.51461754104926,
+         95.31437725270324,
+         95.47456948338005
+        ]
+       },
+       "class_source_test_acc": 57.228674409291145,
+       "class_target_acc": 42.874251497005986
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 93.54425310372447,
+        "acc_sd_probe_seeds": 0.11468018472788197,
+        "acc_range_probe_seeds": 0.2803364036844158,
+        "acc_per_probe_seed": [
+         93.55226271525831,
+         93.55226271525831,
+         93.63235883059671,
+         93.63235883059671,
+         93.3520224269123
+        ]
+       },
+       "class_source_test_acc": 67.32078494193031,
+       "class_target_acc": 60.4191616766467
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 92.14257108530236,
+        "acc_sd_probe_seeds": 0.11112885002412552,
+        "acc_range_probe_seeds": 0.28033640368443,
+        "acc_per_probe_seed": [
+         92.27072486984382,
+         92.23067681217461,
+         91.99038846615939,
+         92.11053263916699,
+         92.11053263916699
+        ]
+       },
+       "class_source_test_acc": 96.83620344413296,
+       "class_target_acc": 96.10778443113772
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 98.39006808169803,
+        "acc_sd_probe_seeds": 0.05221627877615015,
+        "acc_range_probe_seeds": 0.12014417300760272,
+        "acc_per_probe_seed": [
+         98.35802963556267,
+         98.35802963556267,
+         98.39807769323188,
+         98.35802963556267,
+         98.47817380857028
+        ]
+       },
+       "class_source_test_acc": 96.39567480977172,
+       "class_target_acc": 94.25149700598803
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.66239487384863,
+        "acc_sd_probe_seeds": 0.03582007172607448,
+        "acc_range_probe_seeds": 0.08009611533842076,
+        "acc_per_probe_seed": [
+         98.63836603924709,
+         98.6784140969163,
+         98.63836603924709,
+         98.63836603924709,
+         98.71846215458551
+        ]
+       },
+       "class_source_test_acc": 96.99639567480978,
+       "class_target_acc": 95.80838323353294
+      }
+     }
+    },
+    "r3_m2|2": {
+     "group": "r3_m2",
+     "seed": 2,
+     "file": "r3_m2__seed2__photo.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 95.01802162595114,
+        "acc_sd_probe_seeds": 0.20143814721600833,
+        "acc_range_probe_seeds": 0.5206247496996355,
+        "acc_per_probe_seed": [
+         94.83380056067281,
+         95.03404084901882,
+         94.95394473368042,
+         95.35442531037245,
+         94.9138966760112
+        ]
+       },
+       "class_source_test_acc": 55.146175410492596,
+       "class_target_acc": 40.119760479041915
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 95.53063676411695,
+        "acc_sd_probe_seeds": 0.49746716497734417,
+        "acc_range_probe_seeds": 1.2414897877452944,
+        "acc_per_probe_seed": [
+         95.83500200240287,
+         94.7937525030036,
+         96.0352422907489,
+         95.71485782939527,
+         95.27432919503404
+        ]
+       },
+       "class_source_test_acc": 52.34281137364838,
+       "class_target_acc": 30.898203592814372
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 96.31557869443333,
+        "acc_sd_probe_seeds": 0.1132730126049692,
+        "acc_range_probe_seeds": 0.320384461353612,
+        "acc_per_probe_seed": [
+         96.31557869443333,
+         96.47577092511013,
+         96.31557869443333,
+         96.15538646375651,
+         96.31557869443333
+        ]
+       },
+       "class_source_test_acc": 55.2663195835002,
+       "class_target_acc": 44.31137724550898
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 95.45855026031236,
+        "acc_sd_probe_seeds": 0.15144309492341881,
+        "acc_range_probe_seeds": 0.36043251902282236,
+        "acc_per_probe_seed": [
+         95.47456948338005,
+         95.55466559871846,
+         95.19423307969564,
+         95.55466559871846,
+         95.51461754104926
+        ]
+       },
+       "class_source_test_acc": 56.78814577492992,
+       "class_target_acc": 37.30538922155689
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 94.2010412494994,
+        "acc_sd_probe_seeds": 0.1111288500241245,
+        "acc_range_probe_seeds": 0.28033640368443,
+        "acc_per_probe_seed": [
+         94.27312775330397,
+         94.23307969563476,
+         94.31317581097318,
+         94.03283940728875,
+         94.15298358029635
+        ]
+       },
+       "class_source_test_acc": 67.40088105726872,
+       "class_target_acc": 62.9940119760479
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 91.30156187424909,
+        "acc_sd_probe_seeds": 0.12472896677931951,
+        "acc_range_probe_seeds": 0.3203844613536404,
+        "acc_per_probe_seed": [
+         91.30957148578294,
+         91.22947537044453,
+         91.26952342811374,
+         91.18942731277532,
+         91.50981177412896
+        ]
+       },
+       "class_source_test_acc": 96.43572286744093,
+       "class_target_acc": 95.26946107784431
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 98.22987585102123,
+        "acc_sd_probe_seeds": 0.0770339770191095,
+        "acc_range_probe_seeds": 0.20024028834602348,
+        "acc_per_probe_seed": [
+         98.31798157789348,
+         98.27793352022427,
+         98.23788546255507,
+         98.19783740488587,
+         98.11774128954745
+        ]
+       },
+       "class_source_test_acc": 95.95514617541049,
+       "class_target_acc": 93.23353293413173
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.39006808169803,
+        "acc_sd_probe_seeds": 0.03350660899215465,
+        "acc_range_probe_seeds": 0.08009611533840655,
+        "acc_per_probe_seed": [
+         98.35802963556267,
+         98.39807769323188,
+         98.43812575090108,
+         98.35802963556267,
+         98.39807769323188
+        ]
+       },
+       "class_source_test_acc": 97.07649179014818,
+       "class_target_acc": 96.2874251497006
+      }
+     }
+    },
+    "r3_m2cl|0": {
+     "group": "r3_m2cl",
+     "seed": 0,
+     "file": "r3_m2cl__seed0__photo.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 95.41850220264317,
+        "acc_sd_probe_seeds": 0.3057846883271288,
+        "acc_range_probe_seeds": 0.6407689227072524,
+        "acc_per_probe_seed": [
+         95.07408890668802,
+         95.71485782939527,
+         95.51461754104926,
+         95.67480977172606,
+         95.11413696435723
+        ]
+       },
+       "class_source_test_acc": 55.226271525830995,
+       "class_target_acc": 40.89820359281437
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 95.29034841810171,
+        "acc_sd_probe_seeds": 0.1404539680957145,
+        "acc_range_probe_seeds": 0.36043251902282236,
+        "acc_per_probe_seed": [
+         95.31437725270324,
+         95.19423307969564,
+         95.11413696435723,
+         95.47456948338005,
+         95.35442531037245
+        ]
+       },
+       "class_source_test_acc": 53.50420504605526,
+       "class_target_acc": 36.047904191616766
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 96.90028033640368,
+        "acc_sd_probe_seeds": 0.134623438638139,
+        "acc_range_probe_seeds": 0.3203844613536262,
+        "acc_per_probe_seed": [
+         96.95634761714057,
+         96.99639567480978,
+         96.87625150180216,
+         96.67601121345615,
+         96.99639567480978
+        ]
+       },
+       "class_source_test_acc": 58.069683620344414,
+       "class_target_acc": 46.52694610778443
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 95.76291549859833,
+        "acc_sd_probe_seeds": 0.10366182703680661,
+        "acc_range_probe_seeds": 0.28033640368443,
+        "acc_per_probe_seed": [
+         95.75490588706448,
+         95.71485782939527,
+         95.79495394473369,
+         95.9150981177413,
+         95.63476171405686
+        ]
+       },
+       "class_source_test_acc": 55.62675210252303,
+       "class_target_acc": 38.44311377245509
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 94.84181017220664,
+        "acc_sd_probe_seeds": 0.13402643596861435,
+        "acc_range_probe_seeds": 0.3203844613536262,
+        "acc_per_probe_seed": [
+         94.7937525030036,
+         94.75370444533439,
+         94.75370444533439,
+         94.83380056067281,
+         95.07408890668802
+        ]
+       },
+       "class_source_test_acc": 68.68241890268322,
+       "class_target_acc": 69.82035928143713
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 80.72086503804564,
+        "acc_sd_probe_seeds": 0.19741702112721055,
+        "acc_range_probe_seeds": 0.5206247496996355,
+        "acc_per_probe_seed": [
+         80.61674008810573,
+         80.73688426111335,
+         80.81698037645174,
+         80.45654785742892,
+         80.97717260712855
+        ]
+       },
+       "class_source_test_acc": 95.39447336804166,
+       "class_target_acc": 94.55089820359281
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 98.41409691629954,
+        "acc_sd_probe_seeds": 0.045661811177374896,
+        "acc_range_probe_seeds": 0.12014417300760272,
+        "acc_per_probe_seed": [
+         98.35802963556267,
+         98.39807769323188,
+         98.47817380857028,
+         98.43812575090108,
+         98.39807769323188
+        ]
+       },
+       "class_source_test_acc": 94.43331998398078,
+       "class_target_acc": 93.7125748502994
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.62234681617943,
+        "acc_sd_probe_seeds": 0.0727509095898496,
+        "acc_range_probe_seeds": 0.20024028834602348,
+        "acc_per_probe_seed": [
+         98.59831798157789,
+         98.63836603924709,
+         98.71846215458551,
+         98.51822186623949,
+         98.63836603924709
+        ]
+       },
+       "class_source_test_acc": 96.87625150180216,
+       "class_target_acc": 95.8682634730539
+      }
+     }
+    },
+    "r3_m2cl|1": {
+     "group": "r3_m2cl",
+     "seed": 1,
+     "file": "r3_m2cl__seed1__photo.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 94.96195434521425,
+        "acc_sd_probe_seeds": 0.12147177323270757,
+        "acc_range_probe_seeds": 0.3203844613536262,
+        "acc_per_probe_seed": [
+         94.75370444533439,
+         94.99399279134963,
+         94.99399279134963,
+         95.07408890668802,
+         94.99399279134963
+        ]
+       },
+       "class_source_test_acc": 55.42651181417702,
+       "class_target_acc": 41.01796407185629
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 94.83380056067281,
+        "acc_sd_probe_seeds": 0.15766936071309012,
+        "acc_range_probe_seeds": 0.36043251902282236,
+        "acc_per_probe_seed": [
+         94.7136563876652,
+         94.7136563876652,
+         95.07408890668802,
+         94.75370444533439,
+         94.9138966760112
+        ]
+       },
+       "class_source_test_acc": 52.623147777332804,
+       "class_target_acc": 28.323353293413174
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 96.41169403283939,
+        "acc_sd_probe_seeds": 0.07806803640215255,
+        "acc_range_probe_seeds": 0.20024028834600927,
+        "acc_per_probe_seed": [
+         96.35562675210252,
+         96.43572286744093,
+         96.43572286744093,
+         96.51581898277934,
+         96.31557869443333
+        ]
+       },
+       "class_source_test_acc": 57.228674409291145,
+       "class_target_acc": 36.706586826347305
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 95.46655987184621,
+        "acc_sd_probe_seeds": 0.13100061861270262,
+        "acc_range_probe_seeds": 0.36043251902282236,
+        "acc_per_probe_seed": [
+         95.43452142571086,
+         95.27432919503404,
+         95.63476171405686,
+         95.51461754104926,
+         95.47456948338005
+        ]
+       },
+       "class_source_test_acc": 58.51021225470565,
+       "class_target_acc": 43.17365269461077
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 93.6323588305967,
+        "acc_sd_probe_seeds": 0.10595720108388489,
+        "acc_range_probe_seeds": 0.2803364036844158,
+        "acc_per_probe_seed": [
+         93.79255106127353,
+         93.67240688826593,
+         93.5923107729275,
+         93.5923107729275,
+         93.51221465758911
+        ]
+       },
+       "class_source_test_acc": 69.04285142170605,
+       "class_target_acc": 67.60479041916167
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 75.13816579895875,
+        "acc_sd_probe_seeds": 0.21825272876953955,
+        "acc_range_probe_seeds": 0.5606728073688316,
+        "acc_per_probe_seed": [
+         75.0100120144173,
+         74.8898678414097,
+         75.0901081297557,
+         75.45054064877853,
+         75.25030036043252
+        ]
+       },
+       "class_source_test_acc": 96.59591509811774,
+       "class_target_acc": 95.80838323353294
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 98.13376051261514,
+        "acc_sd_probe_seeds": 0.06701321798431396,
+        "acc_range_probe_seeds": 0.1601922306768273,
+        "acc_per_probe_seed": [
+         98.07769323187824,
+         98.23788546255507,
+         98.07769323187824,
+         98.11774128954745,
+         98.15778934721666
+        ]
+       },
+       "class_source_test_acc": 96.63596315578694,
+       "class_target_acc": 95.50898203592814
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.5022026431718,
+        "acc_sd_probe_seeds": 0.03582007172607447,
+        "acc_range_probe_seeds": 0.08009611533842076,
+        "acc_per_probe_seed": [
+         98.47817380857028,
+         98.51822186623949,
+         98.5582699239087,
+         98.47817380857028,
+         98.47817380857028
+        ]
+       },
+       "class_source_test_acc": 96.91629955947137,
+       "class_target_acc": 96.10778443113772
+      }
+     }
+    },
+    "r3_m2cl|2": {
+     "group": "r3_m2cl",
+     "seed": 2,
+     "file": "r3_m2cl__seed2__photo.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 95.15418502202644,
+        "acc_sd_probe_seeds": 0.21191440216777047,
+        "acc_range_probe_seeds": 0.5606728073688458,
+        "acc_per_probe_seed": [
+         94.7937525030036,
+         95.19423307969564,
+         95.19423307969564,
+         95.35442531037245,
+         95.23428113736485
+        ]
+       },
+       "class_source_test_acc": 55.2663195835002,
+       "class_target_acc": 39.76047904191617
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 95.58670404485383,
+        "acc_sd_probe_seeds": 0.48257494053318617,
+        "acc_range_probe_seeds": 1.0412494993992851,
+        "acc_per_probe_seed": [
+         95.87505006007208,
+         94.9138966760112,
+         95.95514617541049,
+         95.95514617541049,
+         95.23428113736485
+        ]
+       },
+       "class_source_test_acc": 52.10252302763316,
+       "class_target_acc": 30.29940119760479
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 96.26752102523028,
+        "acc_sd_probe_seeds": 0.08682212009883004,
+        "acc_range_probe_seeds": 0.24028834601520543,
+        "acc_per_probe_seed": [
+         96.39567480977172,
+         96.27553063676412,
+         96.27553063676412,
+         96.15538646375651,
+         96.2354825790949
+        ]
+       },
+       "class_source_test_acc": 56.86824189026832,
+       "class_target_acc": 43.952095808383234
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 95.89907889467362,
+        "acc_sd_probe_seeds": 0.1759381869162089,
+        "acc_range_probe_seeds": 0.4405286343612289,
+        "acc_per_probe_seed": [
+         95.9951942330797,
+         96.0352422907489,
+         95.59471365638767,
+         95.9150981177413,
+         95.95514617541049
+        ]
+       },
+       "class_source_test_acc": 57.30877052462956,
+       "class_target_acc": 35.74850299401198
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 94.15298358029636,
+        "acc_sd_probe_seeds": 0.1675330449607605,
+        "acc_range_probe_seeds": 0.4405286343612147,
+        "acc_per_probe_seed": [
+         94.23307969563476,
+         94.19303163796556,
+         94.35322386864236,
+         93.91269523428114,
+         94.07288746495796
+        ]
+       },
+       "class_source_test_acc": 68.4020824989988,
+       "class_target_acc": 66.1676646706587
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 74.06487785342411,
+        "acc_sd_probe_seeds": 0.1713195805863663,
+        "acc_range_probe_seeds": 0.4405286343612431,
+        "acc_per_probe_seed": [
+         73.96876251501801,
+         74.00881057268722,
+         74.32919503404085,
+         73.88866639967961,
+         74.12895474569483
+        ]
+       },
+       "class_source_test_acc": 96.35562675210252,
+       "class_target_acc": 95.32934131736526
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 98.00560672807369,
+        "acc_sd_probe_seeds": 0.05221627877615015,
+        "acc_range_probe_seeds": 0.12014417300760272,
+        "acc_per_probe_seed": [
+         97.95754905887064,
+         97.99759711653985,
+         98.07769323187824,
+         98.03764517420905,
+         97.95754905887064
+        ]
+       },
+       "class_source_test_acc": 96.0752903484181,
+       "class_target_acc": 94.61077844311377
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 98.29395274329195,
+        "acc_sd_probe_seeds": 0.11537733512925999,
+        "acc_range_probe_seeds": 0.28033640368443,
+        "acc_per_probe_seed": [
+         98.11774128954745,
+         98.35802963556267,
+         98.39807769323188,
+         98.23788546255507,
+         98.35802963556267
+        ]
+       },
+       "class_source_test_acc": 96.99639567480978,
+       "class_target_acc": 96.2874251497006
+      }
+     }
+    }
+   },
+   "n_source": 8321,
+   "n_probe_train": 5824,
+   "n_probe_test": 2497,
+   "majority_baseline": 47.21665999199039,
+   "source_domains": [
+    "art_painting",
+    "cartoon",
+    "sketch"
+   ]
+  },
+  "sketch": {
+   "conditions": {
+    "imagenet|None": {
+     "group": "imagenet",
+     "seed": null,
+     "file": "imagenet__seedNone__all.npz",
+     "layers": {
+      "backbone": {
+       "domain": {
+        "acc_mean": 96.10775151181969,
+        "acc_sd_probe_seeds": 0.3143700594941336,
+        "acc_range_probe_seeds": 0.8246289169873506,
+        "acc_per_probe_seed": [
+         96.26168224299066,
+         96.0417811984607,
+         96.20670698185816,
+         95.60197910940077,
+         96.42660802638812
+        ]
+       },
+       "class_source_test_acc": 88.94997251236944,
+       "class_target_acc": 45.17688979384067
+      }
+     }
+    },
+    "r3_m2|0": {
+     "group": "r3_m2",
+     "seed": 0,
+     "file": "r3_m2__seed0__sketch.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 81.38537658053875,
+        "acc_sd_probe_seeds": 0.37608865039004147,
+        "acc_range_probe_seeds": 0.9345794392523317,
+        "acc_per_probe_seed": [
+         81.52831225948324,
+         81.85816382627817,
+         81.0885101704233,
+         80.92358438702584,
+         81.52831225948324
+        ]
+       },
+       "class_source_test_acc": 52.17152281473337,
+       "class_target_acc": 33.51997963858488
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 82.39692138537659,
+        "acc_sd_probe_seeds": 0.2996025639018924,
+        "acc_range_probe_seeds": 0.769653655854853,
+        "acc_per_probe_seed": [
+         82.02308960967565,
+         82.7927432655305,
+         82.18801539307312,
+         82.51786695986806,
+         82.46289169873558
+        ]
+       },
+       "class_source_test_acc": 49.20285871357889,
+       "class_target_acc": 31.71290404683125
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 84.96976360637714,
+        "acc_sd_probe_seeds": 0.23836705210202147,
+        "acc_range_probe_seeds": 0.6597031335898862,
+        "acc_per_probe_seed": [
+         84.99175371083012,
+         85.32160527762507,
+         84.66190214403518,
+         84.88180318856514,
+         84.99175371083012
+        ]
+       },
+       "class_source_test_acc": 55.525013743815286,
+       "class_target_acc": 35.072537541359125
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 80.90159428257286,
+        "acc_sd_probe_seeds": 0.12044476250801213,
+        "acc_range_probe_seeds": 0.2748763056624597,
+        "acc_per_probe_seed": [
+         80.97855964815834,
+         80.70368334249588,
+         80.97855964815834,
+         80.86860912589334,
+         80.97855964815834
+        ]
+       },
+       "class_source_test_acc": 53.60087960417812,
+       "class_target_acc": 34.20717739882922
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 82.08905992303463,
+        "acc_sd_probe_seeds": 0.23128844384785427,
+        "acc_range_probe_seeds": 0.6047278724573886,
+        "acc_per_probe_seed": [
+         81.74821330401319,
+         82.07806487080813,
+         82.2429906542056,
+         82.35294117647058,
+         82.02308960967565
+        ]
+       },
+       "class_source_test_acc": 68.66410115448048,
+       "class_target_acc": 42.70806821074065
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 82.35294117647058,
+        "acc_sd_probe_seeds": 0.3036108031112504,
+        "acc_range_probe_seeds": 0.6597031335898862,
+        "acc_per_probe_seed": [
+         82.62781748213304,
+         82.07806487080813,
+         82.02308960967565,
+         82.68279274326554,
+         82.35294117647058
+        ]
+       },
+       "class_source_test_acc": 96.31665750412314,
+       "class_target_acc": 56.273861033341824
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 93.53490929081913,
+        "acc_sd_probe_seeds": 0.06268144173167038,
+        "acc_range_probe_seeds": 0.16492578339746444,
+        "acc_per_probe_seed": [
+         93.51291918636613,
+         93.56789444749862,
+         93.45794392523365,
+         93.51291918636613,
+         93.62286970863111
+        ]
+       },
+       "class_source_test_acc": 95.82188015393072,
+       "class_target_acc": 57.546449478238735
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 95.92083562396923,
+        "acc_sd_probe_seeds": 0.18804432519501882,
+        "acc_range_probe_seeds": 0.49477735019240754,
+        "acc_per_probe_seed": [
+         95.65695437053327,
+         96.0417811984607,
+         95.87685541506322,
+         95.87685541506322,
+         96.15173172072568
+        ]
+       },
+       "class_source_test_acc": 97.47113798790544,
+       "class_target_acc": 62.2295749554594
+      }
+     }
+    },
+    "r3_m2|1": {
+     "group": "r3_m2",
+     "seed": 1,
+     "file": "r3_m2__seed1__sketch.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 81.45134689389775,
+        "acc_sd_probe_seeds": 0.20049018723266018,
+        "acc_range_probe_seeds": 0.49477735019240754,
+        "acc_per_probe_seed": [
+         81.47333699835075,
+         81.58328752061573,
+         81.30841121495327,
+         81.19846069268829,
+         81.6932380428807
+        ]
+       },
+       "class_source_test_acc": 51.18196811434854,
+       "class_target_acc": 34.91982692797149
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 81.84716877405167,
+        "acc_sd_probe_seeds": 0.30952585509090785,
+        "acc_range_probe_seeds": 0.8246289169873364,
+        "acc_per_probe_seed": [
+         81.80318856514567,
+         81.6932380428807,
+         82.35294117647058,
+         81.85816382627817,
+         81.52831225948324
+        ]
+       },
+       "class_source_test_acc": 47.00384826827928,
+       "class_target_acc": 33.41817256299313
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 84.0131940626718,
+        "acc_sd_probe_seeds": 0.28139601741769815,
+        "acc_range_probe_seeds": 0.6597031335899004,
+        "acc_per_probe_seed": [
+         83.67234744365035,
+         84.33205057724025,
+         83.78229796591535,
+         84.0571742715778,
+         84.22210005497526
+        ]
+       },
+       "class_source_test_acc": 53.21605277625069,
+       "class_target_acc": 37.71952150674472
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 83.67234744365037,
+        "acc_sd_probe_seeds": 0.4648580133394098,
+        "acc_range_probe_seeds": 1.0995052226498103,
+        "acc_per_probe_seed": [
+         83.78229796591535,
+         83.89224848818031,
+         84.27707531610776,
+         83.23254535459044,
+         83.17757009345794
+        ]
+       },
+       "class_source_test_acc": 53.93073117097307,
+       "class_target_acc": 36.24331891066429
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 83.4634414513469,
+        "acc_sd_probe_seeds": 0.21077833438901644,
+        "acc_range_probe_seeds": 0.49477735019242175,
+        "acc_per_probe_seed": [
+         83.34249587685541,
+         83.3974711379879,
+         83.83727322704783,
+         83.34249587685541,
+         83.3974711379879
+        ]
+       },
+       "class_source_test_acc": 66.57504123144585,
+       "class_target_acc": 46.57673708322728
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 83.33150082462893,
+        "acc_sd_probe_seeds": 0.11918352605100778,
+        "acc_range_probe_seeds": 0.2748763056624455,
+        "acc_per_probe_seed": [
+         83.50742166025289,
+         83.23254535459044,
+         83.23254535459044,
+         83.3974711379879,
+         83.28752061572293
+        ]
+       },
+       "class_source_test_acc": 95.38207806487081,
+       "class_target_acc": 61.51692542631713
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 93.08411214953271,
+        "acc_sd_probe_seeds": 0.26192697635121936,
+        "acc_range_probe_seeds": 0.6597031335898862,
+        "acc_per_probe_seed": [
+         93.1280923584387,
+         93.1280923584387,
+         92.63331500824629,
+         93.29301814183617,
+         93.23804288070369
+        ]
+       },
+       "class_source_test_acc": 95.21715228147333,
+       "class_target_acc": 58.513616696360394
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 95.51401869158877,
+        "acc_sd_probe_seeds": 0.10716651286211239,
+        "acc_range_probe_seeds": 0.2748763056624597,
+        "acc_per_probe_seed": [
+         95.54700384826828,
+         95.32710280373831,
+         95.54700384826828,
+         95.54700384826828,
+         95.60197910940077
+        ]
+       },
+       "class_source_test_acc": 96.5915338097856,
+       "class_target_acc": 65.8691779078646
+      }
+     }
+    },
+    "r3_m2|2": {
+     "group": "r3_m2",
+     "seed": 2,
+     "file": "r3_m2__seed2__sketch.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 80.90159428257283,
+        "acc_sd_probe_seeds": 0.2710007156430158,
+        "acc_range_probe_seeds": 0.6597031335898862,
+        "acc_per_probe_seed": [
+         80.5387575590984,
+         81.14348543155579,
+         80.81363386476086,
+         80.81363386476086,
+         81.19846069268829
+        ]
+       },
+       "class_source_test_acc": 50.79714128642111,
+       "class_target_acc": 25.06999236446933
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 81.85816382627817,
+        "acc_sd_probe_seeds": 0.2549097992164874,
+        "acc_range_probe_seeds": 0.6047278724574028,
+        "acc_per_probe_seed": [
+         81.85816382627817,
+         81.74821330401319,
+         81.6932380428807,
+         81.6932380428807,
+         82.2979659153381
+        ]
+       },
+       "class_source_test_acc": 45.794392523364486,
+       "class_target_acc": 33.570883176380754
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 85.31061022539856,
+        "acc_sd_probe_seeds": 0.38756584347476025,
+        "acc_range_probe_seeds": 0.9345794392523459,
+        "acc_per_probe_seed": [
+         85.59648158328753,
+         85.26663001649258,
+         85.59648158328753,
+         84.66190214403518,
+         85.43155579989005
+        ]
+       },
+       "class_source_test_acc": 52.72127542605828,
+       "class_target_acc": 35.75973530160346
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 80.26388125343595,
+        "acc_sd_probe_seeds": 0.1166201398328592,
+        "acc_range_probe_seeds": 0.2748763056624597,
+        "acc_per_probe_seed": [
+         80.31885651456845,
+         80.15393073117097,
+         80.15393073117097,
+         80.42880703683343,
+         80.26388125343595
+        ]
+       },
+       "class_source_test_acc": 54.70038482682793,
+       "class_target_acc": 38.27946042249936
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 82.75975810885102,
+        "acc_sd_probe_seeds": 0.33575440317982636,
+        "acc_range_probe_seeds": 0.9345794392523459,
+        "acc_per_probe_seed": [
+         82.68279274326554,
+         82.2979659153381,
+         82.73776800439802,
+         82.847718526663,
+         83.23254535459044
+        ]
+       },
+       "class_source_test_acc": 69.43375481033534,
+       "class_target_acc": 41.46093153474166
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 81.64925783397472,
+        "acc_sd_probe_seeds": 0.1667482230687529,
+        "acc_range_probe_seeds": 0.43980208905992413,
+        "acc_per_probe_seed": [
+         81.41836173721825,
+         81.74821330401319,
+         81.58328752061573,
+         81.85816382627817,
+         81.63826278174821
+        ]
+       },
+       "class_source_test_acc": 95.71192963166575,
+       "class_target_acc": 61.46602188852125
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 93.43595382078065,
+        "acc_sd_probe_seeds": 0.29757819907035155,
+        "acc_range_probe_seeds": 0.7146783947223696,
+        "acc_per_probe_seed": [
+         92.96316657504123,
+         93.51291918636613,
+         93.6778449697636,
+         93.6778449697636,
+         93.34799340296867
+        ]
+       },
+       "class_source_test_acc": 95.9868059373282,
+       "class_target_acc": 58.7172308475439
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 95.66794942275976,
+        "acc_sd_probe_seeds": 0.08154148968769304,
+        "acc_range_probe_seeds": 0.21990104452996206,
+        "acc_per_probe_seed": [
+         95.65695437053327,
+         95.76690489279824,
+         95.65695437053327,
+         95.54700384826828,
+         95.71192963166575
+        ]
+       },
+       "class_source_test_acc": 96.97636063771303,
+       "class_target_acc": 64.82565538304912
+      }
+     }
+    },
+    "r3_m2cl|0": {
+     "group": "r3_m2cl",
+     "seed": 0,
+     "file": "r3_m2cl__seed0__sketch.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 81.28642111050027,
+        "acc_sd_probe_seeds": 0.32196922406479317,
+        "acc_range_probe_seeds": 0.7696536558548672,
+        "acc_per_probe_seed": [
+         81.58328752061573,
+         81.63826278174821,
+         80.86860912589334,
+         81.19846069268829,
+         81.14348543155579
+        ]
+       },
+       "class_source_test_acc": 51.89664650907092,
+       "class_target_acc": 33.24001018070756
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 82.49587685541505,
+        "acc_sd_probe_seeds": 0.19280569452171914,
+        "acc_range_probe_seeds": 0.49477735019242175,
+        "acc_per_probe_seed": [
+         82.18801539307312,
+         82.62781748213304,
+         82.51786695986806,
+         82.46289169873558,
+         82.68279274326554
+        ]
+       },
+       "class_source_test_acc": 49.31280923584387,
+       "class_target_acc": 31.458386357851868
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 84.85981308411215,
+        "acc_sd_probe_seeds": 0.11399912783577561,
+        "acc_range_probe_seeds": 0.2748763056624455,
+        "acc_per_probe_seed": [
+         84.99175371083012,
+         84.71687740516768,
+         84.88180318856514,
+         84.77185266630016,
+         84.93677844969764
+        ]
+       },
+       "class_source_test_acc": 56.40461792193513,
+       "class_target_acc": 34.53805039450242
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 80.86860912589336,
+        "acc_sd_probe_seeds": 0.08692352007060337,
+        "acc_range_probe_seeds": 0.21990104452997628,
+        "acc_per_probe_seed": [
+         80.92358438702584,
+         80.75865860362836,
+         80.86860912589334,
+         80.97855964815834,
+         80.81363386476086
+        ]
+       },
+       "class_source_test_acc": 54.09565695437053,
+       "class_target_acc": 33.41817256299313
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 82.51786695986807,
+        "acc_sd_probe_seeds": 0.24585684194610571,
+        "acc_range_probe_seeds": 0.6047278724574028,
+        "acc_per_probe_seed": [
+         82.2429906542056,
+         82.68279274326554,
+         82.35294117647058,
+         82.46289169873558,
+         82.847718526663
+        ]
+       },
+       "class_source_test_acc": 70.8631115997801,
+       "class_target_acc": 42.148129294986006
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 73.7328202308961,
+        "acc_sd_probe_seeds": 0.10574702617741061,
+        "acc_range_probe_seeds": 0.2748763056624455,
+        "acc_per_probe_seed": [
+         73.77680043980209,
+         73.7218251786696,
+         73.61187465640462,
+         73.6668499175371,
+         73.88675096206707
+        ]
+       },
+       "class_source_test_acc": 95.9868059373282,
+       "class_target_acc": 65.89462967676253
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 92.6443100604728,
+        "acc_sd_probe_seeds": 0.2813960174176913,
+        "acc_range_probe_seeds": 0.769653655854853,
+        "acc_per_probe_seed": [
+         92.19351291918638,
+         92.96316657504123,
+         92.68829026937878,
+         92.63331500824629,
+         92.74326553051127
+        ]
+       },
+       "class_source_test_acc": 95.54700384826828,
+       "class_target_acc": 60.72792059048104
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 95.77789994502476,
+        "acc_sd_probe_seeds": 0.136887296294537,
+        "acc_range_probe_seeds": 0.3298515667949289,
+        "acc_per_probe_seed": [
+         95.76690489279824,
+         95.82188015393072,
+         95.65695437053327,
+         95.65695437053327,
+         95.9868059373282
+        ]
+       },
+       "class_source_test_acc": 97.36118746564047,
+       "class_target_acc": 64.03665054721304
+      }
+     }
+    },
+    "r3_m2cl|1": {
+     "group": "r3_m2cl",
+     "seed": 1,
+     "file": "r3_m2cl__seed1__sketch.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 81.51731720725674,
+        "acc_sd_probe_seeds": 0.3238411539312383,
+        "acc_range_probe_seeds": 0.8246289169873506,
+        "acc_per_probe_seed": [
+         81.47333699835075,
+         81.41836173721825,
+         81.36338647608576,
+         81.25343595382078,
+         82.07806487080813
+        ]
+       },
+       "class_source_test_acc": 50.79714128642111,
+       "class_target_acc": 34.716212776787984
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 81.57229246838924,
+        "acc_sd_probe_seeds": 0.2893391394599409,
+        "acc_range_probe_seeds": 0.7696536558548672,
+        "acc_per_probe_seed": [
+         81.41836173721825,
+         81.63826278174821,
+         82.02308960967565,
+         81.52831225948324,
+         81.25343595382078
+        ]
+       },
+       "class_source_test_acc": 46.94887300714679,
+       "class_target_acc": 33.34181725629931
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 84.11214953271028,
+        "acc_sd_probe_seeds": 0.20199200737629627,
+        "acc_range_probe_seeds": 0.49477735019242175,
+        "acc_per_probe_seed": [
+         84.0021990104453,
+         84.27707531610776,
+         84.11214953271028,
+         83.83727322704783,
+         84.33205057724025
+        ]
+       },
+       "class_source_test_acc": 53.54590434304563,
+       "class_target_acc": 37.61771443115297
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 83.67234744365037,
+        "acc_sd_probe_seeds": 0.39452171782318146,
+        "acc_range_probe_seeds": 1.0445299615173127,
+        "acc_per_probe_seed": [
+         83.61737218251787,
+         83.78229796591535,
+         84.27707531610776,
+         83.45244639912039,
+         83.23254535459044
+        ]
+       },
+       "class_source_test_acc": 54.20560747663551,
+       "class_target_acc": 36.34512598625604
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 83.33150082462892,
+        "acc_sd_probe_seeds": 0.3143700594941336,
+        "acc_range_probe_seeds": 0.6597031335898862,
+        "acc_per_probe_seed": [
+         83.06761957119296,
+         83.72732270478285,
+         83.61737218251787,
+         83.12259483232546,
+         83.12259483232546
+        ]
+       },
+       "class_source_test_acc": 68.99395272127543,
+       "class_target_acc": 48.00203614151183
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 76.15173172072568,
+        "acc_sd_probe_seeds": 0.1525501586092516,
+        "acc_range_probe_seeds": 0.3848268279274265,
+        "acc_per_probe_seed": [
+         76.08576140736668,
+         76.30566245189665,
+         75.92083562396923,
+         76.25068719076415,
+         76.19571192963167
+        ]
+       },
+       "class_source_test_acc": 95.93183067619572,
+       "class_target_acc": 62.407737337744976
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 92.69928532160529,
+        "acc_sd_probe_seeds": 0.13688729629454927,
+        "acc_range_probe_seeds": 0.3298515667949573,
+        "acc_per_probe_seed": [
+         92.4683892248488,
+         92.79824079164376,
+         92.68829026937878,
+         92.79824079164376,
+         92.74326553051127
+        ]
+       },
+       "class_source_test_acc": 95.4370533260033,
+       "class_target_acc": 60.16798167472639
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 95.4260582737768,
+        "acc_sd_probe_seeds": 0.07167897092031736,
+        "acc_range_probe_seeds": 0.16492578339747865,
+        "acc_per_probe_seed": [
+         95.38207806487081,
+         95.32710280373831,
+         95.4370533260033,
+         95.49202858713579,
+         95.49202858713579
+        ]
+       },
+       "class_source_test_acc": 96.70148433205058,
+       "class_target_acc": 65.89462967676253
+      }
+     }
+    },
+    "r3_m2cl|2": {
+     "group": "r3_m2cl",
+     "seed": 2,
+     "file": "r3_m2cl__seed2__sketch.npz",
+     "layers": {
+      "eb1a": {
+       "domain": {
+        "acc_mean": 81.2204507971413,
+        "acc_sd_probe_seeds": 0.2566820787230098,
+        "acc_range_probe_seeds": 0.6597031335898862,
+        "acc_per_probe_seed": [
+         80.92358438702584,
+         81.36338647608576,
+         81.14348543155579,
+         81.0885101704233,
+         81.58328752061573
+        ]
+       },
+       "class_source_test_acc": 50.467289719626166,
+       "class_target_acc": 25.55357597353016
+      },
+      "eb1": {
+       "domain": {
+        "acc_mean": 81.95711929631665,
+        "acc_sd_probe_seeds": 0.3284743099788858,
+        "acc_range_probe_seeds": 0.8246289169873648,
+        "acc_per_probe_seed": [
+         81.96811434854315,
+         81.80318856514567,
+         81.6932380428807,
+         81.80318856514567,
+         82.51786695986806
+        ]
+       },
+       "class_source_test_acc": 45.90434304562947,
+       "class_target_acc": 33.97811147874778
+      },
+      "eb2a": {
+       "domain": {
+        "acc_mean": 85.15667949422759,
+        "acc_sd_probe_seeds": 0.4168705576718835,
+        "acc_range_probe_seeds": 0.9895547003848293,
+        "acc_per_probe_seed": [
+         85.48653106102255,
+         84.99175371083012,
+         85.43155579989005,
+         84.49697636063772,
+         85.37658053875757
+        ]
+       },
+       "class_source_test_acc": 52.88620120945574,
+       "class_target_acc": 35.50521761262408
+      },
+      "eb2": {
+       "domain": {
+        "acc_mean": 80.31885651456845,
+        "acc_sd_probe_seeds": 0.03887337994428528,
+        "acc_range_probe_seeds": 0.10995052226498103,
+        "acc_per_probe_seed": [
+         80.31885651456845,
+         80.31885651456845,
+         80.26388125343595,
+         80.31885651456845,
+         80.37383177570094
+        ]
+       },
+       "class_source_test_acc": 55.030236393622864,
+       "class_target_acc": 37.38864851107152
+      },
+      "eb3": {
+       "domain": {
+        "acc_mean": 83.33150082462892,
+        "acc_sd_probe_seeds": 0.19591566444425665,
+        "acc_range_probe_seeds": 0.4398020890599099,
+        "acc_per_probe_seed": [
+         83.56239692138537,
+         83.28752061572293,
+         83.17757009345794,
+         83.12259483232546,
+         83.50742166025289
+        ]
+       },
+       "class_source_test_acc": 71.08301264431006,
+       "class_target_acc": 41.969966912700436
+      },
+      "eb4": {
+       "domain": {
+        "acc_mean": 70.2693787795492,
+        "acc_sd_probe_seeds": 0.26479592256827544,
+        "acc_range_probe_seeds": 0.6597031335898862,
+        "acc_per_probe_seed": [
+         69.98350742166025,
+         70.20340846619021,
+         70.64321055525014,
+         70.42330951072017,
+         70.09345794392523
+        ]
+       },
+       "class_source_test_acc": 96.5915338097856,
+       "class_target_acc": 66.70908628149657
+      },
+      "eb_concat": {
+       "domain": {
+        "acc_mean": 92.72127542605827,
+        "acc_sd_probe_seeds": 0.16308297937539135,
+        "acc_range_probe_seeds": 0.43980208905993834,
+        "acc_per_probe_seed": [
+         92.68829026937878,
+         92.74326553051127,
+         92.90819131390874,
+         92.4683892248488,
+         92.79824079164376
+        ]
+       },
+       "class_source_test_acc": 96.70148433205058,
+       "class_target_acc": 60.5752099770934
+      },
+      "backbone": {
+       "domain": {
+        "acc_mean": 95.47003848268278,
+        "acc_sd_probe_seeds": 0.3379972765022388,
+        "acc_range_probe_seeds": 0.9345794392523317,
+        "acc_per_probe_seed": [
+         94.94227597581089,
+         95.4370533260033,
+         95.54700384826828,
+         95.54700384826828,
+         95.87685541506322
+        ]
+       },
+       "class_source_test_acc": 97.08631115997801,
+       "class_target_acc": 66.30185797912955
+      }
+     }
+    }
+   },
+   "n_source": 6062,
+   "n_probe_train": 4243,
+   "n_probe_test": 1819,
+   "majority_baseline": 38.64760857614073,
+   "source_domains": [
+    "art_painting",
+    "cartoon",
+    "photo"
+   ]
+  }
+ }
+}

@@ -444,7 +444,7 @@ The repository was pushed to https://github.com/MaxRC2007/M2CL-Reproduction. Git
 
 **F21 addendum (8 Nov 2026).** The owner decided not to retrain the M2 runs on torch 2.14.1. The PyTorch version change is reported in the paper as a limitation of the PACS primary test, not measured.
 
-### F24 - Exploratory leakage re-probe of the round-3 checkpoints (8 Nov 2026, started)
+### F24 - Exploratory leakage re-probe of the round-3 checkpoints (8 Nov 2026, finished 05:02 IST)
 This is not pre-registered. The leakage sections of the draft probed networks whose contrastive term was inert. To probe networks where it is active, the 36 round-3 best checkpoints (M2 and M2-CL at alpha 0.07, ERM; lr 1e-3; seeds 0-2) were extracted from archive zips 06 and 07 into `Honors/probe_work/round3_ckpts`. They are probed with the same pipeline and settings as `results/leakage/raw_*`:
 - driver: `scripts/run_probes_round3.py`;
 - inputs: `configs/leakage_manifest_round3.yaml` and `configs/comparisons_round3.yaml`;
@@ -455,6 +455,26 @@ Families:
 - each method vs the ImageNet-only control.
 
 It runs on the laptop CPU. The log is `results/leakage/round3.log`.
+
+**Result (finished 8 Nov 05:02 IST; about 4 h with feature extraction).** All 36 checkpoints were probed: 4 targets x 3 seeds per method, 5 probe seeds each. Outputs are in `results/leakage/round3_taps` and `round3_erm`, with tables in `results/tables/round3_taps/tables.md` and `round3_erm/tables.md`. The probe noise floor is SD 0.10-0.31 pp. The class-probe sanity check passes (source-test class accuracy 96.9-97.7% for trained networks, 82-89% for ImageNet).
+
+Domain-probe accuracy, M2-CL minus M2 (12 seed-matched pairs; mean, with range):
+
+| tap | M2 | M2-CL | difference | pairs lower |
+|---|---|---|---|---|
+| eb1a, eb1, eb2a, eb2, eb3 | 90.8-92.6 | the same | +0.04 to +0.12 (each pair within -0.58 to +0.82) | 1-7 of 12 |
+| **eb4** | **90.0** | **76.8** | **-13.2 (-17.2 to -7.2)** | **12 of 12** |
+| eb_concat | 96.9 | 96.6 | -0.30 (-0.89 to -0.02) | 12 of 12 |
+| backbone (GAP of layer4) | 98.0 | 97.9 | -0.12 (-0.23 to -0.03) | 12 of 12 |
+
+- **The active term removes domain information at one place only, eb4 (the last extraction block).** It does so in every pair and every target domain, Benjamini-Hochberg significant in all 12. Class information at eb4 is kept: source class accuracy +0.09 pp, target class accuracy +2.44 pp. So this is not a collapse of the representation.
+- The loss is applied with equal weight to all six taps, yet the five earlier taps show no change beyond the probe noise.
+- **The classifier's input still carries the domain.** The classifier sees all taps plus the backbone GAP. eb_concat and the backbone change by -0.3 and -0.1 pp. These shifts are consistent in sign but 40-100x smaller than at eb4, and domain identity stays 96-98% decodable there.
+- **No method reduces backbone domain information meaningfully.** Against the ImageNet-only backbone, ERM, M2 and M2-CL are all 0.1-0.8 pp lower. Their 12-pair ranges overlap: ERM -0.11 to -0.76; M2 -0.16 to -0.74; M2-CL -0.29 to -0.84.
+- Reading: at an active strength (alpha 0.07, gradient share in the range of the authors' code), the contrastive term reshapes the block it acts on most strongly. Domain information is still present in the other taps and the backbone, which reach the classifier. This fits the inconclusive accuracy result (+0.44 pp, F21). It replaces the draft's leakage claims, which were measured on networks with an inert term (F8-F9).
+- The 6-tap pattern (eb4 only) is an observation, not a tested hypothesis. Why the earlier taps are unaffected (for example, where the loss gradient concentrates) is not established.
+- The `[warn] family r3_cl_effect_at_taps: no matching conditions` line in the log comes from the ERM-only table pass. That pass has no M2/M2-CL groups, so the warning is expected; the family is reported in `round3_taps`.
+- **Status:** exploratory, not pre-registered. Round 4 (F25) does not probe representations.
 
 ### F25 - Round 4 planned: the authors' own code (8 Nov 2026)
 `docs/PREREGISTRATION_ROUND4.md` was written and pushed before any run. It covers the authors' `M2CL` at commit 0b1bce3, unmodified, ResNet-18, `lparam` 0.01 vs 0, 12 seed-matched pairs on PACS, on the institute machine. It uses the same decision rule and margin as round 3.

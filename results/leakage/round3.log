@@ -1,0 +1,266 @@
+[2026-11-08 00:51:49] START features
+[skip] imagenet__seedNone__all.npz
+[extract] r3_m2__seed0__art_painting.npz
+[extract] r3_m2__seed1__art_painting.npz
+[extract] r3_m2__seed2__art_painting.npz
+[extract] r3_m2__seed0__cartoon.npz
+[extract] r3_m2__seed1__cartoon.npz
+[extract] r3_m2__seed2__cartoon.npz
+[extract] r3_m2__seed0__photo.npz
+[extract] r3_m2__seed1__photo.npz
+[extract] r3_m2__seed2__photo.npz
+[extract] r3_m2__seed0__sketch.npz
+[extract] r3_m2__seed1__sketch.npz
+[extract] r3_m2__seed2__sketch.npz
+[extract] r3_m2cl__seed0__art_painting.npz
+[extract] r3_m2cl__seed1__art_painting.npz
+[extract] r3_m2cl__seed2__art_painting.npz
+[extract] r3_m2cl__seed0__cartoon.npz
+[extract] r3_m2cl__seed1__cartoon.npz
+[extract] r3_m2cl__seed2__cartoon.npz
+[extract] r3_m2cl__seed0__photo.npz
+[extract] r3_m2cl__seed1__photo.npz
+[extract] r3_m2cl__seed2__photo.npz
+[extract] r3_m2cl__seed0__sketch.npz
+[extract] r3_m2cl__seed1__sketch.npz
+[extract] r3_m2cl__seed2__sketch.npz
+[extract] r3_erm__seed0__art_painting.npz
+[extract] r3_erm__seed1__art_painting.npz
+[extract] r3_erm__seed2__art_painting.npz
+[extract] r3_erm__seed0__cartoon.npz
+[extract] r3_erm__seed1__cartoon.npz
+[extract] r3_erm__seed2__cartoon.npz
+[extract] r3_erm__seed0__photo.npz
+[extract] r3_erm__seed1__photo.npz
+[extract] r3_erm__seed2__photo.npz
+[extract] r3_erm__seed0__sketch.npz
+[extract] r3_erm__seed1__sketch.npz
+[extract] r3_erm__seed2__sketch.npz
+index: features_r3\index.json (37 conditions)
+[2026-11-08 03:35:53] DONE features
+[2026-11-08 03:35:53] START M2 / M2-CL probes, every tap
+[art_painting] imagenet|None          backbone   domain= 99.61 (probe-seed sd 0.02)  class(src/tgt)=85.4/69.1
+[art_painting] r3_m2|0                eb1a       domain= 97.79 (probe-seed sd 0.19)  class(src/tgt)=59.6/27.4
+[art_painting] r3_m2|0                eb1        domain= 97.07 (probe-seed sd 0.24)  class(src/tgt)=55.4/29.1
+[art_painting] r3_m2|0                eb2a       domain= 97.75 (probe-seed sd 0.09)  class(src/tgt)=62.0/29.8
+[art_painting] r3_m2|0                eb2        domain= 96.48 (probe-seed sd 0.09)  class(src/tgt)=61.1/29.3
+[art_painting] r3_m2|0                eb3        domain= 95.35 (probe-seed sd 0.12)  class(src/tgt)=71.6/41.9
+[art_painting] r3_m2|0                eb4        domain= 94.13 (probe-seed sd 0.15)  class(src/tgt)=96.6/72.9
+[art_painting] r3_m2|0                eb_concat  domain= 99.60 (probe-seed sd 0.02)  class(src/tgt)=96.1/72.0
+[art_painting] r3_m2|0                backbone   domain= 99.35 (probe-seed sd 0.16)  class(src/tgt)=97.3/73.5
+[art_painting] r3_m2|1                eb1a       domain= 97.21 (probe-seed sd 0.27)  class(src/tgt)=59.1/27.7
+[art_painting] r3_m2|1                eb1        domain= 97.52 (probe-seed sd 0.08)  class(src/tgt)=56.3/27.7
+[art_painting] r3_m2|1                eb2a       domain= 98.41 (probe-seed sd 0.19)  class(src/tgt)=61.9/30.2
+[art_painting] r3_m2|1                eb2        domain= 97.21 (probe-seed sd 0.21)  class(src/tgt)=62.2/29.7
+[art_painting] r3_m2|1                eb3        domain= 95.54 (probe-seed sd 0.14)  class(src/tgt)=72.6/43.2
+[art_painting] r3_m2|1                eb4        domain= 94.43 (probe-seed sd 0.16)  class(src/tgt)=97.5/75.2
+[art_painting] r3_m2|1                eb_concat  domain= 99.56 (probe-seed sd 0.04)  class(src/tgt)=97.2/73.3
+[art_painting] r3_m2|1                backbone   domain= 99.25 (probe-seed sd 0.10)  class(src/tgt)=97.6/74.6
+[art_painting] r3_m2|2                eb1a       domain= 97.55 (probe-seed sd 0.16)  class(src/tgt)=59.2/26.2
+[art_painting] r3_m2|2                eb1        domain= 96.91 (probe-seed sd 0.09)  class(src/tgt)=55.3/26.5
+[art_painting] r3_m2|2                eb2a       domain= 98.19 (probe-seed sd 0.08)  class(src/tgt)=59.7/29.8
+[art_painting] r3_m2|2                eb2        domain= 97.13 (probe-seed sd 0.17)  class(src/tgt)=59.5/32.2
+[art_painting] r3_m2|2                eb3        domain= 93.94 (probe-seed sd 0.09)  class(src/tgt)=70.6/44.0
+[art_painting] r3_m2|2                eb4        domain= 93.55 (probe-seed sd 0.13)  class(src/tgt)=96.9/77.3
+[art_painting] r3_m2|2                eb_concat  domain= 99.61 (probe-seed sd 0.04)  class(src/tgt)=96.3/76.1
+[art_painting] r3_m2|2                backbone   domain= 99.23 (probe-seed sd 0.14)  class(src/tgt)=97.4/74.8
+[art_painting] r3_m2cl|0              eb1a       domain= 97.89 (probe-seed sd 0.12)  class(src/tgt)=59.8/27.1
+[art_painting] r3_m2cl|0              eb1        domain= 96.96 (probe-seed sd 0.21)  class(src/tgt)=56.0/29.0
+[art_painting] r3_m2cl|0              eb2a       domain= 97.89 (probe-seed sd 0.14)  class(src/tgt)=62.2/30.3
+[art_painting] r3_m2cl|0              eb2        domain= 96.81 (probe-seed sd 0.09)  class(src/tgt)=62.3/28.7
+[art_painting] r3_m2cl|0              eb3        domain= 95.92 (probe-seed sd 0.12)  class(src/tgt)=73.2/44.0
+[art_painting] r3_m2cl|0              eb4        domain= 78.75 (probe-seed sd 0.58)  class(src/tgt)=96.8/76.6
+[art_painting] r3_m2cl|0              eb_concat  domain= 99.38 (probe-seed sd 0.04)  class(src/tgt)=96.3/72.8
+[art_painting] r3_m2cl|0              backbone   domain= 99.26 (probe-seed sd 0.13)  class(src/tgt)=97.7/74.5
+[art_painting] r3_m2cl|1              eb1a       domain= 97.44 (probe-seed sd 0.16)  class(src/tgt)=59.7/27.9
+[art_painting] r3_m2cl|1              eb1        domain= 97.73 (probe-seed sd 0.08)  class(src/tgt)=56.8/27.7
+[art_painting] r3_m2cl|1              eb2a       domain= 98.65 (probe-seed sd 0.14)  class(src/tgt)=62.1/29.9
+[art_painting] r3_m2cl|1              eb2        domain= 97.49 (probe-seed sd 0.15)  class(src/tgt)=62.4/29.9
+[art_painting] r3_m2cl|1              eb3        domain= 95.47 (probe-seed sd 0.11)  class(src/tgt)=73.3/45.8
+[art_painting] r3_m2cl|1              eb4        domain= 77.61 (probe-seed sd 0.59)  class(src/tgt)=97.1/78.0
+[art_painting] r3_m2cl|1              eb_concat  domain= 99.53 (probe-seed sd 0.04)  class(src/tgt)=97.3/74.1
+[art_painting] r3_m2cl|1              backbone   domain= 99.23 (probe-seed sd 0.08)  class(src/tgt)=97.5/75.2
+[art_painting] r3_m2cl|2              eb1a       domain= 97.71 (probe-seed sd 0.10)  class(src/tgt)=59.8/26.0
+[art_painting] r3_m2cl|2              eb1        domain= 97.12 (probe-seed sd 0.13)  class(src/tgt)=55.8/26.1
+[art_painting] r3_m2cl|2              eb2a       domain= 98.36 (probe-seed sd 0.09)  class(src/tgt)=60.5/30.4
+[art_painting] r3_m2cl|2              eb2        domain= 97.33 (probe-seed sd 0.20)  class(src/tgt)=61.1/31.8
+[art_painting] r3_m2cl|2              eb3        domain= 93.89 (probe-seed sd 0.11)  class(src/tgt)=70.8/46.9
+[art_painting] r3_m2cl|2              eb4        domain= 79.01 (probe-seed sd 0.52)  class(src/tgt)=96.6/79.2
+[art_painting] r3_m2cl|2              eb_concat  domain= 99.56 (probe-seed sd 0.08)  class(src/tgt)=96.4/73.7
+[art_painting] r3_m2cl|2              backbone   domain= 99.19 (probe-seed sd 0.09)  class(src/tgt)=97.6/75.6
+[cartoon     ] imagenet|None          backbone   domain= 98.62 (probe-seed sd 0.09)  class(src/tgt)=87.2/51.1
+[cartoon     ] r3_m2|0                eb1a       domain= 91.95 (probe-seed sd 0.53)  class(src/tgt)=55.9/35.0
+[cartoon     ] r3_m2|0                eb1        domain= 90.73 (probe-seed sd 0.34)  class(src/tgt)=54.9/33.2
+[cartoon     ] r3_m2|0                eb2a       domain= 91.83 (probe-seed sd 0.26)  class(src/tgt)=59.6/40.5
+[cartoon     ] r3_m2|0                eb2        domain= 90.66 (probe-seed sd 0.31)  class(src/tgt)=56.8/38.9
+[cartoon     ] r3_m2|0                eb3        domain= 91.18 (probe-seed sd 0.21)  class(src/tgt)=71.0/49.3
+[cartoon     ] r3_m2|0                eb4        domain= 91.76 (probe-seed sd 0.20)  class(src/tgt)=97.0/69.1
+[cartoon     ] r3_m2|0                eb_concat  domain= 96.41 (probe-seed sd 0.10)  class(src/tgt)=95.9/65.9
+[cartoon     ] r3_m2|0                backbone   domain= 98.47 (probe-seed sd 0.17)  class(src/tgt)=97.4/69.8
+[cartoon     ] r3_m2|1                eb1a       domain= 91.44 (probe-seed sd 0.56)  class(src/tgt)=56.5/34.4
+[cartoon     ] r3_m2|1                eb1        domain= 90.80 (probe-seed sd 0.28)  class(src/tgt)=53.2/32.8
+[cartoon     ] r3_m2|1                eb2a       domain= 91.02 (probe-seed sd 0.24)  class(src/tgt)=58.0/41.4
+[cartoon     ] r3_m2|1                eb2        domain= 91.98 (probe-seed sd 0.25)  class(src/tgt)=60.4/38.1
+[cartoon     ] r3_m2|1                eb3        domain= 92.66 (probe-seed sd 0.24)  class(src/tgt)=71.1/45.9
+[cartoon     ] r3_m2|1                eb4        domain= 91.64 (probe-seed sd 0.18)  class(src/tgt)=97.6/68.2
+[cartoon     ] r3_m2|1                eb_concat  domain= 96.46 (probe-seed sd 0.11)  class(src/tgt)=97.3/67.7
+[cartoon     ] r3_m2|1                backbone   domain= 98.30 (probe-seed sd 0.10)  class(src/tgt)=97.7/71.5
+[cartoon     ] r3_m2|2                eb1a       domain= 91.17 (probe-seed sd 0.30)  class(src/tgt)=54.6/35.1
+[cartoon     ] r3_m2|2                eb1        domain= 90.53 (probe-seed sd 0.17)  class(src/tgt)=52.0/30.4
+[cartoon     ] r3_m2|2                eb2a       domain= 90.77 (probe-seed sd 0.06)  class(src/tgt)=57.7/36.8
+[cartoon     ] r3_m2|2                eb2        domain= 90.34 (probe-seed sd 0.12)  class(src/tgt)=59.2/39.9
+[cartoon     ] r3_m2|2                eb3        domain= 90.80 (probe-seed sd 0.10)  class(src/tgt)=67.0/45.3
+[cartoon     ] r3_m2|2                eb4        domain= 91.93 (probe-seed sd 0.12)  class(src/tgt)=97.0/68.0
+[cartoon     ] r3_m2|2                eb_concat  domain= 96.21 (probe-seed sd 0.20)  class(src/tgt)=96.8/67.2
+[cartoon     ] r3_m2|2                backbone   domain= 98.36 (probe-seed sd 0.09)  class(src/tgt)=97.5/69.6
+[cartoon     ] r3_m2cl|0              eb1a       domain= 91.99 (probe-seed sd 0.67)  class(src/tgt)=56.0/35.2
+[cartoon     ] r3_m2cl|0              eb1        domain= 90.78 (probe-seed sd 0.13)  class(src/tgt)=55.1/33.0
+[cartoon     ] r3_m2cl|0              eb2a       domain= 92.16 (probe-seed sd 0.14)  class(src/tgt)=59.7/40.9
+[cartoon     ] r3_m2cl|0              eb2        domain= 90.45 (probe-seed sd 0.15)  class(src/tgt)=57.7/38.9
+[cartoon     ] r3_m2cl|0              eb3        domain= 90.61 (probe-seed sd 0.15)  class(src/tgt)=71.9/50.2
+[cartoon     ] r3_m2cl|0              eb4        domain= 78.26 (probe-seed sd 0.32)  class(src/tgt)=97.6/71.5
+[cartoon     ] r3_m2cl|0              eb_concat  domain= 96.00 (probe-seed sd 0.12)  class(src/tgt)=96.7/67.7
+[cartoon     ] r3_m2cl|0              backbone   domain= 98.34 (probe-seed sd 0.06)  class(src/tgt)=97.8/69.2
+[cartoon     ] r3_m2cl|1              eb1a       domain= 91.44 (probe-seed sd 0.41)  class(src/tgt)=56.3/35.3
+[cartoon     ] r3_m2cl|1              eb1        domain= 90.67 (probe-seed sd 0.32)  class(src/tgt)=53.2/33.3
+[cartoon     ] r3_m2cl|1              eb2a       domain= 91.26 (probe-seed sd 0.31)  class(src/tgt)=58.1/41.0
+[cartoon     ] r3_m2cl|1              eb2        domain= 91.90 (probe-seed sd 0.32)  class(src/tgt)=61.4/38.4
+[cartoon     ] r3_m2cl|1              eb3        domain= 92.33 (probe-seed sd 0.07)  class(src/tgt)=74.3/47.1
+[cartoon     ] r3_m2cl|1              eb4        domain= 78.14 (probe-seed sd 0.16)  class(src/tgt)=97.6/69.1
+[cartoon     ] r3_m2cl|1              eb_concat  domain= 96.11 (probe-seed sd 0.16)  class(src/tgt)=97.3/67.5
+[cartoon     ] r3_m2cl|1              backbone   domain= 98.07 (probe-seed sd 0.09)  class(src/tgt)=97.8/70.8
+[cartoon     ] r3_m2cl|2              eb1a       domain= 91.22 (probe-seed sd 0.34)  class(src/tgt)=55.3/35.0
+[cartoon     ] r3_m2cl|2              eb1        domain= 90.68 (probe-seed sd 0.17)  class(src/tgt)=52.5/32.1
+[cartoon     ] r3_m2cl|2              eb2a       domain= 90.80 (probe-seed sd 0.29)  class(src/tgt)=58.7/37.5
+[cartoon     ] r3_m2cl|2              eb2        domain= 90.17 (probe-seed sd 0.23)  class(src/tgt)=59.0/40.1
+[cartoon     ] r3_m2cl|2              eb3        domain= 90.77 (probe-seed sd 0.06)  class(src/tgt)=69.1/47.0
+[cartoon     ] r3_m2cl|2              eb4        domain= 79.31 (probe-seed sd 0.47)  class(src/tgt)=97.0/70.3
+[cartoon     ] r3_m2cl|2              eb_concat  domain= 96.16 (probe-seed sd 0.11)  class(src/tgt)=96.6/67.1
+[cartoon     ] r3_m2cl|2              backbone   domain= 98.21 (probe-seed sd 0.15)  class(src/tgt)=97.6/69.5
+[photo       ] imagenet|None          backbone   domain= 99.13 (probe-seed sd 0.07)  class(src/tgt)=82.3/95.7
+[photo       ] r3_m2|0                eb1a       domain= 95.29 (probe-seed sd 0.25)  class(src/tgt)=55.4/41.3
+[photo       ] r3_m2|0                eb1        domain= 95.19 (probe-seed sd 0.21)  class(src/tgt)=53.6/36.2
+[photo       ] r3_m2|0                eb2a       domain= 96.78 (probe-seed sd 0.05)  class(src/tgt)=57.9/46.5
+[photo       ] r3_m2|0                eb2        domain= 95.71 (probe-seed sd 0.18)  class(src/tgt)=54.9/38.9
+[photo       ] r3_m2|0                eb3        domain= 94.02 (probe-seed sd 0.20)  class(src/tgt)=67.4/69.3
+[photo       ] r3_m2|0                eb4        domain= 91.63 (probe-seed sd 0.03)  class(src/tgt)=95.3/94.8
+[photo       ] r3_m2|0                eb_concat  domain= 98.44 (probe-seed sd 0.05)  class(src/tgt)=94.7/94.3
+[photo       ] r3_m2|0                backbone   domain= 98.77 (probe-seed sd 0.04)  class(src/tgt)=96.5/95.8
+[photo       ] r3_m2|1                eb1a       domain= 94.67 (probe-seed sd 0.28)  class(src/tgt)=55.0/41.4
+[photo       ] r3_m2|1                eb1        domain= 94.79 (probe-seed sd 0.23)  class(src/tgt)=52.6/29.1
+[photo       ] r3_m2|1                eb2a       domain= 96.33 (probe-seed sd 0.12)  class(src/tgt)=57.3/38.1
+[photo       ] r3_m2|1                eb2        domain= 95.43 (probe-seed sd 0.16)  class(src/tgt)=57.2/42.9
+[photo       ] r3_m2|1                eb3        domain= 93.54 (probe-seed sd 0.11)  class(src/tgt)=67.3/60.4
+[photo       ] r3_m2|1                eb4        domain= 92.14 (probe-seed sd 0.11)  class(src/tgt)=96.8/96.1
+[photo       ] r3_m2|1                eb_concat  domain= 98.39 (probe-seed sd 0.05)  class(src/tgt)=96.4/94.3
+[photo       ] r3_m2|1                backbone   domain= 98.66 (probe-seed sd 0.04)  class(src/tgt)=97.0/95.8
+[photo       ] r3_m2|2                eb1a       domain= 95.02 (probe-seed sd 0.20)  class(src/tgt)=55.1/40.1
+[photo       ] r3_m2|2                eb1        domain= 95.53 (probe-seed sd 0.50)  class(src/tgt)=52.3/30.9
+[photo       ] r3_m2|2                eb2a       domain= 96.32 (probe-seed sd 0.11)  class(src/tgt)=55.3/44.3
+[photo       ] r3_m2|2                eb2        domain= 95.46 (probe-seed sd 0.15)  class(src/tgt)=56.8/37.3
+[photo       ] r3_m2|2                eb3        domain= 94.20 (probe-seed sd 0.11)  class(src/tgt)=67.4/63.0
+[photo       ] r3_m2|2                eb4        domain= 91.30 (probe-seed sd 0.12)  class(src/tgt)=96.4/95.3
+[photo       ] r3_m2|2                eb_concat  domain= 98.23 (probe-seed sd 0.08)  class(src/tgt)=96.0/93.2
+[photo       ] r3_m2|2                backbone   domain= 98.39 (probe-seed sd 0.03)  class(src/tgt)=97.1/96.3
+[photo       ] r3_m2cl|0              eb1a       domain= 95.42 (probe-seed sd 0.31)  class(src/tgt)=55.2/40.9
+[photo       ] r3_m2cl|0              eb1        domain= 95.29 (probe-seed sd 0.14)  class(src/tgt)=53.5/36.0
+[photo       ] r3_m2cl|0              eb2a       domain= 96.90 (probe-seed sd 0.13)  class(src/tgt)=58.1/46.5
+[photo       ] r3_m2cl|0              eb2        domain= 95.76 (probe-seed sd 0.10)  class(src/tgt)=55.6/38.4
+[photo       ] r3_m2cl|0              eb3        domain= 94.84 (probe-seed sd 0.13)  class(src/tgt)=68.7/69.8
+[photo       ] r3_m2cl|0              eb4        domain= 80.72 (probe-seed sd 0.20)  class(src/tgt)=95.4/94.6
+[photo       ] r3_m2cl|0              eb_concat  domain= 98.41 (probe-seed sd 0.05)  class(src/tgt)=94.4/93.7
+[photo       ] r3_m2cl|0              backbone   domain= 98.62 (probe-seed sd 0.07)  class(src/tgt)=96.9/95.9
+[photo       ] r3_m2cl|1              eb1a       domain= 94.96 (probe-seed sd 0.12)  class(src/tgt)=55.4/41.0
+[photo       ] r3_m2cl|1              eb1        domain= 94.83 (probe-seed sd 0.16)  class(src/tgt)=52.6/28.3
+[photo       ] r3_m2cl|1              eb2a       domain= 96.41 (probe-seed sd 0.08)  class(src/tgt)=57.2/36.7
+[photo       ] r3_m2cl|1              eb2        domain= 95.47 (probe-seed sd 0.13)  class(src/tgt)=58.5/43.2
+[photo       ] r3_m2cl|1              eb3        domain= 93.63 (probe-seed sd 0.11)  class(src/tgt)=69.0/67.6
+[photo       ] r3_m2cl|1              eb4        domain= 75.14 (probe-seed sd 0.22)  class(src/tgt)=96.6/95.8
+[photo       ] r3_m2cl|1              eb_concat  domain= 98.13 (probe-seed sd 0.07)  class(src/tgt)=96.6/95.5
+[photo       ] r3_m2cl|1              backbone   domain= 98.50 (probe-seed sd 0.04)  class(src/tgt)=96.9/96.1
+[photo       ] r3_m2cl|2              eb1a       domain= 95.15 (probe-seed sd 0.21)  class(src/tgt)=55.3/39.8
+[photo       ] r3_m2cl|2              eb1        domain= 95.59 (probe-seed sd 0.48)  class(src/tgt)=52.1/30.3
+[photo       ] r3_m2cl|2              eb2a       domain= 96.27 (probe-seed sd 0.09)  class(src/tgt)=56.9/44.0
+[photo       ] r3_m2cl|2              eb2        domain= 95.90 (probe-seed sd 0.18)  class(src/tgt)=57.3/35.7
+[photo       ] r3_m2cl|2              eb3        domain= 94.15 (probe-seed sd 0.17)  class(src/tgt)=68.4/66.2
+[photo       ] r3_m2cl|2              eb4        domain= 74.06 (probe-seed sd 0.17)  class(src/tgt)=96.4/95.3
+[photo       ] r3_m2cl|2              eb_concat  domain= 98.01 (probe-seed sd 0.05)  class(src/tgt)=96.1/94.6
+[photo       ] r3_m2cl|2              backbone   domain= 98.29 (probe-seed sd 0.12)  class(src/tgt)=97.0/96.3
+[sketch      ] imagenet|None          backbone   domain= 96.11 (probe-seed sd 0.31)  class(src/tgt)=88.9/45.2
+[sketch      ] r3_m2|0                eb1a       domain= 81.39 (probe-seed sd 0.38)  class(src/tgt)=52.2/33.5
+[sketch      ] r3_m2|0                eb1        domain= 82.40 (probe-seed sd 0.30)  class(src/tgt)=49.2/31.7
+[sketch      ] r3_m2|0                eb2a       domain= 84.97 (probe-seed sd 0.24)  class(src/tgt)=55.5/35.1
+[sketch      ] r3_m2|0                eb2        domain= 80.90 (probe-seed sd 0.12)  class(src/tgt)=53.6/34.2
+[sketch      ] r3_m2|0                eb3        domain= 82.09 (probe-seed sd 0.23)  class(src/tgt)=68.7/42.7
+[sketch      ] r3_m2|0                eb4        domain= 82.35 (probe-seed sd 0.30)  class(src/tgt)=96.3/56.3
+[sketch      ] r3_m2|0                eb_concat  domain= 93.53 (probe-seed sd 0.06)  class(src/tgt)=95.8/57.5
+[sketch      ] r3_m2|0                backbone   domain= 95.92 (probe-seed sd 0.19)  class(src/tgt)=97.5/62.2
+[sketch      ] r3_m2|1                eb1a       domain= 81.45 (probe-seed sd 0.20)  class(src/tgt)=51.2/34.9
+[sketch      ] r3_m2|1                eb1        domain= 81.85 (probe-seed sd 0.31)  class(src/tgt)=47.0/33.4
+[sketch      ] r3_m2|1                eb2a       domain= 84.01 (probe-seed sd 0.28)  class(src/tgt)=53.2/37.7
+[sketch      ] r3_m2|1                eb2        domain= 83.67 (probe-seed sd 0.46)  class(src/tgt)=53.9/36.2
+[sketch      ] r3_m2|1                eb3        domain= 83.46 (probe-seed sd 0.21)  class(src/tgt)=66.6/46.6
+[sketch      ] r3_m2|1                eb4        domain= 83.33 (probe-seed sd 0.12)  class(src/tgt)=95.4/61.5
+[sketch      ] r3_m2|1                eb_concat  domain= 93.08 (probe-seed sd 0.26)  class(src/tgt)=95.2/58.5
+[sketch      ] r3_m2|1                backbone   domain= 95.51 (probe-seed sd 0.11)  class(src/tgt)=96.6/65.9
+[sketch      ] r3_m2|2                eb1a       domain= 80.90 (probe-seed sd 0.27)  class(src/tgt)=50.8/25.1
+[sketch      ] r3_m2|2                eb1        domain= 81.86 (probe-seed sd 0.25)  class(src/tgt)=45.8/33.6
+[sketch      ] r3_m2|2                eb2a       domain= 85.31 (probe-seed sd 0.39)  class(src/tgt)=52.7/35.8
+[sketch      ] r3_m2|2                eb2        domain= 80.26 (probe-seed sd 0.12)  class(src/tgt)=54.7/38.3
+[sketch      ] r3_m2|2                eb3        domain= 82.76 (probe-seed sd 0.34)  class(src/tgt)=69.4/41.5
+[sketch      ] r3_m2|2                eb4        domain= 81.65 (probe-seed sd 0.17)  class(src/tgt)=95.7/61.5
+[sketch      ] r3_m2|2                eb_concat  domain= 93.44 (probe-seed sd 0.30)  class(src/tgt)=96.0/58.7
+[sketch      ] r3_m2|2                backbone   domain= 95.67 (probe-seed sd 0.08)  class(src/tgt)=97.0/64.8
+[sketch      ] r3_m2cl|0              eb1a       domain= 81.29 (probe-seed sd 0.32)  class(src/tgt)=51.9/33.2
+[sketch      ] r3_m2cl|0              eb1        domain= 82.50 (probe-seed sd 0.19)  class(src/tgt)=49.3/31.5
+[sketch      ] r3_m2cl|0              eb2a       domain= 84.86 (probe-seed sd 0.11)  class(src/tgt)=56.4/34.5
+[sketch      ] r3_m2cl|0              eb2        domain= 80.87 (probe-seed sd 0.09)  class(src/tgt)=54.1/33.4
+[sketch      ] r3_m2cl|0              eb3        domain= 82.52 (probe-seed sd 0.25)  class(src/tgt)=70.9/42.1
+[sketch      ] r3_m2cl|0              eb4        domain= 73.73 (probe-seed sd 0.11)  class(src/tgt)=96.0/65.9
+[sketch      ] r3_m2cl|0              eb_concat  domain= 92.64 (probe-seed sd 0.28)  class(src/tgt)=95.5/60.7
+[sketch      ] r3_m2cl|0              backbone   domain= 95.78 (probe-seed sd 0.14)  class(src/tgt)=97.4/64.0
+[sketch      ] r3_m2cl|1              eb1a       domain= 81.52 (probe-seed sd 0.32)  class(src/tgt)=50.8/34.7
+[sketch      ] r3_m2cl|1              eb1        domain= 81.57 (probe-seed sd 0.29)  class(src/tgt)=46.9/33.3
+[sketch      ] r3_m2cl|1              eb2a       domain= 84.11 (probe-seed sd 0.20)  class(src/tgt)=53.5/37.6
+[sketch      ] r3_m2cl|1              eb2        domain= 83.67 (probe-seed sd 0.39)  class(src/tgt)=54.2/36.3
+[sketch      ] r3_m2cl|1              eb3        domain= 83.33 (probe-seed sd 0.31)  class(src/tgt)=69.0/48.0
+[sketch      ] r3_m2cl|1              eb4        domain= 76.15 (probe-seed sd 0.15)  class(src/tgt)=95.9/62.4
+[sketch      ] r3_m2cl|1              eb_concat  domain= 92.70 (probe-seed sd 0.14)  class(src/tgt)=95.4/60.2
+[sketch      ] r3_m2cl|1              backbone   domain= 95.43 (probe-seed sd 0.07)  class(src/tgt)=96.7/65.9
+[sketch      ] r3_m2cl|2              eb1a       domain= 81.22 (probe-seed sd 0.26)  class(src/tgt)=50.5/25.6
+[sketch      ] r3_m2cl|2              eb1        domain= 81.96 (probe-seed sd 0.33)  class(src/tgt)=45.9/34.0
+[sketch      ] r3_m2cl|2              eb2a       domain= 85.16 (probe-seed sd 0.42)  class(src/tgt)=52.9/35.5
+[sketch      ] r3_m2cl|2              eb2        domain= 80.32 (probe-seed sd 0.04)  class(src/tgt)=55.0/37.4
+[sketch      ] r3_m2cl|2              eb3        domain= 83.33 (probe-seed sd 0.20)  class(src/tgt)=71.1/42.0
+[sketch      ] r3_m2cl|2              eb4        domain= 70.27 (probe-seed sd 0.26)  class(src/tgt)=96.6/66.7
+[sketch      ] r3_m2cl|2              eb_concat  domain= 92.72 (probe-seed sd 0.16)  class(src/tgt)=96.7/60.6
+[sketch      ] r3_m2cl|2              backbone   domain= 95.47 (probe-seed sd 0.34)  class(src/tgt)=97.1/66.3
+done in 79.0 min -> results/leakage/round3_taps
+[2026-11-08 04:55:09] DONE M2 / M2-CL probes, every tap
+[2026-11-08 04:55:09] START ERM probes, backbone
+[art_painting] imagenet|None          backbone   domain= 99.61 (probe-seed sd 0.02)  class(src/tgt)=85.4/69.1
+[art_painting] r3_erm|0               backbone   domain= 99.45 (probe-seed sd 0.14)  class(src/tgt)=97.7/74.0
+[art_painting] r3_erm|1               backbone   domain= 99.33 (probe-seed sd 0.19)  class(src/tgt)=97.4/72.9
+[art_painting] r3_erm|2               backbone   domain= 99.42 (probe-seed sd 0.08)  class(src/tgt)=97.3/74.0
+[cartoon     ] imagenet|None          backbone   domain= 98.62 (probe-seed sd 0.09)  class(src/tgt)=87.2/51.1
+[cartoon     ] r3_erm|0               backbone   domain= 98.27 (probe-seed sd 0.15)  class(src/tgt)=98.0/70.9
+[cartoon     ] r3_erm|1               backbone   domain= 98.42 (probe-seed sd 0.04)  class(src/tgt)=97.7/69.1
+[cartoon     ] r3_erm|2               backbone   domain= 98.21 (probe-seed sd 0.15)  class(src/tgt)=96.9/67.9
+[photo       ] imagenet|None          backbone   domain= 99.13 (probe-seed sd 0.07)  class(src/tgt)=82.3/95.7
+[photo       ] r3_erm|0               backbone   domain= 98.41 (probe-seed sd 0.10)  class(src/tgt)=97.4/96.2
+[photo       ] r3_erm|1               backbone   domain= 98.53 (probe-seed sd 0.07)  class(src/tgt)=97.3/95.9
+[photo       ] r3_erm|2               backbone   domain= 98.55 (probe-seed sd 0.04)  class(src/tgt)=96.9/95.7
+[sketch      ] imagenet|None          backbone   domain= 96.11 (probe-seed sd 0.31)  class(src/tgt)=88.9/45.2
+[sketch      ] r3_erm|0               backbone   domain= 95.63 (probe-seed sd 0.11)  class(src/tgt)=97.4/64.9
+[sketch      ] r3_erm|1               backbone   domain= 95.35 (probe-seed sd 0.14)  class(src/tgt)=97.4/58.1
+[sketch      ] r3_erm|2               backbone   domain= 96.00 (probe-seed sd 0.20)  class(src/tgt)=96.6/66.0
+done in 6.7 min -> results/leakage/round3_erm
+[2026-11-08 05:02:09] DONE ERM probes, backbone
+[2026-11-08 05:02:09] START tables, taps
+wrote results/tables/round3_taps/tables.md
+[2026-11-08 05:02:25] DONE tables, taps
+[2026-11-08 05:02:25] START tables, ERM
+[warn] family r3_cl_effect_at_taps: no matching conditions
+wrote results/tables/round3_erm/tables.md
+[2026-11-08 05:02:31] DONE tables, ERM
+[2026-11-08 05:02:31] ALL STAGES FINISHED

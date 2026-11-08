@@ -1,0 +1,3 @@
+group,layer,mean_sd_pp,max_range_pp,n
+imagenet,backbone,0.12262624332474176,0.8246289169873506,4
+r3_erm,backbone,0.11606139633534886,0.49477735019242175,12

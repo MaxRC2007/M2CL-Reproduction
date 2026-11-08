@@ -1,0 +1,22 @@
+\begin{table}
+\caption{Round 3 (lr 1e-3): ERM / M2 / M2-CL vs ImageNet-only (backbone)}
+\label{tab:leak_r3_vs_imagenet}
+\begin{tabular}{lllrlrrrrrllr}
+\toprule
+Domain & A & B & seed & layer & acc A & acc B & Delta & CI lo & CI hi & p & p (BH) & sig (BH, q=.05) \\
+\midrule
+Art Painting & r3\_erm & imagenet & 0 & backbone & 99.45 & 99.61 & -0.16 & -0.45 & 0.12 & 0.263 & 0.316 & False \\
+Art Painting & r3\_erm & imagenet & 1 & backbone & 99.33 & 99.61 & -0.29 & -0.59 & 0.00 & 0.052 & 0.156 & False \\
+Art Painting & r3\_erm & imagenet & 2 & backbone & 99.42 & 99.61 & -0.19 & -0.46 & 0.04 & 0.115 & 0.197 & False \\
+Cartoon & r3\_erm & imagenet & 0 & backbone & 98.27 & 98.62 & -0.36 & -0.88 & 0.13 & 0.159 & 0.238 & False \\
+Cartoon & r3\_erm & imagenet & 1 & backbone & 98.42 & 98.62 & -0.20 & -0.69 & 0.30 & 0.406 & 0.443 & False \\
+Cartoon & r3\_erm & imagenet & 2 & backbone & 98.21 & 98.62 & -0.41 & -0.92 & 0.07 & 0.104 & 0.197 & False \\
+Photo & r3\_erm & imagenet & 0 & backbone & 98.41 & 99.13 & -0.73 & -1.19 & -0.30 & 0.001 & 0.012 & True \\
+Photo & r3\_erm & imagenet & 1 & backbone & 98.53 & 99.13 & -0.60 & -1.01 & -0.18 & 0.005 & 0.020 & True \\
+Photo & r3\_erm & imagenet & 2 & backbone & 98.55 & 99.13 & -0.58 & -0.98 & -0.18 & 0.005 & 0.020 & True \\
+Sketch & r3\_erm & imagenet & 0 & backbone & 95.63 & 96.11 & -0.47 & -1.28 & 0.32 & 0.251 & 0.316 & False \\
+Sketch & r3\_erm & imagenet & 1 & backbone & 95.35 & 96.11 & -0.76 & -1.64 & 0.12 & 0.088 & 0.197 & False \\
+Sketch & r3\_erm & imagenet & 2 & backbone & 96.00 & 96.11 & -0.11 & -0.90 & 0.71 & 0.809 & 0.809 & False \\
+\bottomrule
+\end{tabular}
+\end{table}
