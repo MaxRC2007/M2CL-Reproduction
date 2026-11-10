@@ -1,0 +1,52 @@
+[run] m2_6tap_Caltech101_seed0 | train=7449 val={'LabelMe': 532, 'SUN09': 657, 'VOC2007': 676} test=1415 | cuda
+  ep 01/30 loss=1.0264 cl=0.000 train=58.7 val=75.59 (51s)
+  ep 02/30 loss=0.7071 cl=0.000 train=71.9 val=75.45 (50s)
+  ep 03/30 loss=0.6259 cl=0.000 train=76.3 val=74.38 (49s)
+  ep 04/30 loss=0.5920 cl=0.000 train=77.0 val=75.64 (52s)
+  ep 05/30 loss=0.5556 cl=0.000 train=78.7 val=78.39 (51s)
+  ep 06/30 loss=0.5284 cl=0.000 train=79.9 val=78.85 (46s)
+  ep 07/30 loss=0.5092 cl=0.000 train=80.7 val=79.03 (49s)
+  ep 08/30 loss=0.5030 cl=0.000 train=80.8 val=78.23 (48s)
+  ep 09/30 loss=0.4746 cl=0.000 train=82.8 val=79.97 (47s)
+  ep 10/30 loss=0.4661 cl=0.000 train=82.5 val=80.41 (49s)
+  ep 11/30 loss=0.4529 cl=0.000 train=83.1 val=79.22 (47s)
+  ep 12/30 loss=0.4456 cl=0.000 train=82.8 val=80.67 (46s)
+  ep 13/30 loss=0.4366 cl=0.000 train=83.3 val=80.89 (52s)
+  ep 14/30 loss=0.4106 cl=0.000 train=84.6 val=80.23 (49s)
+  ep 15/30 loss=0.4033 cl=0.000 train=84.6 val=80.42 (49s)
+  ep 16/30 loss=0.4016 cl=0.000 train=84.9 val=81.11 (49s)
+  ep 17/30 loss=0.3945 cl=0.000 train=85.2 val=81.29 (49s)
+  ep 18/30 loss=0.3815 cl=0.000 train=86.0 val=79.92 (50s)
+  ep 19/30 loss=0.3691 cl=0.000 train=86.4 val=81.90 (52s)
+  ep 20/30 loss=0.3679 cl=0.000 train=86.8 val=80.76 (48s)
+  ep 21/30 loss=0.3611 cl=0.000 train=86.4 val=81.04 (47s)
+Traceback (most recent call last):
+  File "/home/aidslab/Desktop/S20240030357/M2CL_PartC_institute/scripts/train_lodo.py", line 60, in <module>
+  File "/home/aidslab/Desktop/S20240030357/M2CL_PartC_institute/scripts/train_lodo.py", line 56, in main
+  File "/home/aidslab/Desktop/S20240030357/M2CL_PartC_institute/scripts/../src/m2cl/engine.py", line 167, in train_run
+  File "/home/aidslab/m2cl-env/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+  File "/home/aidslab/Desktop/S20240030357/M2CL_PartC_institute/scripts/../src/m2cl/engine.py", line 69, in evaluate
+  File "/home/aidslab/m2cl-env/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+  File "/home/aidslab/m2cl-env/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+  File "/home/aidslab/m2cl-env/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+  File "/home/aidslab/m2cl-env/lib/python3.12/site-packages/torch/_utils.py", line 785, in reraise
+PIL.UnidentifiedImageError: Caught UnidentifiedImageError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/aidslab/m2cl-env/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+  File "/home/aidslab/m2cl-env/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+  File "/home/aidslab/Desktop/S20240030357/M2CL_PartC_institute/scripts/../src/m2cl/data.py", line 52, in __getitem__
+  File "/home/aidslab/m2cl-env/lib/python3.12/site-packages/PIL/Image.py", line 3730, in open
+PIL.UnidentifiedImageError: cannot identify image file '/home/aidslab/data/VLCS_raw/VLCS/LabelMe/person/713ac5c609bc4de4b63211a493b0cc6b.jpg'
+
+[resume] m2_6tap_Caltech101_seed0 from epoch 22
+[run] m2_6tap_Caltech101_seed0 | train=7449 val={'LabelMe': 532, 'SUN09': 657, 'VOC2007': 676} test=1415 | cuda
+  ep 22/30 loss=0.3602 cl=0.000 train=86.8 val=81.50 (48s)
+  ep 23/30 loss=0.3555 cl=0.000 train=87.1 val=81.50 (51s)
+  ep 24/30 loss=0.3477 cl=0.000 train=87.0 val=81.11 (50s)
+  ep 25/30 loss=0.3483 cl=0.000 train=87.3 val=81.53 (52s)
+  ep 26/30 loss=0.3473 cl=0.000 train=86.9 val=81.15 (50s)
+  ep 27/30 loss=0.3451 cl=0.000 train=87.2 val=81.24 (50s)
+  ep 28/30 loss=0.3448 cl=0.000 train=87.5 val=81.12 (51s)
+  ep 29/30 loss=0.3432 cl=0.000 train=87.2 val=81.03 (51s)
+  ep 30/30 loss=0.3502 cl=0.000 train=87.4 val=81.17 (48s)
+[done] m2_6tap_Caltech101_seed0: target Caltech101 = 97.39% (best epoch 19)

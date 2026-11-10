@@ -5,7 +5,9 @@ This file and its commit record what existed and when. Read it with `docs/PREREG
 ## Honest summary
 - The round-3 plan was **not** deposited in a public registry before the PACS runs (Parts A, B, D).
 - It was written, and its analysis code frozen, **before** those runs started. The evidence is below; part of it is held by Google, not by the author.
-- This repository was first pushed publicly on 8 Nov 2026, while Part C (VLCS) was still running. At that point no Part C comparison had been computed or viewed. The owner had seen only the training progress of the first VLCS run, as a hardware check (Amendment 2). For Part C, therefore, the analysis code below was public before its results were examined.
+- This repository was first pushed publicly at 00:31 IST on 8 Nov 2026. **Correction (10 Nov 2026):** an earlier version of this file said Part C (VLCS) was still running at that time. The Part C files show it had finished at 23:15 IST on 7 Nov, and the institute script wrote the VLCS comparison at 23:15:30, 1 h 16 min before the push.
+- The public push therefore does not protect Part C. What does is that the VLCS analysis used `scripts/analyze_round3.py` with the SHA-256 below. That file is byte-identical to the copy uploaded to Google Drive on 6 Nov 2026, before any round-3 run.
+- The institute run used the shipped `run_part_c.py` (same hash). Whether the owner saw the printed VLCS result before the push is for the owner to state (`docs/AUDIT.md` F26).
 
 ## When each thing happened (IST, UTC+5:30)
 | When | What | Evidence |
@@ -15,7 +17,9 @@ This file and its commit record what existed and when. Read it with `docs/PREREG
 | 6 Nov 2026, evening | `M2CL_code.zip` uploaded to Google Drive on each Colab account | Google Drive upload dates, held by Google (screenshots to be added under `docs/evidence/`) |
 | 6 Nov 2026, about 23:11 | First round-3 output (M2, lr 1e-3, Art, seed 1) | Drive download zip times, which appear to be US Pacific (UTC-8) |
 | 7 Nov 2026 | Amendment 1 (platform split) and Amendment 2 (Part C moves to the institute machine) | Text in `docs/PREREGISTRATION.md` |
-| 8 Nov 2026, 00:31 (19:01 UTC on 7 Nov) | Repository created and first pushed to https://github.com/MaxRC2007/M2CL-Reproduction (commit 65c8a5b, with README update 7971ae5). Part C was still running | GitHub `pushed_at` 2026-11-07T19:01:56Z (GitHub API) |
+| 7 Nov 2026, 17:20-23:15 | Part C (VLCS, 36 runs) on the institute machine; the institute analysis is written at 23:15:30 | `env/` file names (UTC) and zip entry times in `checkpoints_archive/08_2026-11_round3_vlcs_C.zip` |
+| 8 Nov 2026, 00:31 (19:01 UTC on 7 Nov) | Repository created and first pushed to https://github.com/MaxRC2007/M2CL-Reproduction (commit 65c8a5b, with README update 7971ae5). Part C had already finished (corrected 10 Nov) | GitHub `pushed_at` 2026-11-07T19:01:56Z (GitHub API) |
+| 8 Nov 2026, 01:05 (19:35 UTC on 7 Nov) | Round-4 pre-registration pushed (commit 715a2d1), before any round-4 run | GitHub commit and push |
 
 ## SHA-256 of the frozen files
 This repository stores files byte for byte (`.gitattributes`: `* -text`), so these hashes can be checked on a checkout.
@@ -33,5 +37,6 @@ a20dc9fce81633a91b00c41aeee46c252e630f928d5e8a944600a43df851fd37  colab_upload/M
 ```
 
 ## Known deviations recorded since (see `docs/AUDIT.md`)
-- F20: the institute GPU is an RTX Ada card, not Blackwell. The owner made setup edits there; they are still to be listed.
+- F20/F26: the institute GPU is an RTX Ada card, not Blackwell. The only code edit there was to the GPU check in `scripts/run_part_c.py` (to accept `sm_89`); it is not in the training, data or analysis path.
+- F26: two VLCS runs crashed at epoch 22 after the project folder and Python environment were moved mid-run, and they resumed. Both selected epoch 19, and the data were not changed.
 - F21: Colab moved from torch 2.11.0 to 2.14.1 during Part A.

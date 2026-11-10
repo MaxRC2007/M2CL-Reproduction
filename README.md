@@ -11,14 +11,22 @@ The repository answers two questions:
 1. **Does M2-CL reproduce?** It is a ResNet-18 that taps intermediate layers with *extraction blocks* and adds a supervised contrastive loss on those taps. We reproduce it on PACS with leave-one-domain-out (LODO) evaluation, find and fix a loss-scaling bug (mean instead of sum, about 28× too weak), and compare against matched-seed ERM and a tap-matched M2 ablation.
 2. **Does contrastive DG training change how much *domain identity* is linearly decodable from the representation?** We use frozen-feature linear probes, a random-init and ImageNet-only control, a paired bootstrap on a shared test set, and Benjamini-Hochberg correction.
 
-> **Status (8 Nov 2026).**
+> **Status (10 Nov 2026).**
 > - The code base was rebuilt from the original notebook and probe scripts after an audit (see [docs/AUDIT.md](docs/AUDIT.md)). The audit found three issues that required re-runs:
 >   - leakage probes that read a DCT copy of PACS instead of the RGB images;
 >   - a train/validation split leak;
 >   - unseeded probes.
 > - The draft's earlier numbers are kept in `results/legacy_v1/`.
 > - Round 3, the pre-specified decisive test of M2 vs M2-CL, is described in [docs/PREREGISTRATION.md](docs/PREREGISTRATION.md). Its timing evidence is in [docs/TIMESTAMP_EVIDENCE.md](docs/TIMESTAMP_EVIDENCE.md).
-> - The PACS parts are finished (`results/round3/`). The VLCS replication (Part C) was still running when this repository was first pushed.
+> - Round 3 is finished:
+>   - PACS (`results/round3/`): primary M2-CL − M2 = +0.44 pp [−0.30, +1.18], **inconclusive**;
+>   - VLCS (`results/round3/vlcs_institute/`, audit F26): +0.08 pp [−0.37, +0.53], **equivalent to zero** within ±0.71 pp;
+>   - the full analysis is in `results/round3/round3_analysis_all.json`.
+>
+>   Part C had already finished when this repository was first pushed (corrected in the timing evidence). Its protection is the analysis code frozen on 6 Nov.
+> - Exploratory probes of the round-3 checkpoints (audit F24): the active contrastive term lowers domain decodability only in the last extraction block.
+> - Round 4, the authors' own code with the contrastive weight 0.01 vs 0, is publicly pre-registered in [docs/PREREGISTRATION_ROUND4.md](docs/PREREGISTRATION_ROUND4.md) and pending.
+> - A torch-version check of the PACS test (audit F28, `scripts/analyze_torchcheck.py`) is planned and not yet run.
 > - The paper draft is not included until submission.
 >
 > **Earlier public stages of this project:**

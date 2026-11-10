@@ -427,7 +427,7 @@ So 15 of the 20 M2-CL vs M2 pairs differ in torch version as well as method. Con
 ### F20 - Part C running on the institute machine (7 Nov 2026)
 The owner reports that Part C is running on the institute machine. Its GPU is an RTX Ada-generation card, not Blackwell; Amendment 2 now carries a dated correction. The owner reports about 95% GPU use, an estimate of about 7 hours for all 36 runs, and per-epoch numbers close to the Kaggle run.
 
-The owner also reports making edits during setup. **Not yet recorded:** which files changed and how. Before the results are analysed, the edits must be listed here and the files compared with the package (`M2CL_PartC_institute.zip`). An edit that touches `configs/`, `src/` or the training path of `scripts/` is a deviation from the pre-registration and must be reported in the paper.
+The owner also reports making edits during setup. **Not yet recorded:** which files changed and how. Before the results are analysed, the edits must be listed here and the files compared with the package (`M2CL_PartC_institute.zip`). An edit that touches `configs/`, `src/` or the training path of `scripts/` is a deviation from the pre-registration and must be reported in the paper. **Listed 10 Nov 2026 in F26:** only the GPU check in `scripts/run_part_c.py`, plus a local note in the institute copy of this file.
 
 ### F22 - Checkpoint archive (8 Nov 2026)
 Every checkpoint on the laptop was collected into `Honors/checkpoints_archive/` (zips 01-07, ordered by date, 10.2 GB; `INDEX.md` there describes each). Every file in the 17 original zips and the loose `.pt` files in `Downloads` was matched by CRC and size to a copy in the archive before the originals were moved to the Recycle Bin, with the owner's approval. Archive paths for files cited elsewhere in this log:
@@ -440,7 +440,7 @@ Every checkpoint on the laptop was collected into `Honors/checkpoints_archive/` 
 Running `analyze_round3.py` on zips 05-07 reproduces F21 exactly. Not found anywhere: the 4-tap Sketch M2/M2-CL checkpoints (61.06/61.03) and the contaminated-split ERM Sketch seed 0.
 
 ### F23 - Public repository (8 Nov 2026)
-The repository was pushed to https://github.com/MaxRC2007/M2CL-Reproduction. GitHub records its creation at 2026-11-07T19:01:48Z and its first push at 19:01:56Z (00:31 IST on 8 Nov); the first commit is `65c8a5b`. At that time Part C (VLCS) was still running on the institute machine, and no Part C comparison had been computed or viewed. The paper draft and the internal review are excluded (`.gitignore`) until submission. A Software Heritage archive snapshot is still to be requested by the owner (`docs/TIMESTAMP_EVIDENCE.md`). The earlier public stages are linked from the README.
+The repository was pushed to https://github.com/MaxRC2007/M2CL-Reproduction. GitHub records its creation at 2026-11-07T19:01:48Z and its first push at 19:01:56Z (00:31 IST on 8 Nov); the first commit is `65c8a5b`. At that time Part C (VLCS) was still running on the institute machine, and no Part C comparison had been computed or viewed. **Corrected 10 Nov 2026 (F26):** this sentence is wrong. The Part C files show that Part C finished at 23:15 IST on 7 Nov, and the institute script wrote its VLCS comparison at 23:15:30 IST, 1 h 16 min before the push. The push therefore does not show that the VLCS analysis was public before the results existed. The protection for Part C is that the analysis code was frozen on 6 Nov (F26). The paper draft and the internal review are excluded (`.gitignore`) until submission. A Software Heritage archive snapshot is still to be requested by the owner (`docs/TIMESTAMP_EVIDENCE.md`). The earlier public stages are linked from the README.
 
 **F21 addendum (8 Nov 2026).** The owner decided not to retrain the M2 runs on torch 2.14.1. The PyTorch version change is reported in the paper as a limitation of the PACS primary test, not measured.
 
@@ -481,3 +481,96 @@ Domain-probe accuracy, M2-CL minus M2 (12 seed-matched pairs; mean, with range):
 - Runner: `scripts/run_round4_authors.py`. It pins and verifies the commit, checks DomainBed's PACS counts, has a smoke mode, runs jobs in parallel, and restarts any unfinished run from scratch.
 - Analysis: `scripts/analyze_round4.py`.
 - Tests: `tests/test_round4.py`, which runs the full 24-run flow against a stand-in for DomainBed's `train.py`. The authors' code itself could not be executed on the laptop (the assistant's sandbox blocks running downloaded code), so its first real execution is the institute smoke run.
+
+### F26 - Part C (VLCS) results (10 Nov 2026)
+The owner brought `m2cl_v2_C.zip` (1.73 GB) from the institute machine on 10 Nov.
+- **Contents:** 36 complete runs (ERM, M2, and M2-CL at alpha 0.07; lr 1e-3; seeds 0-2 x 4 VLCS folds), with logs, `env/`, the list of truncated VLCS images and the institute's own `round3_analysis_institute.json`.
+- **Archive:** archived unchanged as `checkpoints_archive/08_2026-11_round3_vlcs_C.zip`; all 112 CRCs were checked.
+- **In the repo:** the logs, `env/`, the 36 `result.json` files and the institute analysis are in `results/round3/vlcs_institute/`.
+- **Settings:** every run is `complete`, with the pre-registered settings (the analysis refuses others).
+
+**Hardware:** NVIDIA RTX 4000 Ada (sm_89, 20 GB), Intel Core Ultra 9 285 (24 threads), Linux 6.17, Python 3.12.3, torch 2.11.0+cu128, cuDNN 9.19, 2 runs in parallel. This is the same torch version as all PACS M2 runs. Runs began 7 Nov 17:20 IST (11:50 UTC) and the last finished at 23:15 IST. Zip entry times are institute local time; the env file names give UTC.
+
+**Interruption and resume:**
+- At about 17:38 IST the two first runs, `m2_6tap_Caltech101_seed0` and `m2cl_6tap_Caltech101_seed0`, both crashed during the epoch-22 validation pass. The error was `PIL.UnidentifiedImageError: cannot identify image file .../VLCS/LabelMe/person/713ac5c609bc4de4b63211a493b0cc6b.jpg`.
+- That image had loaded in each of the previous 21 epochs.
+- The runner was restarted at 17:44 IST (second `env/` record). Both runs resumed from their epoch-22 checkpoint (`latest.pt`, written at the end of epoch 21). After the restart, the image counts were unchanged (train 7,449; val 532/657/676; test 1,415).
+- **Both runs selected epoch 19**, before the crash. Their reported test accuracies therefore come from the uninterrupted part of training.
+
+**Cause (owner's account, 10 Nov 2026, from the Antigravity session on the institute machine):**
+- During epoch 22 the project folder `~/Desktop/S20240030357/M2CL_PartC_institute` (holding `m2cl_v2/`) was moved to `~/Desktop/S20240030357/M2CL`. The Python environment `m2cl-env` was moved at the same time.
+- At 17:44 symlinks from the old paths were created and the same command was restarted.
+- This fits the evidence, with one correction to the session's explanation (open file descriptors). The data folder `~/data/VLCS_raw` was not moved.
+  - The loaders do not keep workers alive between passes, so the validation pass forks fresh workers.
+  - The main process never opens images, so Pillow's JPEG plugin is first imported inside those workers, from the environment's path.
+  - With the environment moved, that import failed. `PIL.Image.preinit` swallows plugin `ImportError`s, and `Image.open` then raises `UnidentifiedImageError` on the first file it reads, here a LabelMe image.
+  - So the image itself was never damaged, and no VLCS file changed. The image counts after the restart are identical, and both `env/` records show the same torch, CUDA and cuDNN.
+
+**Setup edits (owner's account, 10 Nov 2026; the folder is not a git checkout, so there is no `git diff`).** Two files were changed before any run:
+- `scripts/run_part_c.py`, `check_gpu()` only:
+  - torch 2.11.0+cu128 lists no `sm_89` binary, so the shipped check refused the RTX 4000 Ada;
+  - the edit accepts `sm_89` when `sm_86` is listed (Ada runs `sm_86` kernels and PTX JIT);
+  - the live mixed-precision test kernel still runs.
+
+  The edit is in the GPU gate only, not in training, data or evaluation. The traceback line numbers in `engine.py`, `data.py` and `train_lodo.py` match the shipped package.
+- The institute's copy of `docs/AUDIT.md` gained a local note numbered "F20" describing that edit. It differs from F20 in this log, which was written separately on the laptop.
+
+**Not a deviation from the pre-registration:** neither change touches the configs, the model, the data or the analysis. The exact diff is recovered by the round-4 add-on check (F27). It is reported in the paper's compute and software table.
+
+**Pre-registered analysis.** `scripts/analyze_round3.py` was run on zips 05-07 plus `m2cl_v2_C.zip`, with `--grad` and `--data_root`, and written to `results/round3/round3_analysis_all.json`.
+- PACS is unchanged from F21. Primary +0.44 pp, CI -0.30 to +1.18, sign-flip p 0.24, TOST p 0.22: **INCONCLUSIVE**. Manipulation checks pass.
+- **S4 VLCS, M2-CL - M2: +0.08 pp, 95% CI -0.37 to +0.53, sign-flip p 0.72, TOST(+/-0.71) p 0.0050.** Per fold: Caltech101 +0.09, LabelMe +0.77, SUN09 +0.15, VOC2007 -0.70.
+  - The 90% CI implied by TOST lies inside +/-0.71, so on VLCS the contrastive term is **equivalent to no effect** at the pre-registered margin.
+  - Holm is pre-registered for the S2-S4 sign-flip tests, not for TOST. Even a Bonferroni factor of 6 on the TOST p gives 0.030 < 0.05.
+- S4 VLCS, M2 - ERM: +0.37 pp (CI -0.69 to +1.43, p 0.47). M2-CL - ERM: +0.44 pp (CI -0.40 to +1.29, p 0.26).
+- **Holm across S2-S4, now complete:** S2 p 0.0029 (was 0.0015 in F21, computed before S4 existed; still significant). Every S3 and S4 test has Holm p >= 0.80.
+- Macro averages on VLCS: ERM 76.34, M2 76.70, M2-CL 76.78. **Checked 10 Nov against the paper's Table I** (ResNet-18; `Honors/references/M2CL.pdf`): ERM 69.81, M2 76.11, M2-CL 77.78. So the paper's VLCS contrastive gain is **+1.67 pp**, outside our 95% CI (-0.37 to +0.53).
+  - Our M2 is 0.6 pp above the paper's; our M2-CL is 1.0 pp below.
+  - Our ERM is 6.5 pp above the paper's ERM.
+  - The paper prints its PACS ERM average as 80.53 (recomputed from its per-domain values: 80.52).
+- The institute's own analysis gives identical S4 numbers.
+
+**Exploratory manipulation check on VLCS (not pre-registered).** The same-seed backbone distance between M2-CL and M2 is above the inert level 0.033 in 12 of 12 pairs (0.262-0.403, median 0.355). This is the same range as PACS (0.268-0.444), so the term was active on VLCS too. For scale, M2 seed 0 vs seed 1 differ by 0.89-1.10.
+
+**Reading:**
+- The contrastive term, at a strength that changes the networks, produced no detectable gain: inconclusive on PACS, equivalent to zero on VLCS.
+- The lr change (S2) remains the only significant effect.
+- The paper's VLCS number is not reproduced as a contrastive effect.
+
+### F27 - Round-4 package as an add-on to the Part C folder (8-10 Nov 2026)
+`M2CL_Round4_addon.zip` replaces the full `M2CL_Round4_institute.zip`.
+- **What it adds:** only round 4's own files, unzipped with `unzip -n` into the Part C folder (now `~/Desktop/S20240030357/M2CL`). It overwrites nothing.
+- **Code:** byte-identical to the pre-registration commit 715a2d1.
+- **Checks it adds** (brief: `docs/START_HERE_ROUND4.md`):
+  - `ROUND4_SHA256SUMS.txt` covers the add-on and `scripts/analyze_round3.py`;
+  - `ROUND4_reference/PARTC_SHA256SUMS.txt` covers the 52 other shipped Part C files, which verifies independently that nothing else was edited;
+  - `ROUND4_reference/run_part_c.py.orig`, diffed against the institute copy, recovers the F20 edit as `~/edits.diff`, which comes back inside `m2cl_round4.zip`.
+- **Round 4 imports `check_gpu` from the institute's edited `run_part_c.py`.** The unedited check would refuse the RTX 4000 Ada. The edit concerns only that gate, so it is not a deviation from the round-4 plan.
+- **Tested** on a copy of the Part C package with the owner's edit applied: no file was overwritten, all checksums matched, the diff showed exactly the four edited lines, and the runner's tests passed.
+
+**Laptop pre-check of the authors' code (10 Nov 2026; run by the owner, not by the assistant; not part of the experiment).**
+- Setup:
+  - `scripts/check_authors_cpu.py` ran in a separate venv (`Downloads/r4check`): torch 2.5.1 CPU, wilds 2.0.0, timm 0.9.16.
+  - It used the authors' repository at 0b1bce3, checked unmodified.
+- It passed:
+  - the authors' `algorithms`, `datasets` (which imports wilds) and `hparams_registry` import;
+  - `M2CL` builds with ResNet-18 (18.0 M parameters, ImageNet weights `resnet18-5c106cde.pth` downloaded);
+  - two SGD updates on 96 random images run at both settings. With lparam 0.01 the loss is 7.905 -> 7.895; with lparam 0.0 it is 1.936 -> 1.926, about ln 7, as expected for 7 classes.
+  - `predict` returns the logits plus 3 activation tensors of width 16,384.
+- Harmless warnings: a `SyntaxWarning` from a docstring in the authors' `lib/misc.py`, and wilds reporting that 2.0.1 exists.
+- Not covered: data loaders, PACS and the GPU. Those are first exercised by the institute smoke run.
+
+### F28 - Torch-version check planned (10 Nov 2026, before any run)
+The owner decided to measure the F21 deviation after all (reversing the 8 Nov addendum).
+- **Why:** in the round-3 PACS primary test, every M2 run used torch 2.11.0, and 15 of the 20 M2-CL runs used 2.14.1.
+- **Runs:** the four seed-0 M2 runs of the primary test (`configs/round3_m2.yaml`, lr 1e-3, one per fold), retrained on a Colab T4 twice:
+  - on torch 2.14.1;
+  - on torch 2.11.0, as a same-version control for GPU nondeterminism (cuDNN runs deterministic, but pooling backward on CUDA is not guaranteed bit-exact).
+  - Notebook: `notebooks/TorchCheck_Colab.ipynb`. It pins torch from the cu130 index, requires a T4, writes to `m2cl_v2/torchcheck/torch_<version>/`, and records `env_*.json`.
+- **Analysis**, fixed in `scripts/analyze_torchcheck.py` before the runs:
+  - version shift = 2.14.1 rerun minus 2.11.0 rerun;
+  - rerun noise = 2.11.0 rerun minus the original (archive zip 06);
+  - backbone distances to the original for both versions.
+- **Reading** (n = 4, descriptive only): NEGLIGIBLE if the mean |shift| <= max(2 x mean |noise|, 0.25 pp) and the |mean shift| <= 0.22 pp (half the primary +0.44); otherwise the shift is REPORTED beside the primary result as a possible bias of that size.
+- **Tested** on fake reruns built from the real originals: both verdicts, and the refusal of a run on the wrong torch version.
+- The primary decision (F21) is not recomputed or changed by this check.

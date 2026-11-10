@@ -1,0 +1,19 @@
+{
+ "platform": "institute",
+ "parts": [
+  "C"
+ ],
+ "started_utc": "20261107T115002Z",
+ "gpu": "NVIDIA RTX 4000 Ada Generation",
+ "capability": "sm_89",
+ "gpu_memory_gb": 21.0,
+ "cuda": "12.8",
+ "cudnn": 91900,
+ "torch": "2.11.0+cu128",
+ "torchvision": "0.26.0+cu128",
+ "python": "3.12.3",
+ "os": "Linux-6.17.0-1033-oem-x86_64-with-glibc2.39",
+ "cpu": "Intel(R) Core(TM) Ultra 9 285",
+ "cpu_count": 24,
+ "parallel": 2
+}
