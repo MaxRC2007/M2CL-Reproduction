@@ -19,10 +19,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
-from m2cl.splits import PACS_DOMAINS  # noqa: E402
+from m2cl.splits import ALL_DOMAINS as PACS_DOMAINS  # PACS, then VLCS; absent targets are skipped  # noqa: E402
 from m2cl.stats import benjamini_hochberg, paired_bootstrap, sign_flip_test, sign_test  # noqa: E402
 
-NICE = {"art_painting": "Art Painting", "cartoon": "Cartoon", "photo": "Photo", "sketch": "Sketch"}
+NICE = {"art_painting": "Art Painting", "cartoon": "Cartoon", "photo": "Photo", "sketch": "Sketch",
+        "Caltech101": "Caltech101", "LabelMe": "LabelMe", "SUN09": "SUN09", "VOC2007": "VOC2007"}
 
 
 class Out:

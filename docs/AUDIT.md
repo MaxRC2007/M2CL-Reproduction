@@ -574,3 +574,42 @@ The owner decided to measure the F21 deviation after all (reversing the 8 Nov ad
 - **Reading** (n = 4, descriptive only): NEGLIGIBLE if the mean |shift| <= max(2 x mean |noise|, 0.25 pp) and the |mean shift| <= 0.22 pp (half the primary +0.44); otherwise the shift is REPORTED beside the primary result as a possible bias of that size.
 - **Tested** on fake reruns built from the real originals: both verdicts, and the refusal of a run on the wrong torch version.
 - The primary decision (F21) is not recomputed or changed by this check.
+- **Result (10 Nov 2026, 21:21 IST):**
+  - **Inputs:** the owner downloaded two zips from Drive, `torchcheck-…154219Z` (torch_2.11.0) and `torch_2.14.1-…154301Z`. Both passed `unzip -t`.
+  - **Environments:** the 2.11.0 rerun ran on torch 2.11.0+cu130 with cuDNN 9.19 on a Tesla T4. The 2.14.1 rerun ran on 2.14.1+cu130 with cuDNN 9.28, also a T4. The original runs were also 2.11.0+cu130. So "version" here means torch together with its bundled cuDNN.
+  - **Run:** `python -I scripts/analyze_torchcheck.py probe_work/torchcheck_in checkpoints_archive/06_….zip --json results/torchcheck/torchcheck_analysis.json`. All 12 runs were complete and matched the round-3 M2 config.
+
+  | fold | original | 2.11.0 rerun | 2.14.1 | shift | noise | best epochs (orig/2.14.1/2.11) | dist 2.14.1 / 2.11 vs orig |
+  |---|---|---|---|---|---|---|---|
+  | art_painting | 75.88 | 76.61 | 75.10 | -1.51 | +0.73 | 23 / 28 / 24 | 0.096 / 0.099 |
+  | cartoon | 70.99 | 70.82 | 71.12 | +0.30 | -0.17 | 20 / 24 / 20 | 0.115 / 0.092 |
+  | photo | 95.75 | 95.69 | 95.75 | +0.06 | -0.06 | 16 / 16 / 29 | 0.098 / 0.228 |
+  | sketch | 66.91 | 65.67 | 65.72 | +0.05 | -1.25 | 24 / 19 / 19 | 0.085 / 0.085 |
+
+  - **Summary:** mean version shift -0.28 pp (mean |shift| 0.48). Mean rerun noise -0.19 pp (mean |noise| 0.55).
+  - **Verdict: REPORTED**, as fixed in advance:
+    - the first condition passes (0.48 <= 1.11);
+    - the second fails (|-0.28| > 0.22);
+    - art_painting alone drives the signed mean.
+  - **Reading:**
+    - The mean |shift| between versions is smaller than the mean |difference| between two runs on the *same* version. The check therefore cannot tell a version effect apart from ordinary rerun variation.
+    - As pre-specified, the -0.28 pp is reported beside the primary result as a possible bias of that size.
+    - Its sign means 2.14.1 scored M2 lower. Most M2-CL runs used 2.14.1, so a real effect of this sign would make the primary estimate *understate* M2-CL's gain.
+  - **Primary decision:** unchanged (inconclusive). Even moving the whole interval by +0.28 would leave it crossing zero (about -0.02 to +1.46). That shift is an illustration only, not a recomputed test.
+
+### F29 - Exploratory VLCS leakage probe (10 Nov 2026, started 18:31 IST)
+This is the VLCS replication of F24 and is not pre-registered. It asks whether, on a second dataset, the active term again lowers domain decodability only at eb4.
+- **Data:** VLCS from the verified Hugging Face mirror (`VLCS.tar.gz`, 3,838,010,386 bytes; F15). It was extracted with tarfile's `data` filter into `Honors/data_vlcs/extracted/VLCS` and holds exactly DomainBed's counts (1,415 / 2,656 / 3,282 / 3,376; 5 classes in every domain).
+- **Networks:** the 36 VLCS best checkpoints, copied from archive zip 08 into `Honors/probe_work/round3_vlcs_ckpts`.
+- **Settings:** the same pipeline and settings as F24:
+  - driver: `scripts/run_probes_round3.py --dataset vlcs`;
+  - configs: `configs/leakage_manifest_round3_vlcs.yaml` and `comparisons_round3_vlcs.yaml`;
+  - features in `features_r3_vlcs/`; log in `results/leakage/round3_vlcs.log`;
+  - tables in `results/tables/round3_vlcs_{taps,erm}`.
+- **Code changes, made so the pipeline accepts VLCS:**
+  - `features.py`: the class count and the domain order come from the dataset;
+  - `extract_features.py`: passes `num_classes` from the manifest;
+  - `run_leakage.py`: looks up the domain index for VLCS targets;
+  - `make_tables.py`: lists the VLCS domains.
+
+  For PACS the sample order, and so every earlier result, is unchanged. The unit tests pass. The full chain was tested on a tiny fake VLCS with the real checkpoints.

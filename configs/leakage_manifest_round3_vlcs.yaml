@@ -1,0 +1,11 @@
+# Round-3 VLCS checkpoints (institute, lr 1e-3; M2-CL alpha 0.07), seeds 0-2: exploratory leakage probe,
+# the VLCS replication of audit F24 (audit F29). VLCS has 5 classes. M2/M2-CL first, interleaved; ERM last.
+checkpoint_root: "C:/Users/Madhusudan/Downloads/Madhu/Honors/probe_work/round3_vlcs_ckpts"
+conditions:
+  - {group: imagenet, kind: imagenet}
+  - {group: r3v_m2,   kind: ckpt, model: m2,   taps: 6, num_classes: 5, ckpt: "m2/m2_6tap_{target}_seed{seed}/best.pt",
+     targets: [Caltech101, LabelMe, SUN09, VOC2007], seeds: [0, 1, 2]}
+  - {group: r3v_m2cl, kind: ckpt, model: m2cl, taps: 6, num_classes: 5, ckpt: "m2cl/m2cl_6tap_{target}_seed{seed}/best.pt",
+     targets: [Caltech101, LabelMe, SUN09, VOC2007], seeds: [0, 1, 2]}
+  - {group: r3v_erm,  kind: ckpt, model: erm,  taps: 4, num_classes: 5, ckpt: "erm/erm_{target}_seed{seed}/best.pt",
+     targets: [Caltech101, LabelMe, SUN09, VOC2007], seeds: [0, 1, 2]}

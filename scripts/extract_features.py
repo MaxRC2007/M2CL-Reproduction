@@ -97,7 +97,7 @@ def main():
                 print(f"[MISSING] {e['ckpt']} -> skipped"); continue
             print(f"[extract] {fn}")
             net = build_condition(e["kind"], e.get("model", "erm"), e.get("taps", 4), e.get("ckpt"),
-                                  e.get("seed") or 0)
+                                  e.get("seed") or 0, num_classes=e.get("num_classes", 7))
             feats = extract_all(net, a.data_root, a.batch_size, num_workers=a.num_workers)
             np.savez_compressed(path + ".tmp.npz", **feats)  # an interrupted save must not look complete
             os.replace(path + ".tmp.npz", path)

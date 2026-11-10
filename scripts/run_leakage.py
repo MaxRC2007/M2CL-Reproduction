@@ -23,7 +23,7 @@ import numpy as np  # noqa: E402
 
 from m2cl.features import load_features  # noqa: E402
 from m2cl.probe import probe_correctness, summarize, train_linear_probe  # noqa: E402
-from m2cl.splits import PACS_DOMAINS, probe_split  # noqa: E402
+from m2cl.splits import ALL_DOMAINS, PACS_DOMAINS, domains_of, probe_split  # noqa: E402
 from m2cl.stats import majority_rate  # noqa: E402
 
 
@@ -73,7 +73,7 @@ def main():
             if ref_hash is None:
                 ref_hash = F["sample_hash"]
                 d_all = F["domain_labels"]
-                t_idx = PACS_DOMAINS.index(T)
+                t_idx = domains_of(T).index(T)
                 src = np.where(d_all != t_idx)[0]
                 tgt = np.where(d_all == t_idx)[0]
                 remap = {d: i for i, d in enumerate(sorted(set(d_all[src].tolist())))}
@@ -83,7 +83,7 @@ def main():
                 tsum.update({"n_source": int(len(src)), "n_probe_train": int(len(tr)),
                              "n_probe_test": int(len(te)),
                              "majority_baseline": 100 * majority_rate(y_dom[te]),
-                             "source_domains": [PACS_DOMAINS[d] for d in sorted(remap)]})
+                             "source_domains": [domains_of(T)[d] for d in sorted(remap)]})
                 arrays[f"{T}|test_idx"] = src[te]
             elif F["sample_hash"] != ref_hash:
                 raise RuntimeError(f"{e['file']}: sample order differs from other conditions -> "

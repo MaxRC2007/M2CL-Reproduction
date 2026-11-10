@@ -26,7 +26,7 @@ The repository answers two questions:
 >   Part C had already finished when this repository was first pushed (corrected in the timing evidence). Its protection is the analysis code frozen on 6 Nov.
 > - Exploratory probes of the round-3 checkpoints (audit F24): the active contrastive term lowers domain decodability only in the last extraction block.
 > - Round 4, the authors' own code with the contrastive weight 0.01 vs 0, is publicly pre-registered in [docs/PREREGISTRATION_ROUND4.md](docs/PREREGISTRATION_ROUND4.md) and pending.
-> - A torch-version check of the PACS test (audit F28, `scripts/analyze_torchcheck.py`) is planned and not yet run.
+> - Torch-version check (audit F28): mean shift -0.28 pp, no larger than same-version rerun noise (0.48 vs 0.55 mean |difference|); reported beside the primary result as the pre-specified rule requires.
 > - The paper draft is not included until submission.
 >
 > **Earlier public stages of this project:**

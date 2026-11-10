@@ -1,0 +1,10 @@
+# Exploratory (not pre-registered) comparison families for the VLCS leakage probe (audit F29). BH within each family.
+families:
+  - name: r3v_cl_effect_at_taps
+    title: "VLCS round 3, active term: M2-CL (alpha 0.07) vs M2, lr 1e-3, matched seeds, per extraction block"
+    layers: [eb1a, eb1, eb2a, eb2, eb3, eb4, eb_concat, backbone]
+    pairs: [[r3v_m2cl, r3v_m2]]
+  - name: r3v_vs_imagenet
+    title: "VLCS round 3 (lr 1e-3): ERM / M2 / M2-CL vs ImageNet-only (backbone)"
+    layers: backbone
+    pairs: [[r3v_erm, imagenet], [r3v_m2, imagenet], [r3v_m2cl, imagenet]]

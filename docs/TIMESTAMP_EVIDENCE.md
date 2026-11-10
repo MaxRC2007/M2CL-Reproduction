@@ -20,6 +20,8 @@ This file and its commit record what existed and when. Read it with `docs/PREREG
 | 7 Nov 2026, 17:20-23:15 | Part C (VLCS, 36 runs) on the institute machine; the institute analysis is written at 23:15:30 | `env/` file names (UTC) and zip entry times in `checkpoints_archive/08_2026-11_round3_vlcs_C.zip` |
 | 8 Nov 2026, 00:31 (19:01 UTC on 7 Nov) | Repository created and first pushed to https://github.com/MaxRC2007/M2CL-Reproduction (commit 65c8a5b, with README update 7971ae5). Part C had already finished (corrected 10 Nov) | GitHub `pushed_at` 2026-11-07T19:01:56Z (GitHub API) |
 | 8 Nov 2026, 01:05 (19:35 UTC on 7 Nov) | Round-4 pre-registration pushed (commit 715a2d1), before any round-4 run | GitHub commit and push |
+| 10 Nov 2026, 16:25 (10:55:37 UTC) | Torch-version check plan and its analysis script `scripts/analyze_torchcheck.py` pushed (commit d825855), with the verdict rule fixed (audit F28) | GitHub commit and push |
+| 10 Nov 2026, 18:40 (13:10 UTC) | Torch-check reruns start on Colab, after the plan was public | `env_20261110T131006Z.json` (2.14.1) and `env_20261110T131008Z.json` (2.11.0) in the downloaded result zips |
 
 ## SHA-256 of the frozen files
 This repository stores files byte for byte (`.gitattributes`: `* -text`), so these hashes can be checked on a checkout.

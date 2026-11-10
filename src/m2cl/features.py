@@ -19,11 +19,11 @@ import torch
 
 from .data import get_transforms, make_loader
 from .models import ERM, build_model, load_checkpoint
-from .splits import PACS_DOMAINS, index_pacs, sample_ids_hash
+from .splits import domains_of, index_pacs, sample_ids_hash
 
 
 def build_condition(kind: str, model: str = "erm", taps: int = 4, ckpt: Optional[str] = None,
-                    seed: int = 0, pretrained_backbone: bool = True) -> torch.nn.Module:
+                    seed: int = 0, pretrained_backbone: bool = True, num_classes: int = 7) -> torch.nn.Module:
     if kind == "imagenet":
         return ERM(pretrained=pretrained_backbone)
     if kind == "random":
@@ -32,7 +32,7 @@ def build_condition(kind: str, model: str = "erm", taps: int = 4, ckpt: Optional
     if kind == "ckpt":
         if not ckpt or not os.path.exists(ckpt):
             raise FileNotFoundError(ckpt)
-        return load_checkpoint(build_model(model, 7, taps, pretrained=False), ckpt)
+        return load_checkpoint(build_model(model, num_classes, taps, pretrained=False), ckpt)
     raise ValueError(kind)
 
 
@@ -46,7 +46,7 @@ def extract_all(net: torch.nn.Module, data_root: str, batch_size: int = 64, img_
     if subset_per_domain:  # audit only: same seeded sample for every condition
         by_dom = {d: [v[i] for i in sorted(np.random.RandomState(0).permutation(len(v))[:subset_per_domain])]
                   for d, v in by_dom.items()}
-    samples = [s for d in PACS_DOMAINS for s in by_dom[d]]
+    samples = [s for d in domains_of(next(iter(by_dom))) for s in by_dom[d]]  # PACS or VLCS, fixed order
     _, te_tf = get_transforms("baseline", img_size)
     loader = make_loader(samples, te_tf, batch_size, shuffle=False, num_workers=num_workers)
     acc: Dict[str, list] = {}
