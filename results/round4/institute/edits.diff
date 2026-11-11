@@ -1,0 +1,7 @@
+45c45,48
+<     if arch not in torch.cuda.get_arch_list():
+---
+>     supported = set(torch.cuda.get_arch_list())
+>     if arch == "sm_89" and "sm_86" in supported:  # Ada Lovelace uses sm_86 kernels (docs/AUDIT.md F20)
+>         supported.add("sm_89")
+>     if arch not in supported:

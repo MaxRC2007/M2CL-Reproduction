@@ -1,0 +1,34 @@
+\begin{table}
+\caption{VLCS round 3 (lr 1e-3): ERM / M2 / M2-CL vs ImageNet-only (backbone)}
+\label{tab:leak_r3v_vs_imagenet}
+\begin{tabular}{lllrlrrrrrllr}
+\toprule
+Domain & A & B & seed & layer & acc A & acc B & Delta & CI lo & CI hi & p & p (BH) & sig (BH, q=.05) \\
+\midrule
+Caltech101 & r3v\_m2 & imagenet & 0 & backbone & 82.63 & 82.78 & -0.15 & -1.17 & 0.77 & 0.722 & 0.886 & False \\
+Caltech101 & r3v\_m2 & imagenet & 1 & backbone & 82.93 & 82.78 & 0.16 & -0.79 & 1.07 & 0.757 & 0.886 & False \\
+Caltech101 & r3v\_m2 & imagenet & 2 & backbone & 82.65 & 82.78 & -0.12 & -1.03 & 0.77 & 0.779 & 0.886 & False \\
+Caltech101 & r3v\_m2cl & imagenet & 0 & backbone & 82.63 & 82.78 & -0.14 & -1.20 & 0.78 & 0.749 & 0.886 & False \\
+Caltech101 & r3v\_m2cl & imagenet & 1 & backbone & 82.90 & 82.78 & 0.12 & -0.85 & 1.04 & 0.802 & 0.886 & False \\
+Caltech101 & r3v\_m2cl & imagenet & 2 & backbone & 82.86 & 82.78 & 0.09 & -0.88 & 0.99 & 0.886 & 0.886 & False \\
+LabelMe & r3v\_m2 & imagenet & 0 & backbone & 88.50 & 88.55 & -0.06 & -0.79 & 0.65 & 0.883 & 0.886 & False \\
+LabelMe & r3v\_m2 & imagenet & 1 & backbone & 88.93 & 88.55 & 0.37 & -0.35 & 1.08 & 0.309 & 0.709 & False \\
+LabelMe & r3v\_m2 & imagenet & 2 & backbone & 88.91 & 88.55 & 0.36 & -0.36 & 1.07 & 0.350 & 0.709 & False \\
+LabelMe & r3v\_m2cl & imagenet & 0 & backbone & 88.63 & 88.55 & 0.07 & -0.69 & 0.82 & 0.879 & 0.886 & False \\
+LabelMe & r3v\_m2cl & imagenet & 1 & backbone & 88.86 & 88.55 & 0.31 & -0.48 & 1.04 & 0.418 & 0.709 & False \\
+LabelMe & r3v\_m2cl & imagenet & 2 & backbone & 88.87 & 88.55 & 0.31 & -0.45 & 1.05 & 0.443 & 0.709 & False \\
+SUN09 & r3v\_m2 & imagenet & 0 & backbone & 92.34 & 92.65 & -0.31 & -0.96 & 0.35 & 0.323 & 0.709 & False \\
+SUN09 & r3v\_m2 & imagenet & 1 & backbone & 92.33 & 92.65 & -0.32 & -0.95 & 0.29 & 0.291 & 0.709 & False \\
+SUN09 & r3v\_m2 & imagenet & 2 & backbone & 92.41 & 92.65 & -0.24 & -0.86 & 0.36 & 0.418 & 0.709 & False \\
+SUN09 & r3v\_m2cl & imagenet & 0 & backbone & 92.38 & 92.65 & -0.28 & -0.94 & 0.40 & 0.391 & 0.709 & False \\
+SUN09 & r3v\_m2cl & imagenet & 1 & backbone & 92.60 & 92.65 & -0.05 & -0.64 & 0.53 & 0.831 & 0.886 & False \\
+SUN09 & r3v\_m2cl & imagenet & 2 & backbone & 92.25 & 92.65 & -0.40 & -1.04 & 0.24 & 0.205 & 0.709 & False \\
+VOC2007 & r3v\_m2 & imagenet & 0 & backbone & 92.54 & 91.70 & 0.83 & 0.03 & 1.67 & 0.041 & 0.197 & False \\
+VOC2007 & r3v\_m2 & imagenet & 1 & backbone & 92.61 & 91.70 & 0.91 & 0.15 & 1.72 & 0.033 & 0.197 & False \\
+VOC2007 & r3v\_m2 & imagenet & 2 & backbone & 92.72 & 91.70 & 1.02 & 0.21 & 1.86 & 0.015 & 0.120 & False \\
+VOC2007 & r3v\_m2cl & imagenet & 0 & backbone & 92.23 & 91.70 & 0.53 & -0.31 & 1.34 & 0.214 & 0.709 & False \\
+VOC2007 & r3v\_m2cl & imagenet & 1 & backbone & 92.87 & 91.70 & 1.17 & 0.39 & 2.01 & 0.005 & 0.096 & False \\
+VOC2007 & r3v\_m2cl & imagenet & 2 & backbone & 92.80 & 91.70 & 1.10 & 0.26 & 1.96 & 0.008 & 0.096 & False \\
+\bottomrule
+\end{tabular}
+\end{table}

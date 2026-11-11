@@ -22,6 +22,8 @@ This file and its commit record what existed and when. Read it with `docs/PREREG
 | 8 Nov 2026, 01:05 (19:35 UTC on 7 Nov) | Round-4 pre-registration pushed (commit 715a2d1), before any round-4 run | GitHub commit and push |
 | 10 Nov 2026, 16:25 (10:55:37 UTC) | Torch-version check plan and its analysis script `scripts/analyze_torchcheck.py` pushed (commit d825855), with the verdict rule fixed (audit F28) | GitHub commit and push |
 | 10 Nov 2026, 18:40 (13:10 UTC) | Torch-check reruns start on Colab, after the plan was public | `env_20261110T131006Z.json` (2.14.1) and `env_20261110T131008Z.json` (2.11.0) in the downloaded result zips |
+| 10 Nov 2026, 16:50 (11:20 UTC) - 11 Nov 2026, 10:15 | Round 4 (24 runs of the authors' code) on the institute machine, after its public pre-registration (715a2d1, 8 Nov) | `env/institute_round4_20261110T112021Z.json` and the `done` file times in `m2cl_round4.zip` (copies in `results/round4/institute/`) |
+| 10 Nov 2026, 21:29 | Torch-check result pushed (commit 9f8d4d9) | GitHub commit and push |
 
 ## SHA-256 of the frozen files
 This repository stores files byte for byte (`.gitattributes`: `* -text`), so these hashes can be checked on a checkout.

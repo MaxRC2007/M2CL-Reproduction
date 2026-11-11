@@ -1,0 +1,40 @@
+{
+ "platform": "institute",
+ "round": 4,
+ "started_utc": "20261110T112021Z",
+ "gpu": "NVIDIA RTX 4000 Ada Generation",
+ "capability": "sm_89",
+ "gpu_memory_gb": 21.0,
+ "cuda": "12.8",
+ "cudnn": 91900,
+ "packages": {
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128",
+  "numpy": "2.5.4",
+  "Pillow": "13.0.0",
+  "wilds": "2.0.0",
+  "timm": "0.9.16",
+  "scipy": "1.18.1"
+ },
+ "python": "3.12.3",
+ "os": "Linux-6.17.0-1033-oem-x86_64-with-glibc2.39",
+ "cpu": "Intel(R) Core(TM) Ultra 9 285",
+ "cpu_count": 24,
+ "parallel": 2,
+ "authors_commit": "0b1bce3026d9d56369037129e36f81e7645b80e6",
+ "authors_code": "/home/aidslab/Desktop/S20240030357/M2CL/data/authors_m2cl_0b1bce3",
+ "command_fixed_args": [
+  "--dataset",
+  "PACS",
+  "--algorithm",
+  "M2CL",
+  "--hparams_seed",
+  "0",
+  "--hparams",
+  "{\"resnet18\": true}",
+  "--lr",
+  "0.001",
+  "--temp",
+  "1.0"
+ ]
+}

@@ -1,0 +1,22 @@
+\begin{table}
+\caption{VLCS round 3 (lr 1e-3): ERM / M2 / M2-CL vs ImageNet-only (backbone)}
+\label{tab:leak_r3v_vs_imagenet}
+\begin{tabular}{lllrlrrrrrllr}
+\toprule
+Domain & A & B & seed & layer & acc A & acc B & Delta & CI lo & CI hi & p & p (BH) & sig (BH, q=.05) \\
+\midrule
+Caltech101 & r3v\_erm & imagenet & 0 & backbone & 82.58 & 82.78 & -0.20 & -1.17 & 0.72 & 0.642 & 0.856 & False \\
+Caltech101 & r3v\_erm & imagenet & 1 & backbone & 83.33 & 82.78 & 0.55 & -0.44 & 1.42 & 0.275 & 0.604 & False \\
+Caltech101 & r3v\_erm & imagenet & 2 & backbone & 82.68 & 82.78 & -0.10 & -1.03 & 0.81 & 0.830 & 0.905 & False \\
+LabelMe & r3v\_erm & imagenet & 0 & backbone & 88.60 & 88.55 & 0.04 & -0.69 & 0.80 & 0.965 & 0.965 & False \\
+LabelMe & r3v\_erm & imagenet & 1 & backbone & 88.76 & 88.55 & 0.21 & -0.57 & 0.93 & 0.593 & 0.856 & False \\
+LabelMe & r3v\_erm & imagenet & 2 & backbone & 88.65 & 88.55 & 0.09 & -0.63 & 0.78 & 0.829 & 0.905 & False \\
+SUN09 & r3v\_erm & imagenet & 0 & backbone & 92.36 & 92.65 & -0.30 & -0.98 & 0.37 & 0.366 & 0.627 & False \\
+SUN09 & r3v\_erm & imagenet & 1 & backbone & 92.31 & 92.65 & -0.34 & -0.92 & 0.27 & 0.252 & 0.604 & False \\
+SUN09 & r3v\_erm & imagenet & 2 & backbone & 92.35 & 92.65 & -0.30 & -0.94 & 0.32 & 0.302 & 0.604 & False \\
+VOC2007 & r3v\_erm & imagenet & 0 & backbone & 92.51 & 91.70 & 0.81 & 0.02 & 1.59 & 0.047 & 0.188 & False \\
+VOC2007 & r3v\_erm & imagenet & 1 & backbone & 92.77 & 91.70 & 1.06 & 0.22 & 1.89 & 0.010 & 0.120 & False \\
+VOC2007 & r3v\_erm & imagenet & 2 & backbone & 92.55 & 91.70 & 0.84 & 0.06 & 1.64 & 0.033 & 0.188 & False \\
+\bottomrule
+\end{tabular}
+\end{table}

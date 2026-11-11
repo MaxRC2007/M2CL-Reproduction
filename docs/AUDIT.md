@@ -613,3 +613,79 @@ This is the VLCS replication of F24 and is not pre-registered. It asks whether, 
   - `make_tables.py`: lists the VLCS domains.
 
   For PACS the sample order, and so every earlier result, is unchanged. The unit tests pass. The full chain was tested on a tiny fake VLCS with the real checkpoints.
+
+**Result (finished 11 Nov 2026, 02:04 IST).**
+- **Timing:** features took 19:05-00:18 (37 files, slowed twice when the laptop ran on battery). M2 / M2-CL probes 00:18-01:55, ERM probes 01:55-02:04, then tables.
+- **Coverage:** all 36 checkpoints and the ImageNet control were probed, 5 probe seeds each, with no errors.
+- **Outputs:** `results/leakage/round3_vlcs_{taps,erm}`, tables in `results/tables/round3_vlcs_{taps,erm}/tables.md`.
+  - The ERM table step prints `family r3v_cl_effect_at_taps: no matching conditions`. This is expected: the ERM run has no extraction blocks, and PACS printed the same warning.
+- **Sanity checks:**
+  - Probe-seed noise floor: mean SD 0.15-0.49 pp per layer.
+  - Class probe on source-test data: 84-88% for trained networks against 78-83% for ImageNet. VLCS classes are harder than PACS classes.
+
+M2-CL minus M2 domain-probe accuracy, 12 network pairs per layer (4 targets x 3 seeds), BH q = 0.05 within the table:
+
+| layer | VLCS mean (range) | VLCS sig. lower | PACS mean (F24) | PACS sig. lower |
+|---|---|---|---|---|
+| eb1a | +0.05 (-0.38, +0.42) | 0/12 | +0.12 | 0/12 |
+| eb1 | +0.01 (-0.29, +0.38) | 0/12 | +0.04 | 0/12 |
+| eb2a | -0.07 (-0.57, +0.30) | 0/12 | +0.09 | 0/12 |
+| eb2 | -0.01 (-0.58, +0.83) | 0/12 (1 sig. higher) | +0.07 | 0/12 |
+| eb3 | +0.45 (-0.39, +1.12) | 0/12 | +0.10 | 0/12 (1 sig. higher) |
+| **eb4** | **-4.42 (-7.67, -0.92)** | **9/12** | **-13.23** | **12/12** |
+| eb_concat | -0.88 (-2.25, +0.29) | 6/12 | -0.30 | 1/12 |
+| backbone | +0.03 (-0.31, +0.27) | 0/12 | -0.12 | 0/12 |
+
+**Reading (exploratory):**
+- **The PACS pattern replicates on VLCS.** The active contrastive term lowers linear domain decodability at the last extraction block, eb4, and nowhere earlier. It leaves the backbone feature that the classifier reads unchanged.
+- **eb4 details:**
+  - All 12 eb4 differences are negative.
+  - The 3 that are not significant are LabelMe seed 1 (-1.40), SUN09 seed 2 (-1.02) and VOC2007 seed 1 (-0.92).
+  - The effect is about a third of the PACS size.
+- **eb_concat:** the drop reaches the joined blocks on VLCS more often than on PACS (6/12 against 1/12). It is still small (mean -0.88).
+- **Target accuracy:** on both datasets it is unchanged at the round-3 level (VLCS S4 is equivalent to zero, F26). The term reshapes the representation it is attached to without moving the representation used for prediction, or the accuracy.
+
+### F30 - Round 4 result: the authors' M2CL code, lparam 0.01 vs 0 (11 Nov 2026)
+This is the pre-registered test in `docs/PREREGISTRATION_ROUND4.md` (pushed in 715a2d1 before any run).
+- **Inputs:**
+  - The owner brought back `m2cl_round4.zip` (1,597,848,885 bytes, SHA-256 prefix `20e5d68f76358294`; `unzip -t` OK).
+  - It was extracted to `Honors/probe_work/round4_in`.
+  - 24 of 24 runs are complete: `done`, `results.jsonl` and `model.pkl` for every run, plus 24 logs, `env/`, `edits.diff` and the institute's own analysis.
+- **Environment** (`env/institute_round4_20261110T112021Z.json`):
+  - NVIDIA RTX 4000 Ada (sm_89) with an Intel Core Ultra 9 285;
+  - torch 2.11.0+cu128, cuDNN 9.19, Python 3.12.3;
+  - the authors' commit `0b1bce3`, `--parallel 2`.
+  - The runs started 10 Nov 16:50 IST, and the last `done` file is dated 11 Nov 10:15 (zip entry time).
+- **Edits:**
+  - `edits.diff` contains only the `check_gpu` change already recorded in F26 (sm_89 is accepted when sm_86 kernels are present). No other code differs from the package.
+  - Two runs have a non-empty `err.txt`: the warning "WILDS package is out of date (2.0.0 vs 2.0.1)". It has no effect on PACS.
+- **Analysis:**
+  - `python -I scripts/analyze_round4.py probe_work/round4_in/m2cl_round4 --json results/round4/round4_analysis.json`
+  - It agrees with the institute's `round4_analysis_institute.json` to within 1e-6 on every run, every paired difference and the manipulation checks.
+
+**Primary (pre-registered):** lparam 0.01 minus lparam 0, PACS, 12 pairs (4 folds x 3 seeds):
+- mean **+0.81 pp, 95% CI [-0.28, +1.91]**;
+- t p = 0.130, sign-flip p = 0.132, TOST (+/-0.71) p = 0.580.
+- **Decision: INCONCLUSIVE.** Neither an effect nor equivalence is shown.
+- Per fold: art_painting +0.83, cartoon +2.01, photo -0.22, sketch +0.64.
+
+**Manipulation checks (both pass):**
+- the contrastive gradient share at the ImageNet start is 0.109-0.127 (pre-registered: at least 0.05);
+- the paired weight distance over the between-seed median is 0.298-0.338, above 10% in 12 of 12 pairs (pre-registered: at least 10 of 12).
+
+**Secondary (descriptive), test accuracy as mean +/- SD over 3 seeds:**
+
+| arm | art_painting | cartoon | photo | sketch | macro |
+|---|---|---|---|---|---|
+| lparam 0.01 (M2-CL) | 81.68 +/- 2.77 | 76.90 +/- 0.43 | 95.98 +/- 0.93 | 73.77 +/- 4.66 | **82.08** |
+| lparam 0 (term off) | 80.84 +/- 0.91 | 74.89 +/- 1.89 | 96.21 +/- 0.35 | 73.13 +/- 3.16 | **81.27** |
+| paper (ResNet-18) | | | | | M2-CL 83.54, M2 82.83 |
+
+**Reading:**
+- **Same verdict in both code bases.** The authors' own code gives the same answer as our reimplementation on PACS (round 3: +0.44 [-0.30, +1.18], inconclusive).
+  - Both point estimates are positive and near the paper's PACS gain (+0.71).
+  - Neither design can confirm or exclude a gain of that size with 12 pairs.
+  - The authors' code has larger seed spread: sketch SD 4.66 and art_painting 2.77, so its interval is wider.
+- **Pooling:** the round-3 and round-4 PACS results are not pooled into a confirmatory test, because pooling was not pre-registered. Any combined view is descriptive only.
+- **Reproduction of the paper's numbers:** at these settings the released code reproduces the paper's M2-CL macro to within 1.5 pp (82.08 against 83.54). The lparam-0 arm is 1.6 pp below the paper's separate M2 model, which is a different network.
+- **The decision rule leaves no follow-up.** Pre-registration allowed one only for a clear gain, and none was found. No further run is planned.
