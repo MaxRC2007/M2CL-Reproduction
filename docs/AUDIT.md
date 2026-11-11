@@ -689,3 +689,21 @@ This is the pre-registered test in `docs/PREREGISTRATION_ROUND4.md` (pushed in 7
 - **Pooling:** the round-3 and round-4 PACS results are not pooled into a confirmatory test, because pooling was not pre-registered. Any combined view is descriptive only.
 - **Reproduction of the paper's numbers:** at these settings the released code reproduces the paper's M2-CL macro to within 1.5 pp (82.08 against 83.54). The lparam-0 arm is 1.6 pp below the paper's separate M2 model, which is a different network.
 - **The decision rule leaves no follow-up.** Pre-registration allowed one only for a clear gain, and none was found. No further run is planned.
+
+### F31 - The Kaggle VLCS hardware-check run (11 Nov 2026)
+- **What happened:** the owner confirmed that the Kaggle VLCS run (M2, Caltech101, seed 0; Amendment 2) was stopped because it ran too slowly, and never completed. No Kaggle VLCS run was run again.
+- **Effect:** no Kaggle run produced a result, so nothing from Kaggle enters any analysis. The paper (v4) says so in its compute section.
+
+### F32 - Round 5 planned: the authors' code on VLCS (11 Nov 2026, before any run)
+- **Why:** an independent review of the v4 draft (Fable 5.2, 11 Nov) named the main remaining objection. The decisive VLCS result (equivalent to zero, excluding the published +1.67 pp) rested on our reimplementation alone, while the authors' code had been run only on PACS. The owner decided to run it.
+- **Design:** `docs/PREREGISTRATION_ROUND5.md`, round 4 with only the dataset changed.
+  - VLCS, `lparam` 0.01 vs 0, seeds 0-2, 24 runs on the institute machine.
+  - The same ±0.71 pp margin and decision rule as rounds 3-4.
+  - Also reported: whether the CI excludes +1.67 pp.
+- **Code:**
+  - `scripts/run_round5_authors.py`: reuses round 4's runner helpers, which are unchanged. It finds a folder named `VLCS` with exactly DomainBed's four domains and counts, and records truncated images.
+  - `scripts/analyze_round5.py`: round 4's analysis with VLCS domains and paper values.
+  - `tests/test_round5.py`: 7 tests against a stand-in trainer.
+  - `docs/START_HERE_ROUND5.md`: the brief for the institute machine.
+- **Timing:** the pre-registration is written after the round-3 VLCS and round-4 PACS results were known. Its rules copy round 4 exactly, and this is disclosed in its section 7.
+- **Paper (v4):** the Kaggle paragraph was removed at the owner's request. The sentence now reads "every completed training run is reported". The Kaggle attempt stays documented in F16-F18, F31 and the public Amendments 1-2.

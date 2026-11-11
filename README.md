@@ -26,6 +26,7 @@ The repository answers two questions:
 >   Part C had already finished when this repository was first pushed (corrected in the timing evidence). Its protection is the analysis code frozen on 6 Nov.
 > - Exploratory probes of the round-3 checkpoints (audit F24): the active contrastive term lowers domain decodability only in the last extraction block. The same pattern replicates on VLCS (audit F29), at about a third of the PACS size.
 > - Round 4, the authors' own code with the contrastive weight 0.01 vs 0 (pre-registered in [docs/PREREGISTRATION_ROUND4.md](docs/PREREGISTRATION_ROUND4.md)): +0.81 pp [-0.28, +1.91], **inconclusive**, the same verdict as our reimplementation (audit F30, `results/round4/`).
+> - Round 5, the same authors' code on VLCS, is publicly pre-registered in [docs/PREREGISTRATION_ROUND5.md](docs/PREREGISTRATION_ROUND5.md) and pending (audit F32).
 > - Torch-version check (audit F28): mean shift -0.28 pp, no larger than same-version rerun noise (0.48 vs 0.55 mean |difference|); reported beside the primary result as the pre-specified rule requires.
 > - The paper draft is not included until submission.
 >
