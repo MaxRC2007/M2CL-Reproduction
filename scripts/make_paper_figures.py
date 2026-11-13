@@ -2,9 +2,10 @@
 
   python scripts/make_paper_figures.py --out paper
 
-Figure 1 (fig_forest.pdf): paired test-accuracy differences, contrastive term on minus off, for the three
-  pre-specified/pre-registered tests (PACS ours, PACS authors' code, VLCS ours). Dots: the 12 seed-matched pairs.
-  Square and bar: mean and 95% t-interval, as computed by the analysis scripts. Band: the +/-0.71 pp margin.
+Figure 1 (fig_forest.pdf): paired test-accuracy differences, contrastive term on minus off, for the four
+  pre-specified/pre-registered tests (PACS ours, PACS authors' code, VLCS ours, VLCS authors' code). Dots: the 12
+  seed-matched pairs; a pair beyond the left axis limit is drawn at the limit as a left-pointing triangle with its
+  value. Square and bar: mean and 95% t-interval, as computed by the analysis scripts. Band: the +/-0.71 pp margin.
   Open diamond: the gain the original paper reports for that dataset.
 Figure 2 (fig_probe.pdf): domain-probe accuracy, M2-CL minus M2, per layer, PACS and VLCS. Marker: mean over the
   12 pairs. Bar: range over the pairs.
@@ -36,28 +37,39 @@ def load(path):
 def forest(out):
     r3 = load("results/round3/round3_analysis_all.json")
     r4 = load("results/round4/round4_analysis.json")
+    r5 = load("results/round5/round5_analysis.json")
     rows = [("PACS, ours\n(round 3)", r3["H1/H2 M2-CL - M2"], "PACS", "inconclusive"),
             ("PACS, authors'\ncode (round 4)", r4["H1/H2 lparam 0.01 - 0"], "PACS", "inconclusive"),
-            ("VLCS, ours\n(round 3)", r3["S4 VLCS M2-CL - M2"], "VLCS", "equivalent")]
-    fig, ax = plt.subplots(figsize=(3.5, 2.25))
+            ("VLCS, ours\n(round 3)", r3["S4 VLCS M2-CL - M2"], "VLCS", "equivalent"),
+            ("VLCS, authors'\ncode (round 5)", r5["H1/H2 lparam 0.01 - 0"], "VLCS", "inconclusive")]
+    xmin, xmax = -2.3, 3.9
+    fig, ax = plt.subplots(figsize=(3.5, 2.75))
     ax.axvspan(-MARGIN, MARGIN, color=BAND, lw=0, zorder=0)
     ax.axvline(0, color=MUTED, lw=0.6, zorder=1)
     for i, (label, res, ds, verdict) in enumerate(rows):
         y = len(rows) - 1 - i
         d = list(res["diffs"].values())
         offs = [(-0.16 + 0.32 * k / (len(d) - 1)) for k in range(len(d))]
-        ax.scatter(d, [y + 0.22 + o * 0.25 for o in offs], s=9, color=MUTED, alpha=0.75, lw=0, zorder=2)
+        ys = [y + 0.22 + o * 0.25 for o in offs]
+        inside = [(x, yy) for x, yy in zip(d, ys) if xmin < x < xmax]
+        ax.scatter([p[0] for p in inside], [p[1] for p in inside], s=9, color=MUTED, alpha=0.75, lw=0, zorder=2)
+        for x, yy in zip(d, ys):
+            if x <= xmin:
+                ax.scatter([xmin + 0.06], [yy], marker="<", s=14, color=MUTED, lw=0, zorder=2, clip_on=False)
+                ax.text(xmin + 0.2, yy, f"{x:+.2f}", va="center", ha="left", fontsize=5.8, color=MUTED)
+            assert x < xmax, (label, x)
         lo, hi = res["ci95"]
         ax.plot([lo, hi], [y, y], color=INK, lw=1.4, solid_capstyle="butt", zorder=3)
         ax.plot([lo, lo], [y - 0.07, y + 0.07], color=INK, lw=1.0, zorder=3)
         ax.plot([hi, hi], [y - 0.07, y + 0.07], color=INK, lw=1.0, zorder=3)
         ax.scatter([res["mean"]], [y], marker="s", s=22, color=INK, zorder=4)
         ax.scatter([PAPER_GAIN[ds]], [y], marker="D", s=26, facecolor="white", edgecolor=ORANGE, lw=1.3, zorder=5)
-        ax.text(1.03, y, f"{res['mean']:+.2f}\n[{lo:+.2f}, {hi:+.2f}]\n{verdict}", va="center", ha="left",
+        mean = f"{res['mean']:+.2f}" if abs(res["mean"]) >= 0.005 else "0.00"
+        ax.text(1.03, y, f"{mean}\n[{lo:+.2f}, {hi:+.2f}]\n{verdict}", va="center", ha="left",
                 fontsize=6.3, color=INK, linespacing=1.15, transform=ax.get_yaxis_transform())
     ax.set_yticks(range(len(rows)))
     ax.set_yticklabels([r[0] for r in rows][::-1], fontsize=7, color=INK)
-    ax.set_xlim(-2.3, 3.9)
+    ax.set_xlim(xmin, xmax)
     ax.set_ylim(-0.55, len(rows) - 0.25)
     ax.set_xlabel("Test-accuracy difference, term on minus off (pp)")
     ax.tick_params(axis="y", length=0)

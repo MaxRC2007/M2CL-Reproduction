@@ -707,3 +707,38 @@ This is the pre-registered test in `docs/PREREGISTRATION_ROUND4.md` (pushed in 7
   - `docs/START_HERE_ROUND5.md`: the brief for the institute machine.
 - **Timing:** the pre-registration is written after the round-3 VLCS and round-4 PACS results were known. Its rules copy round 4 exactly, and this is disclosed in its section 7.
 - **Paper (v4):** the Kaggle paragraph was removed at the owner's request. The sentence now reads "every completed training run is reported". The Kaggle attempt stays documented in F16-F18, F31 and the public Amendments 1-2.
+
+### F33 - Round 5 result: the authors' M2CL code on VLCS, lparam 0.01 vs 0 (13 Nov 2026)
+- **Run:** institute machine (RTX 4000 Ada, torch 2.11.0+cu128), `--parallel 2`. It started 11 Nov 2026 at 15:44 IST (`env/institute_round5_20261111T101431Z.json`), 19 minutes after the pre-registration was pushed (16fbf12, 15:25 IST). The last run finished 12 Nov at 22:42 IST.
+- **Integrity:**
+  - 24 of 24 runs complete, each with all 18 planned checkpoints (steps 0-4800 every 300, and 5000) and the pre-registered settings (checked by `analyze_round5.py`);
+  - no restart, error or NaN in any log;
+  - `edits.diff` is byte-identical to round 4's: the 4-line GPU-check patch for `sm_89`, outside training (F20);
+  - four LabelMe JPEGs are truncated and were loaded with truncated-image loading, as in DomainBed and the released code (`env/vlcs_truncated_images.json`);
+  - `m2cl_round5.zip` SHA-256 `22dd75d8ddf726823c31872a573599fe82f0969d26605ae7be7ec5a251c6ff69` (1.57 GB, kept outside the repository; model files not committed).
+- **Reproduced:** `python -I scripts/analyze_round5.py m2cl_round5.zip --json results/round5/round5_analysis.json` agrees with the institute's `round5_analysis_institute.json` on every value (largest difference 5e-12, floating-point order).
+
+**Primary (pre-registered):** lparam 0.01 − 0, 12 seed-matched pairs.
+- Mean 0.00 pp (−0.0037), 95% CI [−1.24, +1.23]; t p 0.995, sign-flip p 0.992, TOST (±0.71) p 0.118.
+- **Decision: INCONCLUSIVE.**
+- The 95% CI upper limit (+1.23) **excludes the paper's VLCS gain of +1.67 pp** (descriptive, as pre-registered).
+- 6 pairs positive, 5 negative, 1 tie. Per fold: Caltech101 −1.83, LabelMe +0.14, SUN09 +1.02, VOC2007 +0.65.
+- MDE at 80% power (0.888 × SD 1.95): 1.73 pp.
+
+**Manipulation check (passes):** paired weight distance over the between-seed median is 0.309-0.351, above 10% in 12 of 12 pairs (pre-registered: at least 10 of 12). The gradient share was not re-measured, as pre-registered.
+
+**Secondary (descriptive), test accuracy as mean +/- SD over 3 seeds:**
+
+| arm | Caltech101 | LabelMe | SUN09 | VOC2007 | macro |
+|---|---|---|---|---|---|
+| lparam 0.01 (M2-CL) | 95.76 +/- 3.98 | 61.63 +/- 0.31 | 70.58 +/- 0.87 | 75.18 +/- 1.26 | **75.79** |
+| lparam 0 (term off) | 97.59 +/- 0.89 | 61.49 +/- 0.32 | 69.56 +/- 1.47 | 74.53 +/- 0.45 | **75.79** |
+| paper (ResNet-18) | | | | | M2-CL 77.78, M2 76.11 |
+
+**Reading:**
+- **One pair dominates the spread.** Caltech101 seed 2 is −5.39 pp: validation picked step 2100 for the run with the term (test 91.17) and step 900 without it (96.55). It stays in, as pre-registered. Without it (exploratory): +0.49 [−0.19, +1.16], which also excludes +1.67.
+- **Pooling (exploratory, not pre-registered):** rounds 4 and 5 together, 24 pairs: +0.40 [−0.37, +1.18].
+- **Agreement with round 3 VLCS:** our reimplementation gave +0.08 [−0.37, +0.53], equivalent to zero. The authors' code has wider seed spread, so it cannot show equivalence, but both exclude the published gain.
+- **Reproduction of the paper's numbers:** both arms average 75.79, 2.0 pp below the paper's M2-CL (77.78) and 0.3 pp below its M2 (76.11).
+- **No further runs.** The pre-registration allows no follow-up. Showing equivalence within ±0.71 pp at this spread would need about 67 pairs (52 on PACS) for 80% power; adding seeds after seeing an inconclusive result would be optional stopping.
+- **Paper (v4):** round 5 is added to the abstract, contributions, Section VII (text and Table `tab:round4`), Table `tab:primary`, Fig. 1 (fourth row; the −5.39 pair is drawn at the axis edge), the compute table, Discussion, Threats and Conclusion.
