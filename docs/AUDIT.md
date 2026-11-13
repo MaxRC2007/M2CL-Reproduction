@@ -742,3 +742,62 @@ This is the pre-registered test in `docs/PREREGISTRATION_ROUND4.md` (pushed in 7
 - **Reproduction of the paper's numbers:** both arms average 75.79, 2.0 pp below the paper's M2-CL (77.78) and 0.3 pp below its M2 (76.11).
 - **No further runs.** The pre-registration allows no follow-up. Showing equivalence within ±0.71 pp at this spread would need about 67 pairs (52 on PACS) for 80% power; adding seeds after seeing an inconclusive result would be optional stopping.
 - **Paper (v4):** round 5 is added to the abstract, contributions, Section VII (text and Table `tab:round4`), Table `tab:primary`, Fig. 1 (fourth row; the −5.39 pair is drawn at the axis edge), the compute table, Discussion, Threats and Conclusion.
+
+### F34 - Exploratory: checkpoint selection, unit of analysis and S2 without seed 0 (13 Nov 2026, after rounds 3-5)
+- **Why:** an independent review of the v4 draft (Fable 5.2, 13 Nov) asked for these checks. None was pre-registered, and all three were run after every result was known.
+- **Script:** `scripts/analyze_exploratory_r6basis.py`, which writes `results/exploratory/r6basis.json` from the committed run results.
+
+**1. Fixed checkpoint instead of validation selection (authors' code, rounds 4-5).** Validation selection can pick different steps for the two runs of a pair. Round 5's Caltech101 seed-2 pair (−5.39 pp; step 2100 against 900) is one such case.
+
+| test | validation-selected (pre-registered) | final step 5000 | mean of the last 5 checkpoints |
+|---|---|---|---|
+| PACS, round 4 | +0.81 [−0.28, +1.91], SD 1.72 | **+0.74 [+0.15, +1.32]**, SD 0.92, sign-flip p 0.019 | +0.58 [+0.11, +1.04], p 0.022 |
+| VLCS, round 5 | 0.00 [−1.24, +1.23], SD 1.95 | +0.17 [−0.56, +0.91], TOST p 0.069 | +0.06 [−0.21, +0.33], TOST p 0.0001 |
+
+- On PACS, the term's effect at a fixed checkpoint is close to the paper's +0.71 pp, and its CI excludes zero.
+- On VLCS, both variants still exclude +1.67 pp.
+- These are post hoc, in two variants, so the p values are not confirmatory. Round 6 (F35) tests the PACS finding on new seeds.
+- Our implementation (round 3) stored only the selected checkpoint and no per-epoch test accuracy, so the check cannot be repeated there.
+
+**2. Unit of analysis.** The review proposed using seeds as units (n = 3).
+
+| test | 12 pairs | fold-stratified (df 8) | seeds as units (n 3, df 2) |
+|---|---|---|---|
+| R3 PACS | [−0.30, +1.18] | [−0.34, +1.23] | [−1.15, +2.04] |
+| R3 VLCS | [−0.37, +0.53] | [−0.27, +0.43] | [−0.82, +0.97] |
+| R4 PACS | [−0.28, +1.91] | [−0.36, +1.99] | [−2.13, +3.76] |
+| R5 VLCS | [−1.24, +1.23] | [−1.23, +1.23] | [−2.62, +2.61] |
+
+- The folds are fixed by the benchmark, and no two pairs share a training run.
+- The fold-stratified interval holds the folds fixed and pools the within-fold seed variance, and it agrees with the 12-pair interval.
+- Seeds as units discard the fold structure and leave df 2. They are reported here but not used.
+
+**3. S2 without the four seed-0 pairs** (seen before round 3 was specified): +1.51 pp [+0.82, +2.20], 8 of 8 pairs positive, sign-flip p 0.008. The learning-rate effect does not depend on those pairs.
+
+**Paper (v4) changes from the same review:**
+- **Abstract:** leads with the primary PACS test.
+- **Claim scope:** the probe and classifier-input claims are limited to our implementation.
+- **Contribution 2:** no longer overclaims.
+- **α = 0 vs the paper's M2:** a sentence reconciles the two.
+- **ERM comparison:** "separates from ERM" became "we detect no difference", and the PACS ERM and M2-CL shortfalls are stated.
+- **Wording:** "we cannot tell…" was removed.
+- **New paragraphs:**
+  - the unit-of-analysis and S2 sensitivity checks;
+  - an exploratory checkpoint-selection paragraph in Section VII;
+  - Discussion text on the different classifier inputs;
+  - Threats additions;
+  - an AI-assistance disclosure in the Acknowledgment, marked for the author to confirm.
+
+### F35 - Round 6 planned: confirmatory PACS test at the final checkpoint, new seeds (13 Nov 2026, before any run)
+- **Design:** `docs/PREREGISTRATION_ROUND6.md`.
+  - The authors' code on PACS, `lparam` 0.01 vs 0, **seeds 3-7** (20 pairs, 40 runs).
+  - **Primary endpoint:** test accuracy at step 5000, fixed in advance.
+  - Same decision rule and ±0.71 pp margin as before.
+  - Distance check: at least 17 of 20 pairs.
+  - Power about 93% at 0.74 pp (SD 0.92), about 64% at 0.5 pp.
+- **Code:**
+  - `scripts/run_round6_authors.py`: round 4's runner with the seeds changed;
+  - `scripts/analyze_round6.py`: reuses round 4's run checks and round 3's tests, refuses other seeds, and makes no decision with fewer than 20 pairs;
+  - `tests/test_round6.py`;
+  - `docs/START_HERE_ROUND6.md`.
+- **Timing:** written after rounds 3-5 and F34 were known. The new seeds and the pre-declared endpoint are the only changes from round 4.

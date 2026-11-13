@@ -27,6 +27,9 @@ This file and its commit record what existed and when. Read it with `docs/PREREG
 | 11 Nov 2026, 14:21 | Round-4 result and VLCS probe result pushed (commit 7547bd4) | GitHub commit and push |
 | 11 Nov 2026, 15:25 (09:55:37 UTC) | Round-5 pre-registration pushed (commit 16fbf12), before any round-5 run | GitHub commit and push |
 | 11 Nov 2026, 15:44 (10:14 UTC) - 12 Nov 2026, 22:42 | Round 5 (24 runs of the authors' code on VLCS) on the institute machine, after its public pre-registration | `env/institute_round5_20261111T101431Z.json` and the `done` file times in `m2cl_round5.zip` (SHA-256 22dd75d8...c6ff69; copies in `results/round5/institute/`) |
+| 13 Nov 2026, 16:05 | Round-5 result pushed (commit 0c5713f) | GitHub commit and push |
+| 13 Nov 2026, 16:34 | PACS path update after the folder reorganization (commit 347b96b) | GitHub commit and push |
+| 13 Nov 2026, evening | Round-6 pre-registration and the exploratory analysis that motivated it (audit F34-F35) pushed, before any round-6 run | GitHub commit and push |
 
 ## SHA-256 of the frozen files
 This repository stores files byte for byte (`.gitattributes`: `* -text`), so these hashes can be checked on a checkout.
