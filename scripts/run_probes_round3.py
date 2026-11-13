@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Exploratory leakage re-probe of the round-3 checkpoints (active contrastive term; audit F24, VLCS: F29). Laptop CPU.
 
-  python scripts/run_probes_round3.py --data_root C:/Users/Madhusudan/Downloads/PACS/pacs_data/pacs_data
+  python scripts/run_probes_round3.py --data_root C:/Users/Madhusudan/Downloads/Madhu/Honors/data_pacs/pacs_data/pacs_data
   python scripts/run_probes_round3.py --dataset vlcs --data_root <folder holding Caltech101, LabelMe, SUN09, VOC2007>
 
 Stages: features (features_r3/) -> M2/M2-CL probes at every tap -> ERM probes (backbone) -> tables.

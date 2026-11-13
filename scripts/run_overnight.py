@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """Re-run the draft's leakage tables on RGB PACS on this laptop; safe to restart at any point.
 
-  python scripts/run_overnight.py --data_root C:/Users/Madhusudan/Downloads/PACS/pacs_data/pacs_data \
-         --dct_root C:/Users/Madhusudan/Downloads/PACS
+  python scripts/run_overnight.py --data_root C:/Users/Madhusudan/Downloads/Madhu/Honors/data_pacs/pacs_data/pacs_data \
+         --dct_root C:/Users/Madhusudan/Downloads/Madhu/Honors/data_pacs
 
 Stages: features -> backbone probes -> tables -> tap probes -> tables -> checkpoint accuracy.
 Finished work is skipped on restart. Progress is in results/leakage/overnight.log.

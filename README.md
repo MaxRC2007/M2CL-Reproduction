@@ -85,7 +85,7 @@ PACS: the RGB copy, whose root contains `art_painting/ cartoon/ photo/ sketch/`,
 
 ```bat
 cd C:\Users\Madhusudan\Downloads\Madhu\Honors\M2CL-Reproduction
-set DATA=C:\Users\Madhusudan\Downloads\PACS\pacs_data\pacs_data
+set DATA=C:\Users\Madhusudan\Downloads\Madhu\Honors\data_pacs\pacs_data\pacs_data
 
 :: training (GPU strongly recommended)
 python scripts\train_lodo.py --config configs\m2cl_6tap.yaml --data_root %DATA% --out_dir runs
